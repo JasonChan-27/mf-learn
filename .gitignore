@@ -1,0 +1,38 @@
+# Node / JavaScript
+/node_modules/
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tgz
+
+# Build / output
+dist/
+build/
+out/
+.next/
+.parcel-cache/
+.cache/
+coverage/
+.nyc_output/
+
+# Turborepo
+.turbo/
+
+# Environment
+.env
+.env.*.local
+
+# TypeScript
+*.tsbuildinfo
+
+# IDEs / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Others
+.pnp
+.pnp.js
