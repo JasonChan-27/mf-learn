@@ -1,0 +1,29 @@
+{
+  "$schema": "turbo.build",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"], // 表示依赖的子包 build 完后，自己才开始 build
+      "outputs": ["dist/**", ".next/**", "!.cache"], // 将这些目录的结果缓存起来
+      "inputs": ["src/**", "public/**", "remoteEntry.js"] // 只有这些文件变化时才重新跑 build
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      // 确保开发模式下，依赖的子应用先准备好
+      "dependsOn": ["^dev"]
+    },
+    // 添加 preview 任务配置
+    "preview": {
+      "cache": false, // 预览不需要缓存，因为它只运行一个服务器
+      "persistent": true, // 这是一个常驻任务（服务器进程），所以 persistent 设为 true
+      "dependsOn": ["build"] // 确保在预览前，项目已经被构建过了
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
+    },
+    "test": {
+      "dependsOn": ["build"], // 只有 build 成功后才跑测试
+      "inputs": ["src/**", "package.json"] // 只有这些文件变化时才重新跑测试
+    }
+  }
+}

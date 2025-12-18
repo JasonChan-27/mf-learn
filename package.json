@@ -1,0 +1,46 @@
+{
+  "name": "my-turbo-repo",
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.26.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:vue": "turbo run dev --filter=vue",
+    "dev:react": "turbo run dev --filter=react",
+    "build": "turbo run build",
+    "build:main": "turbo run build --filter=main...",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "format": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "vue": "^3.5.25"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@module-federation/vite": "^1.9.4",
+    "@types/node": "^25.0.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
+    "@vue/eslint-config-typescript": "^14.6.0",
+    "@vue/tsconfig": "^0.8.1",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.26",
+    "eslint-plugin-vue": "^10.6.2",
+    "globals": "^16.5.0",
+    "prettier": "^3.7.4",
+    "turbo": "^2.6.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.50.0",
+    "vue-tsc": "^3.1.8"
+  }
+}
