@@ -2,6 +2,8 @@
 /node_modules/
 **/node_modules/
 npm-debug.log*
+**/.__mf__temp/
+**/.__mf__temp/
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
