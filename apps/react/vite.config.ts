@@ -5,7 +5,9 @@ import { federation } from '@module-federation/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      jsxRuntime: 'automatic', // 必须和 tsconfig jsx 对应
+    }),
     federation({
       name: 'reactApp',
       filename: 'remoteEntry.js',
@@ -15,8 +17,8 @@ export default defineConfig({
       shared: {
         react: { singleton: true, version: '^19.0.0' },
         'react-dom': { singleton: true },
-      } as any,
-    }),
+      },
+    }) as any,
   ],
   build: { target: 'esnext' },
   server: {
@@ -25,3 +27,28 @@ export default defineConfig({
     // origin: 'http://localhost:3000',
   },
 })
+
+// export default defineConfig(({ command }) => ({
+//   plugins: [
+//     react({
+//       jsxRuntime: command === 'serve' ? 'automatic' : 'classic',
+//     }),
+//     federation({
+//       name: 'reactApp',
+//       filename: 'remoteEntry.js',
+//       exposes: {
+//         './DashBoard': './src/DashBoard/index.tsx',
+//       },
+//       shared: {
+//         react: { singleton: true, version: '^19.0.0' },
+//         'react-dom': { singleton: true },
+//       } as any,
+//     }),
+//   ],
+//   build: { target: 'esnext' },
+//   server: {
+//     port: 3002,
+//     cors: true,
+//     // origin: 'http://localhost:3000',
+//   },
+// }))

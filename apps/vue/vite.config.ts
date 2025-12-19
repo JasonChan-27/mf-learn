@@ -17,8 +17,8 @@ export default defineConfig({
       shared: {
         // 共享依赖（与主应用复用，避免重复加载）
         vue: { singleton: true, version: '^3.4.0' },
-      } as any,
-    }),
+      },
+    }) as any,
   ],
   build: {
     target: 'esnext', // 适配现代浏览器

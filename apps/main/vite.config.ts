@@ -28,8 +28,8 @@ export default defineConfig({
         vue: { singleton: true },
         react: { singleton: true },
         'react-dom': { singleton: true },
-      } as any,
-    }),
+      },
+    }) as any,
   ],
   build: {
     target: 'esnext',

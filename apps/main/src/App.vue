@@ -1,15 +1,14 @@
 <script setup lang="ts">
-// 加载 React 组件：需用 @vue/reactivity 或 vue-react-wrapper 适配
 import { ref, onMounted, onUnmounted, defineAsyncComponent } from 'vue'
 
 // 懒加载 Vue 子应用组件
 const VueHomePage = defineAsyncComponent(() => import('vueApp/Home'))
-const reactModulePromise = import('reactApp/DashBoard')
 const reactContainer = ref<HTMLElement | null>(null)
 let unmount: (() => void) | null = null
 
 onMounted(async () => {
-  const { mount } = await reactModulePromise
+  const { mount } = await import('reactApp/DashBoard')
+  if (!reactContainer.value) return
   unmount = mount(reactContainer.value)
 })
 
