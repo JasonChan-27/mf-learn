@@ -7,7 +7,9 @@ import { federation } from '@module-federation/vite'
 export default defineConfig({
   plugins: [
     vue(),
-    react(),
+    react({
+      // fastRefresh: process.env.NODE_ENV !== 'production',
+    }),
     federation({
       name: 'mainApp',
       remotes: {

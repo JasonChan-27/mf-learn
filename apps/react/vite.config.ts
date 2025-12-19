@@ -6,7 +6,8 @@ import { federation } from '@module-federation/vite'
 export default defineConfig({
   plugins: [
     react({
-      jsxRuntime: 'automatic', // 必须和 tsconfig jsx 对应
+      // fastRefresh: process.env.NODE_ENV !== 'production',
+      // jsxRuntime: 'automatic', // 必须和 tsconfig jsx 对应
     }),
     federation({
       name: 'reactApp',
