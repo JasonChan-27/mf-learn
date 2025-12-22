@@ -10,6 +10,7 @@
     "dev:react": "turbo run dev --filter=react",
     "build": "turbo run build",
     "build:main": "turbo run build --filter=main...",
+    "clean:mf": "rimraf .turbo apps/*/.__mf__temp apps/*/.turbo apps/*/dist apps/*/node_modules/__mf__virtual apps/*/node_modules/.vite apps/*/node_modules/.vite-temp",
     "test": "turbo run test",
     "lint": "turbo run lint",
     "format": "prettier --write ."
@@ -38,6 +39,7 @@
     "eslint-plugin-vue": "^10.6.2",
     "globals": "^16.5.0",
     "prettier": "^3.7.4",
+    "rimraf": "^6.1.2",
     "turbo": "^2.6.3",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.50.0",

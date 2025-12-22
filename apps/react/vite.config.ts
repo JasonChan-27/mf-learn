@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react({
       // fastRefresh: process.env.NODE_ENV !== 'production',
-      // jsxRuntime: 'automatic', // 必须和 tsconfig jsx 对应
+      // jsxRuntime: 'automatic',
     }),
     federation({
       name: 'reactApp',
@@ -16,7 +16,7 @@ export default defineConfig({
         './DashBoard': './src/DashBoard/index.tsx',
       },
       shared: {
-        react: { singleton: true, version: '^19.0.0' },
+        react: { singleton: true },
         'react-dom': { singleton: true },
       },
     }) as any,
