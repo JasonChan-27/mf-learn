@@ -3,6 +3,11 @@
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "types": ["vite/client"],
+    // "baseUrl": ".",
+    // "paths": {
+    //   "vueApp/*": ["types/__mf_types__/vueApp/*"],
+    //   "reactApp/*": ["types/__mf_types__/reactApp/*"]
+    // },
 
     /* Linting */
     "strict": true,
@@ -12,5 +17,11 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src/**/*.{ts,tsx,vue}", "types/**/*.d.ts"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    // "src/**/*.{ts,tsx,vue}", // 使用这个会破坏后面的路径，万万不可用
+    "types/**/*.d.ts"
+  ]
 }

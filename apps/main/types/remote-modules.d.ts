@@ -1,11 +1,12 @@
-export type RemoteMount = (el: HTMLElement) => () => void
+type RemoteMount = (el: HTMLElement) => () => void
 
 declare module 'vueApp/*' {
-  import { DefineComponent } from 'vue'
+  import type { DefineComponent } from 'vue'
   const component: DefineComponent<any, any, any>
   export default component
 }
 
+type RemoteMount = (el: HTMLElement) => () => void
 declare module 'reactApp/*' {
   const mount: RemoteMount
   export default mount
