@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, defineAsyncComponent } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import { startMicroRouter } from './micro'
 
 // 懒加载 Vue 子应用组件
 // const VueHomePage = defineAsyncComponent(() => import('vueApp/Home'))
-const reactContainer = ref<HTMLElement | null>(null)
-let unmount: (() => void) | null = null
+// const reactContainer = ref<HTMLElement | null>(null)
+// let unmount: (() => void) | null = null
 
 onMounted(async () => {
   startMicroRouter((name) => document.querySelector(`[data-micro="${name}"]`))

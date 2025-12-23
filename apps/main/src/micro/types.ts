@@ -1,5 +1,7 @@
+export type UnmountFn = () => void | Promise<void>
+
 export type MicroAppModule = {
-  mount: (el: HTMLElement, props?: any) => () => void
+  mount: (el: HTMLElement, props?: any) => UnmountFn
 }
 
 export type MicroAppConfig = {

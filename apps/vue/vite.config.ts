@@ -11,8 +11,7 @@ export default defineConfig({
       filename: 'remoteEntry.js', // 模块联邦入口文件
       exposes: {
         // 暴露需要被主应用加载的组件/页面
-        './Home': './src/Home/index.vue',
-        './HelloWorld': './src/components/HelloWorld.vue',
+        './Home': './src/Home/mount.ts',
       },
       shared: {
         // 共享依赖（与主应用复用，避免重复加载）
