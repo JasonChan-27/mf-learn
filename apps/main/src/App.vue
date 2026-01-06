@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
-import { startMicroRouter } from './micro'
+import { startMicroRouter } from 'mf-runtime-loader'
+import { microRegistry } from './config'
 
 // 懒加载 Vue 子应用组件
 // const VueHomePage = defineAsyncComponent(() => import('vueApp/Home'))
@@ -8,7 +9,10 @@ import { startMicroRouter } from './micro'
 // let unmount: (() => void) | null = null
 
 onMounted(async () => {
-  startMicroRouter((name) => document.querySelector(`[data-micro="${name}"]`))
+  startMicroRouter(
+    (name) => document.querySelector(`[data-micro="${name}"]`),
+    microRegistry,
+  )
 })
 
 onUnmounted(() => {

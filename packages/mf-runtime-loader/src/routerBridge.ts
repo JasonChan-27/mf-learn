@@ -1,5 +1,5 @@
-import { microRegistry } from './registry'
 import { mountApp, unmountApp } from './manager'
+import type { MicroAppConfig } from './types'
 
 function getRouteContext() {
   return {
@@ -10,6 +10,7 @@ function getRouteContext() {
 
 export function startMicroRouter(
   getContainer: (name: string) => HTMLElement | null,
+  microRegistry: MicroAppConfig[],
 ) {
   async function reroute() {
     const ctx = getRouteContext()

@@ -8,9 +8,9 @@
     },
     "dev": {
       "cache": false,
-      "persistent": true,
+      "persistent": true
       // 确保开发模式下，依赖的子应用先准备好
-      "dependsOn": ["^dev"]
+      // "dependsOn": ["^dev"]
     },
     // 添加 preview 任务配置
     "preview": {
