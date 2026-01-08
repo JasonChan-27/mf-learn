@@ -2,6 +2,7 @@
 import { onMounted, onUnmounted } from 'vue'
 import { startMicroRouter } from 'mf-runtime-loader'
 import { microRegistry } from './config'
+import { bus, globalState$ } from 'mf-shared'
 
 // 懒加载 Vue 子应用组件
 // const VueHomePage = defineAsyncComponent(() => import('vueApp/Home'))
@@ -13,6 +14,10 @@ onMounted(async () => {
     (name) => document.querySelector(`[data-micro="${name}"]`),
     microRegistry,
   )
+
+  bus.emit('login', { userId: 123 })
+
+  globalState$.next({ user: { id: 1, name: 'Jason' } })
 })
 
 onUnmounted(() => {

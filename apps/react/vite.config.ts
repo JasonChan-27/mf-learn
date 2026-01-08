@@ -20,6 +20,12 @@ export default defineConfig(({ mode }: UserConfig) => {
         shared: {
           react: { singleton: true },
           'react-dom': { singleton: true },
+          // rxjs: {
+          //   singleton: true,
+          // },
+          // 'mf-shared': {
+          //   singleton: true
+          // }
         },
       }) as any,
     ],

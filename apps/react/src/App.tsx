@@ -1,11 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import DashBoard from './DashBoard'
+import { bus, globalState$ } from 'mf-shared'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    bus.on('login', (payload) => {
+      console.log('收到主应用登录事件', payload)
+    })
+
+    globalState$.subscribe((state) => {
+      console.log('跨应用全局状态变化', state)
+    })
+  }, [])
 
   return (
     <>

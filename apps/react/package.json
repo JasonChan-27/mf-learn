@@ -9,11 +9,11 @@
     "lint": "eslint .",
     "preview": "vite preview --port 4002"
   },
-  "dependencies": {
-    "shared-utils": "workspace:^"
-  },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.1.2",
     "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "mf-shared": "workspace:*"
   }
 }

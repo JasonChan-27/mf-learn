@@ -9,7 +9,8 @@
     "preview": "vite preview --port 4001"
   },
   "dependencies": {
-    "shared-utils": "workspace:^"
+    "mf-shared": "workspace:*",
+    "pinia": "^3.0.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.1",
