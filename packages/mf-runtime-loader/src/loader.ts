@@ -7,8 +7,7 @@ import type { MicroAppModule } from './types'
  */
 export async function loadRemote(
   el: HTMLElement,
-  config: { url: string; module: string },
-  props?: any,
+  config: { url: string; module: string; props?: { [key: string]: any } },
 ) {
   try {
     // 1. 动态导入远程入口文件 (ESM 格式)
@@ -24,6 +23,7 @@ export async function loadRemote(
 
     // 3. 获取模块工厂并执行
     // config.module 必须是子应用 exposes 里的 Key，例如 './DashBoard'
+    // console.log('1111', remote, config.module)
     const factory = await remote.get(config.module)
     const mod = factory() as MicroAppModule
 
@@ -34,7 +34,7 @@ export async function loadRemote(
     }
 
     console.log(`正在挂载远程模块: ${config.module}`)
-    const unmount: any = mod.mount(el, props)
+    const unmount: any = mod.mount(el, config.props)
 
     // 返回销毁函数
     return () => {

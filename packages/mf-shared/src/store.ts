@@ -1,7 +1,7 @@
 import { BehaviorSubject } from 'rxjs'
 
 export interface GlobalState {
-  user?: { id: number; name: string }
+  user?: { id: number; name: string; [key: string]: any }
   theme?: string
   [key: string]: any
 }

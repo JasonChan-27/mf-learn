@@ -1,16 +1,16 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+// import react from '@vitejs/plugin-react'
 import { federation } from '@module-federation/vite'
-import type { UserConfig } from 'vite'
+// import type { UserConfig } from 'vite'
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }: UserConfig) => {
+export default defineConfig(({}) => {
   // const isProduction = mode === 'production'
-  const isDEV = mode === 'development'
+  // const isDEV = mode === 'development'
 
   return {
     plugins: [
-      ...(isDEV ? [react()] : []),
+      // ...(isDEV ? [react()] : []),
       federation({
         name: 'reactApp',
         filename: 'remoteEntry.js',
@@ -20,18 +20,17 @@ export default defineConfig(({ mode }: UserConfig) => {
         shared: {
           react: { singleton: true },
           'react-dom': { singleton: true },
-          // rxjs: {
-          //   singleton: true,
-          // },
-          // 'mf-shared': {
-          //   singleton: true
-          // }
+          // rxjs: { singleton: true },
+          'mf-shared': { singleton: true, strictVersion: true },
         },
       }) as any,
     ],
     build: {
       target: 'esnext',
       minify: true,
+      // rollupOptions: {
+      //   external: ['mf-shared'],
+      // },
     },
     server: {
       port: 3002,

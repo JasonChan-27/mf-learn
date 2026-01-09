@@ -1,10 +1,12 @@
 import { defineConfig } from 'vite'
+// import { defineConfig, type ConfigEnv } from 'vite'
 // import type { UserConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 // import react from '@vitejs/plugin-react'
-// import { federation } from '@module-federation/vite'
+import { federation } from '@module-federation/vite'
 
 // https://vite.dev/config/
+// { mode }: ConfigEnv
 export default defineConfig(() => {
   // const isProduction = mode === 'production'
   // const isDEV = mode === 'development'
@@ -21,36 +23,38 @@ export default defineConfig(() => {
     plugins: [
       vue(),
       // ...(isDEV ? [react()] : []),
-      // federation({
-      //   name: 'mainApp',
-      //   remotes: {
-      //     // 远程加载子应用（开发环境用本地地址，生产用部署地址）
-      //     vueApp: {
-      //       type: 'module',
-      //       name: 'vueApp',
-      //       entry: vueAppEntry,
-      //     },
-      //     reactApp: {
-      //       type: 'module',
-      //       name: 'reactApp',
-      //       entry: reactAppEntry,
-      //     },
-      //   },
-      //   shared: {
-      //     // 共享依赖（与子应用复用）
-      //     vue: { singleton: true },
-      //     react: { singleton: true },
-      //     'react-dom': { singleton: true },
-      //   },
-      // }) as any,
+      federation({
+        name: 'mainApp',
+        // remotes: {
+        //   // 远程加载子应用（开发环境用本地地址，生产用部署地址）
+        //   vueApp: {
+        //     type: 'module',
+        //     name: 'vueApp',
+        //     entry: vueAppEntry,
+        //   },
+        //   reactApp: {
+        //     type: 'module',
+        //     name: 'reactApp',
+        //     entry: reactAppEntry,
+        //   },
+        // },
+        shared: {
+          // 共享依赖（与子应用复用）
+          vue: { singleton: true },
+          // react: { singleton: true },
+          // 'react-dom': { singleton: true },
+          // rxjs: { singleton: true },
+          'mf-shared': { singleton: true, strictVersion: true },
+        },
+      }) as any,
     ],
     build: {
       target: 'esnext',
     },
-    optimizeDeps: {
-      // 必须把共享的依赖加入预构建，防止加载子应用时 Vite 重启导致白屏
-      include: ['vue', 'vue-router', 'react', 'react-dom'],
-    },
+    // optimizeDeps: {
+    //   // 必须把共享的依赖加入预构建，防止加载子应用时 Vite 重启导致白屏
+    //   include: ['vue'],
+    // },
     server: { port: 3000 },
   }
 })

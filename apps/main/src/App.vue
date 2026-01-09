@@ -2,12 +2,19 @@
 import { onMounted, onUnmounted } from 'vue'
 import { startMicroRouter } from 'mf-runtime-loader'
 import { microRegistry } from './config'
-import { bus, globalState$ } from 'mf-shared'
+import { sharedRuntime } from './utils'
 
-// 懒加载 Vue 子应用组件
-// const VueHomePage = defineAsyncComponent(() => import('vueApp/Home'))
-// const reactContainer = ref<HTMLElement | null>(null)
-// let unmount: (() => void) | null = null
+const sendMainAppBtnClickEvent = () => {
+  sharedRuntime.bus.emit('mainAppBtnClick', {
+    time: new Date().toLocaleString(),
+  })
+}
+
+const setGlobalState = () => {
+  sharedRuntime.globalState$.next({
+    user: { id: 1, name: 'Jason', timestamp: new Date().toLocaleString() },
+  })
+}
 
 onMounted(async () => {
   startMicroRouter(
@@ -15,9 +22,13 @@ onMounted(async () => {
     microRegistry,
   )
 
-  bus.emit('login', { userId: 123 })
+  sharedRuntime.bus.on('mainAppBtnClick', (data) => {
+    console.log('主应用页面收到主应用按钮点击事件，时间：', data)
+  })
 
-  globalState$.next({ user: { id: 1, name: 'Jason' } })
+  sharedRuntime.globalState$.subscribe((state) => {
+    console.log('主应用页面收到全局状态更新：', state)
+  })
 })
 
 onUnmounted(() => {
@@ -28,11 +39,15 @@ onUnmounted(() => {
 <template>
   <div>
     <h1>主应用</h1>
+    <div>
+      <button @click="sendMainAppBtnClickEvent">
+        点击发送主应用按钮点击事件
+      </button>
+      <button @click="setGlobalState">设置全局状态</button>
+    </div>
     <!-- 加载 Vue3 子应用组件 -->
-    <!-- <VueHomePage /> -->
-    <!-- 加载 React19 子应用组件（需适配 Vue 中使用 React） -->
-    <!-- <div ref="reactContainer"></div> -->
     <div data-micro="vueHome"></div>
+    <!-- 加载 React19 子应用组件 -->
     <div data-micro="reactDashboard"></div>
   </div>
 </template>

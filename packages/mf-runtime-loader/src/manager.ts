@@ -3,15 +3,11 @@ import type { MicroAppConfig } from './types'
 
 const mountedApps = new Map<string, () => void>()
 
-export async function mountApp(
-  app: MicroAppConfig,
-  el: HTMLElement,
-  props?: any,
-) {
+export async function mountApp(app: MicroAppConfig, el: HTMLElement) {
   if (mountedApps.has(app.name)) return
 
   try {
-    const unmount = await loadRemote(el, app, props)
+    const unmount = await loadRemote(el, app)
     mountedApps.set(app.name, unmount)
   } catch (e) {
     console.error(`[micro] ${app.name} load failed`, e)

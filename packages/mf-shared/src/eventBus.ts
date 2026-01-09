@@ -1,6 +1,6 @@
 type Callback = (payload?: any) => void
 
-class EventBus {
+export class EventBus {
   private events = new Map<string, Set<Callback>>()
 
   on(event: string, callback: Callback) {

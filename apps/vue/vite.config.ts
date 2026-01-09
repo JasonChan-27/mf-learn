@@ -16,12 +16,17 @@ export default defineConfig({
       shared: {
         // 共享依赖（与主应用复用，避免重复加载）
         vue: { singleton: true },
+        // rxjs: { singleton: true },
+        'mf-shared': { singleton: true, strictVersion: true },
       },
     }) as any,
   ],
   build: {
     target: 'esnext', // 适配现代浏览器
     minify: true,
+    // rollupOptions: {
+    //   external: ['mf-shared'],
+    // },
   },
   server: {
     port: 3001, // 子应用端口
