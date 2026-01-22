@@ -1,12 +1,15 @@
 import { createApp } from 'vue'
 import Home from './index.vue'
-import { type MicroAppConfig } from 'mf-runtime-loader'
+import { RuntimeKey } from '@/constant'
+import type { MicroAppConfig } from '@/types'
 
 export const mount = (
   el: HTMLElement,
-  { runtime }: MicroAppConfig['props'],
+  props: MicroAppConfig['props'] | undefined,
 ) => {
-  const app = createApp(Home)
+  const { runtime } = props || {}
+  const app = createApp(Home, { runtime })
+  app.provide(RuntimeKey, runtime)
   app.mount(el)
   return () => app.unmount()
 }

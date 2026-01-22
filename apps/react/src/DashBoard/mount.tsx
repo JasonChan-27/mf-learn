@@ -1,10 +1,19 @@
 import { createRoot } from 'react-dom/client'
 import DashBoard from './index'
-import { type MicroAppConfig } from 'mf-runtime-loader'
+import { RuntimeContext } from '@/constant'
+import type { MicroAppConfig } from '@/types'
 
-export function mount(el: HTMLElement, { runtime }: MicroAppConfig['props']) {
+export function mount(
+  el: HTMLElement,
+  props: MicroAppConfig['props'] | undefined,
+) {
+  const { runtime } = props || {}
   const root = createRoot(el)
-  root.render(<DashBoard runtime={runtime} />)
+  root.render(
+    <RuntimeContext.Provider value={runtime}>
+      <DashBoard />
+    </RuntimeContext.Provider>,
+  )
 
   return () => {
     root.unmount()

@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 // import react from '@vitejs/plugin-react'
 import { federation } from '@module-federation/vite'
 // import type { UserConfig } from 'vite'
+import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig(({}) => {
@@ -9,6 +10,11 @@ export default defineConfig(({}) => {
   // const isDEV = mode === 'development'
 
   return {
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
     plugins: [
       // ...(isDEV ? [react()] : []),
       federation({

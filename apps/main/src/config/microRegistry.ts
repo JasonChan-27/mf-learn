@@ -1,5 +1,5 @@
 import type { MicroAppConfig } from 'mf-runtime-loader'
-import { sharedRuntime } from '../utils'
+import { sharedRuntime } from '@/utils'
 
 // const isProd = import.meta.env.PROD
 

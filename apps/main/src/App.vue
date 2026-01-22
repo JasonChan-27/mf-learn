@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
 import { startMicroRouter } from 'mf-runtime-loader'
-import { microRegistry } from './config'
-import { sharedRuntime } from './utils'
+import HelloWorld from './components/HelloWorld.vue'
+import { microRegistry } from '@/config'
+import { sharedRuntime } from '@/utils'
 
 const sendMainAppBtnClickEvent = () => {
   sharedRuntime.bus.emit('mainAppBtnClick', {
@@ -18,15 +19,15 @@ const setGlobalState = () => {
 
 onMounted(async () => {
   startMicroRouter(
-    (name) => document.querySelector(`[data-micro="${name}"]`),
+    (name) => document.querySelectorAll(`[data-micro="${name}"]`),
     microRegistry,
   )
 
-  sharedRuntime.bus.on('mainAppBtnClick', (data) => {
+  sharedRuntime.bus.on('mainAppBtnClick', (data: any) => {
     console.log('主应用页面收到主应用按钮点击事件，时间：', data)
   })
 
-  sharedRuntime.globalState$.subscribe((state) => {
+  sharedRuntime.globalState$.subscribe((state: any) => {
     console.log('主应用页面收到全局状态更新：', state)
   })
 })
@@ -49,6 +50,7 @@ onUnmounted(() => {
     <div data-micro="vueHome"></div>
     <!-- 加载 React19 子应用组件 -->
     <div data-micro="reactDashboard"></div>
+    <HelloWorld msg="I am HelloWorld" />
   </div>
 </template>
 

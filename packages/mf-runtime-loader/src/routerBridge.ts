@@ -9,7 +9,7 @@ function getRouteContext() {
 }
 
 export function startMicroRouter(
-  getContainer: (name: string) => HTMLElement | null,
+  getContainer: (name: string) => NodeListOf<HTMLElement>,
   microRegistry: MicroAppConfig[],
 ) {
   async function reroute() {
@@ -17,13 +17,15 @@ export function startMicroRouter(
 
     for (const app of microRegistry) {
       const active = app.activeWhen?.(ctx)
-      const el = getContainer(app.name)
+      const nodes = getContainer(app.name)
 
-      if (active && el) {
-        await mountApp(app, el)
-      } else {
-        unmountApp(app.name)
-      }
+      nodes.forEach((el: HTMLElement) => {
+        if (active && el) {
+          mountApp(app, el)
+        } else {
+          unmountApp(app.name)
+        }
+      })
     }
   }
 

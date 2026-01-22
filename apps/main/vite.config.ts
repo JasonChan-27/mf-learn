@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 // import react from '@vitejs/plugin-react'
 import { federation } from '@module-federation/vite'
+import path from 'path'
 
 // https://vite.dev/config/
 // { mode }: ConfigEnv
@@ -20,6 +21,11 @@ export default defineConfig(() => {
   //   : 'http://localhost:3002/remoteEntry.js'
 
   return {
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
     plugins: [
       vue(),
       // ...(isDEV ? [react()] : []),

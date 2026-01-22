@@ -9,6 +9,12 @@
     //   "reactApp/*": ["types/__mf_types__/reactApp/*"]
     // },
 
+    /* ts */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

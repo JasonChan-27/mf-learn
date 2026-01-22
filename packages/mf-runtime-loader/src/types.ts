@@ -1,4 +1,4 @@
-import { type SharedRuntime } from 'mf-shared'
+import type { SharedRuntime } from 'mf-shared'
 
 export type UnmountFn = () => void | Promise<void>
 

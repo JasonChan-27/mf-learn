@@ -1,2 +1,4 @@
 import { createSharedRuntime } from 'mf-shared'
-export const sharedRuntime = createSharedRuntime()
+import type { SharedRuntime } from 'mf-shared'
+
+export const sharedRuntime: SharedRuntime = createSharedRuntime()
