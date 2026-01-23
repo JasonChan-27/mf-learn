@@ -16,6 +16,7 @@
   "dependencies": {
     "mf-runtime-loader": "workspace:*",
     "mf-shared": "workspace:*",
+    "mf-telemetry": "workspace:*",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "zustand": "^5.0.9"

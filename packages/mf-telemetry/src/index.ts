@@ -1,33 +1,64 @@
-type Metric = {
+export type Metric = {
   name: string
   value?: number | string
   labels?: Record<string, string>
   ts?: number
 }
 
-const DEFAULT_ENDPOINT =
+const STORAGE_KEY = 'mf_telemetry_queue_v1'
+const DEFAULT_FLUSH_INTERVAL = 2000
+const DEFAULT_BATCH_SIZE = 20
+const DEFAULT_RETRY_BASE_MS = 500
+
+let endpoint =
   (typeof window !== 'undefined' && (window as any).__MF_METRICS_ENDPOINT__) ||
   ''
-
-let endpoint = DEFAULT_ENDPOINT
 let queue: Metric[] = []
 let flushTimer: number | null = null
-const FLUSH_INTERVAL = 2000
-const BATCH_SIZE = 20
+let FLUSH_INTERVAL = DEFAULT_FLUSH_INTERVAL
+let BATCH_SIZE = DEFAULT_BATCH_SIZE
 
-export function configure(opts: { endpoint?: string } = {}) {
+function loadFromStorage() {
+  try {
+    if (typeof localStorage === 'undefined') return
+    const raw = localStorage.getItem(STORAGE_KEY)
+    if (!raw) return
+    const items = JSON.parse(raw) as Metric[]
+    if (Array.isArray(items)) queue = items.concat(queue)
+  } catch (e) {
+    if (process.env.NODE_ENV !== 'production')
+      console.warn('[mf-telemetry] loadFromStorage', e)
+  }
+}
+
+function persistToStorage() {
+  try {
+    if (typeof localStorage === 'undefined') return
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(queue.slice(0, 1000)))
+  } catch (e) {
+    if (process.env.NODE_ENV !== 'production')
+      console.warn('[mf-telemetry] persistToStorage', e)
+  }
+}
+
+export function configure(
+  opts: { endpoint?: string; flushInterval?: number; batchSize?: number } = {},
+) {
   if (opts.endpoint) endpoint = opts.endpoint
+  if (opts.flushInterval) FLUSH_INTERVAL = opts.flushInterval
+  if (opts.batchSize) BATCH_SIZE = opts.batchSize
 }
 
 export function sendMetric(m: Metric) {
+  const metric = { ...m, ts: Date.now() }
   if (!endpoint) {
-    // console fallback in dev
     if (process.env.NODE_ENV !== 'production')
-      console.debug('[mf-telemetry] metric', m)
+      console.debug('[mf-telemetry] metric', metric)
     return
   }
-  queue.push({ ...m, ts: Date.now() })
-  if (queue.length >= BATCH_SIZE) flush()
+  queue.push(metric)
+  persistToStorage()
+  if (queue.length >= BATCH_SIZE) void flush()
   scheduleFlush()
 }
 
@@ -35,43 +66,78 @@ function scheduleFlush() {
   if (flushTimer != null) return
   flushTimer = window.setTimeout(() => {
     flushTimer = null
-    flush()
+    void flush()
   }, FLUSH_INTERVAL)
+}
+
+async function postWithRetry(batch: Metric[], maxRetries = 3) {
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(batch),
+      })
+      if (!res.ok) throw new Error('non-2xx ' + res.status)
+      return true
+    } catch (e) {
+      const wait = DEFAULT_RETRY_BASE_MS * Math.pow(2, attempt)
+      if (process.env.NODE_ENV !== 'production')
+        console.warn(
+          `[mf-telemetry] post attempt ${attempt} failed`,
+          e,
+          `wait ${wait}ms`,
+        )
+      // last attempt fallthrough
+      // eslint-disable-next-line no-await-in-loop
+      await new Promise((r) => setTimeout(r, wait))
+    }
+  }
+  return false
 }
 
 export async function flush() {
   if (!endpoint) return
   if (queue.length === 0) return
   const batch = queue.splice(0, BATCH_SIZE)
-  try {
-    await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(batch),
-    })
-  } catch (e) {
-    // if failed, put back to queue front and console.warn
+  persistToStorage()
+  const ok = await postWithRetry(batch, 3)
+  if (!ok) {
+    // restore
     queue = batch.concat(queue)
+    persistToStorage()
     if (process.env.NODE_ENV !== 'production')
-      console.warn('[mf-telemetry] flush failed', e)
+      console.warn('[mf-telemetry] flush failed after retries')
   }
 }
 
-export function initMetrics(opts?: { endpoint?: string }) {
+export function initMetrics(opts?: {
+  endpoint?: string
+  flushInterval?: number
+  batchSize?: number
+}) {
   configure(opts || {})
   if (typeof window !== 'undefined') {
+    loadFromStorage()
     window.addEventListener('beforeunload', () => {
-      // best-effort flush
       void flush()
     })
   }
 }
 
-export type { Metric }
+// simple labels/types export
+export const labels = {
+  app: 'app',
+  env: 'env',
+  version: 'version',
+} as const
+
+export type Labels = typeof labels
 
 export default {
   configure,
   sendMetric,
   flush,
   initMetrics,
+  labels,
 }

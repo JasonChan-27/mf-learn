@@ -7,13 +7,13 @@ import { sendMetric } from 'mf-telemetry'
 
 // Simple circuit breaker state per app
 const circuitState: Record<string, { failures: number; openedAt?: number }> = {}
-const CIRCUIT_FAILURE_THRESHOLD = 5
-const CIRCUIT_OPEN_MS = 60_000
+const DEFAULT_CIRCUIT_FAILURE_THRESHOLD = 5
+const DEFAULT_CIRCUIT_OPEN_MS = 60_000
 
-function isCircuitOpen(key: string) {
+function isCircuitOpen(key: string, windowMs = DEFAULT_CIRCUIT_OPEN_MS) {
   const s = circuitState[key]
   if (!s) return false
-  if (s.openedAt && Date.now() - s.openedAt < CIRCUIT_OPEN_MS) return true
+  if (s.openedAt && Date.now() - s.openedAt < windowMs) return true
   if (s.openedAt) {
     // reset after window
     delete circuitState[key]
@@ -22,10 +22,13 @@ function isCircuitOpen(key: string) {
   return false
 }
 
-function recordFailure(key: string) {
+function recordFailure(
+  key: string,
+  threshold = DEFAULT_CIRCUIT_FAILURE_THRESHOLD,
+) {
   const s = circuitState[key] || { failures: 0 }
   s.failures = (s.failures || 0) + 1
-  if (s.failures >= CIRCUIT_FAILURE_THRESHOLD) s.openedAt = Date.now()
+  if (s.failures >= threshold) s.openedAt = Date.now()
   circuitState[key] = s
 }
 

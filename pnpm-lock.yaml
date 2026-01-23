@@ -77,6 +77,9 @@ importers:
       mf-shared:
         specifier: workspace:*
         version: link:../../packages/mf-shared
+      mf-telemetry:
+        specifier: workspace:*
+        version: link:../../packages/mf-telemetry
       pinia:
         specifier: ^3.0.4
         version: 3.0.4(typescript@5.9.3)(vue@3.5.26(typescript@5.9.3))
@@ -99,6 +102,9 @@ importers:
       mf-shared:
         specifier: workspace:*
         version: link:../../packages/mf-shared
+      mf-telemetry:
+        specifier: workspace:*
+        version: link:../../packages/mf-telemetry
       react:
         specifier: ^19.2.3
         version: 19.2.3
@@ -124,6 +130,9 @@ importers:
       mf-shared:
         specifier: workspace:*
         version: link:../../packages/mf-shared
+      mf-telemetry:
+        specifier: workspace:*
+        version: link:../../packages/mf-telemetry
       pinia:
         specifier: ^3.0.4
         version: 3.0.4(typescript@5.9.3)(vue@3.5.26(typescript@5.9.3))
@@ -140,9 +149,21 @@ importers:
 
   packages/mf-runtime-loader:
     dependencies:
+      main:
+        specifier: ^1000.0.1
+        version: 1000.0.1
       mf-shared:
         specifier: workspace:*
         version: link:../mf-shared
+      mf-telemetry:
+        specifier: workspace:*
+        version: link:../mf-telemetry
+      react:
+        specifier: ^19.2.3
+        version: 19.2.3
+      vue:
+        specifier: ^3.5.26
+        version: 3.5.26(typescript@5.9.3)
     devDependencies:
       jsdom:
         specifier: ^21.1.0
@@ -156,6 +177,8 @@ importers:
       rxjs:
         specifier: ^7.8.2
         version: 7.8.2
+
+  packages/mf-telemetry: {}
 
 packages:
 
@@ -1564,6 +1587,9 @@ packages:
 
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
+
+  main@1000.0.1:
+    resolution: {integrity: sha512-zhB0yIsogMo0xGJEusCzS4I13ejvhEJ1MOWi1OR4n77HyhlqgvNNwhOOt5moSdTYd+Vi8B4wPE/MDmhquNHxrA==}
 
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
@@ -3618,6 +3644,8 @@ snapshots:
   magic-string@0.30.21:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
+
+  main@1000.0.1: {}
 
   math-intrinsics@1.1.0: {}
 

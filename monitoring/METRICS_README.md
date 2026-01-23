@@ -5,7 +5,7 @@ Frontend metrics integration
 在主应用启动时，调用 `initMetrics` 并设置 `endpoint`：
 
 ```ts
-import { initMetrics } from 'mf-runtime-loader'
+import { initMetrics } from 'mf-telemetry'
 
 initMetrics({ endpoint: 'https://metrics.example.com/ingest' })
 ```

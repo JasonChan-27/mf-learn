@@ -1,6 +1,91 @@
 import { describe, it, expect } from 'vitest'
 import { loadRemote } from '../src/loader'
 
+function dataModuleCode(successText = 'ok', delay = 0) {
+  return `export async function init() { return }
+export function get(name) { return () => ({ mount: (el, props) => { ${delay ? `const t = Date.now(); while(Date.now()-t<${delay}){};` : ''} el.innerHTML = '${successText}'; return () => { el.innerHTML = '' } } }) }`
+}
+
+function dataUrl(code: string) {
+  return 'data:text/javascript;base64,' + Buffer.from(code).toString('base64')
+}
+
+describe('mf-runtime-loader loadRemote', () => {
+  it('loads remote module successfully', async () => {
+    const code = dataModuleCode('loaded')
+    const url = dataUrl(code)
+    const el = document.createElement('div')
+    const unmount = await loadRemote(el, {
+      app: 'test',
+      name: 'm1',
+      scope: 's',
+      module: './x',
+      url,
+    } as any)
+    expect(el.innerHTML).toBe('loaded')
+    // call unmount
+    unmount()
+    expect(el.innerHTML).toBe('')
+  })
+
+  it('falls back to alternate url on timeout', async () => {
+    const slow = dataUrl(dataModuleCode('slow', 200))
+    const fast = dataUrl(dataModuleCode('fast'))
+    const el = document.createElement('div')
+    const unmount = await loadRemote(el, {
+      app: 'test',
+      name: 'm2',
+      scope: 's',
+      module: './x',
+      url: slow,
+      alternates: [fast],
+      timeout: 50,
+    } as any)
+    expect(el.innerHTML).toBe('fast')
+    unmount()
+  })
+
+  it('opens circuit after repeated failures', async () => {
+    const bad = 'data:text/javascript,throw new Error("bad")'
+    const el = document.createElement('div')
+    // three sequential failures should trigger circuit (config below)
+    for (let i = 0; i < 4; i++) {
+      try {
+        // eslint-disable-next-line no-await-in-loop
+        await loadRemote(el, {
+          app: 'test',
+          name: 'm3',
+          scope: 's',
+          module: './x',
+          url: bad,
+          retryCount: 1,
+          circuitThreshold: 3,
+          circuitWindowMs: 10000,
+          timeout: 20,
+        } as any)
+      } catch (e) {
+        // ignore
+      }
+    }
+    // now circuit should be open and immediate reject
+    await expect(
+      loadRemote(document.createElement('div'), {
+        app: 'test',
+        name: 'm3',
+        scope: 's',
+        module: './x',
+        url: bad,
+        retryCount: 1,
+        circuitThreshold: 3,
+        circuitWindowMs: 10000,
+        timeout: 20,
+      } as any),
+    ).rejects.toThrow(/circuit open/)
+  })
+})
+import { describe, it, expect } from 'vitest'
+import { loadRemote } from '../src/loader'
+
 function makeDataModule(code: string) {
   const b64 = Buffer.from(code).toString('base64')
   return `data:text/javascript;base64,${b64}`
