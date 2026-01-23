@@ -1,0 +1,26 @@
+name: Rollback Drill
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * 0' # 每周日 UTC 03:00（可根据需求调整）
+
+jobs:
+  drill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup git
+        run: |
+          git config user.name "automation"
+          git config user.email "automation@localhost"
+
+      - name: Make scripts executable
+        run: chmod +x ./scripts/rollback/*.sh
+
+      - name: Run rollback drill (dry-run)
+        run: |
+          ./scripts/rollback/drill.sh

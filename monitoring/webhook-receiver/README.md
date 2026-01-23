@@ -7,6 +7,20 @@ Webhook Receiver
 - 设置环境变量 `GITHUB_TOKEN`（具有 repo:dispatch 权限）、`REPO_OWNER`、`REPO_NAME`。
 - 可选：设置 `SECRET` 并让 Alertmanager 在 `x-alert-secret` header 中带上该值。
 
+示例：在 Alertmanager 中配置 webhook：
+
+```yaml
+receivers:
+	- name: 'mf-webhook'
+		webhook_configs:
+			- url: 'https://your-webhook-host/webhook'
+				send_resolved: true
+				http_config: {}
+				# 或者使用 header 传递简易 secret
+				headers:
+					- 'x-alert-secret: my-secret-value'
+```
+
 运行：
 
 ```
