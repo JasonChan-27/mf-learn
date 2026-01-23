@@ -1,6 +1,78 @@
+// This file contains the loader for remote modules
+// It does not require the main application to configure the federation plugin in vite.config.ts
+
 import { createErrorFallback } from './fallback'
 import type { MicroAppModule, MicroAppConfig } from './types'
 import { sendMetric } from 'mf-telemetry'
+
+// Simple circuit breaker state per app
+const circuitState: Record<string, { failures: number; openedAt?: number }> = {}
+const CIRCUIT_FAILURE_THRESHOLD = 5
+const CIRCUIT_OPEN_MS = 60_000
+
+function isCircuitOpen(key: string) {
+  const s = circuitState[key]
+  if (!s) return false
+  if (s.openedAt && Date.now() - s.openedAt < CIRCUIT_OPEN_MS) return true
+  if (s.openedAt) {
+    // reset after window
+    delete circuitState[key]
+    return false
+  }
+  return false
+}
+
+function recordFailure(key: string) {
+  const s = circuitState[key] || { failures: 0 }
+  s.failures = (s.failures || 0) + 1
+  if (s.failures >= CIRCUIT_FAILURE_THRESHOLD) s.openedAt = Date.now()
+  circuitState[key] = s
+}
+
+function recordSuccess(key: string) {
+  delete circuitState[key]
+}
+
+// in-memory cache for loaded remote modules
+const remoteCache: Record<string, any> = {}
+
+async function tryImportWithRetry(
+  url: string,
+  maxAttempts = 3,
+  timeoutMs = 5000,
+) {
+  // return cached module when available
+  if (remoteCache[url]) return remoteCache[url]
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      // dynamic import with per-attempt timeout
+      // eslint-disable-next-line no-await-in-loop
+      const mod = await Promise.race([
+        import(/* @vite-ignore */ url),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('import timeout')), timeoutMs),
+        ),
+      ])
+      // cache and return
+      remoteCache[url] = mod
+      return mod
+    } catch (e) {
+      const base = 200
+      const jitter = 0.8 + Math.random() * 0.4
+      const wait = Math.round(base * Math.pow(2, attempt - 1) * jitter)
+      if (process.env.NODE_ENV !== 'production')
+        console.warn(
+          `[mf-runtime-loader] import ${url} attempt ${attempt} failed`,
+          e,
+          `wait ${wait}ms`,
+        )
+      // eslint-disable-next-line no-await-in-loop
+      await new Promise((r) => setTimeout(r, wait))
+    }
+  }
+  throw new Error('max attempts reached')
+}
 
 /**
  * 远程模块加载器
@@ -14,6 +86,16 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
 
     let remote: any = null
     let lastError: unknown = null
+
+    const key = config.name || config.url
+    if (isCircuitOpen(key)) {
+      sendMetric({
+        name: 'mf_remote_circuit_open_total',
+        value: 1,
+        labels: { app: (config as any).app || 'main', name: config.name },
+      })
+      throw new Error('circuit open')
+    }
 
     for (const url of urls) {
       try {
@@ -31,15 +113,29 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
             ...(traceparent ? { traceparent } : {}),
           },
         })
-        const importPromise = import(/* @vite-ignore */ url)
-        remote = await Promise.race([
-          importPromise,
-          new Promise((_, reject) =>
-            setTimeout(() => reject(new Error('load timeout')), timeout),
-          ),
-        ])
-        // 成功加载，跳出重试循环
-        break
+        // try import with retry+timeout+jitter
+        try {
+          remote = await tryImportWithRetry(url, 3, timeout)
+          // 成功加载，记录成功并退出
+          recordSuccess(key)
+          sendMetric({
+            name: 'mf_remote_load_fetched_total',
+            value: 1,
+            labels: {
+              app: (config as any).app || 'main',
+              name: config.name,
+              url,
+            },
+          })
+          break
+        } catch (ie) {
+          // per-url attempts failed -> mark failure and continue to next alternate
+          recordFailure(key)
+          if (process.env.NODE_ENV !== 'production')
+            console.warn('[mf-runtime-loader] url attempts failed', url, ie)
+          lastError = ie
+          // continue to next url
+        }
       } catch (e) {
         console.warn(`尝试加载 ${url} 失败:`, e)
         lastError = e
