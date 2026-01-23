@@ -15,11 +15,15 @@
   "license": "ISC",
   "packageManager": "pnpm@10.26.0",
   "dependencies": {
-    "mf-shared": "workspace:*"
+    "main": "^1000.0.1",
+    "mf-shared": "workspace:*",
+    "mf-telemetry": "workspace:*",
+    "react": "^19.2.3",
+    "vue": "^3.5.26"
   },
   "devDependencies": {
-    "vitest": "^1.0.0",
-    "jsdom": "^21.1.0"
+    "jsdom": "^21.1.0",
+    "vitest": "^1.0.0"
   },
   "vitest": {
     "test": {

@@ -1,4 +1,4 @@
 export * from './types'
 export * from './fallback'
 export * from './routerBridge'
-export * from './metrics'
+// metrics moved to shared package `mf-telemetry`

@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { initMetrics } from 'mf-runtime-loader'
+import { initMetrics } from 'mf-telemetry'
 import './style.css'
 import App from './App.vue'
 

@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { initMetrics } from 'mf-runtime-loader'
+import { initMetrics } from 'mf-telemetry'
 import './index.css'
 import App from './App.tsx'
 
