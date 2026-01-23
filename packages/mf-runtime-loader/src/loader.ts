@@ -1,18 +1,40 @@
 import { createErrorFallback } from './fallback'
-import type { MicroAppModule } from './types'
+import type { MicroAppModule, MicroAppConfig } from './types'
 
 /**
  * 远程模块加载器
  * 无需主应用在 vite.config.ts 中配置 federation 插件
  */
-export async function loadRemote(
-  el: HTMLElement,
-  config: { url: string; module: string; props?: { [key: string]: any } },
-) {
+export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
   try {
-    // 1. 动态导入远程入口文件 (ESM 格式)
-    // @vite-ignore 告诉 Vite 不要尝试在编译时解析这个路径
-    const remote = await import(/* @vite-ignore */ config.url)
+    // 支持备用 URL 列表：先尝试主 URL，若失败再按顺序尝试 alternates
+    const urls = [config.url, ...(config.alternates ?? [])]
+    const timeout = config.timeout ?? 5000
+
+    let remote: any = null
+    let lastError: unknown = null
+
+    for (const url of urls) {
+      try {
+        const importPromise = import(/* @vite-ignore */ url)
+        remote = await Promise.race([
+          importPromise,
+          new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('load timeout')), timeout),
+          ),
+        ])
+        // 成功加载，跳出重试循环
+        break
+      } catch (e) {
+        console.warn(`尝试加载 ${url} 失败:`, e)
+        lastError = e
+        // 继续尝试下一个备用 URL
+      }
+    }
+
+    if (!remote) {
+      throw lastError ?? new Error('no remote loaded')
+    }
 
     // 2. 初始化共享作用域 (重要！)
     // 由于主应用没用插件，这里我们手动创建一个空作用域
@@ -48,67 +70,27 @@ export async function loadRemote(
   } catch (error: unknown) {
     console.error('加载远程模块失败:', error)
     const message = error instanceof Error ? error.message : String(error)
+
+    // 优先使用上层配置中提供的 fallback 回退（manager 会做相同处理），否则渲染默认错误提示
+    try {
+      if (
+        (config as any).fallback &&
+        typeof (config as any).fallback === 'function'
+      ) {
+        const fb = (config as any).fallback()
+        // 如果 fallback 元素存在，插入并返回一个 noop 卸载函数
+        if (fb instanceof HTMLElement) {
+          el.innerHTML = ''
+          el.appendChild(fb)
+          return () => {}
+        }
+      }
+    } catch (e) {
+      console.warn('执行自定义 fallback 时出错', e)
+    }
+
     const errFallback = createErrorFallback(`远程组件加载失败: ${message}`)
     el.innerHTML = errFallback.outerHTML
     throw error
   }
 }
-
-// import type { MicroAppModule } from './types'
-
-// const loadedScopes = new Set<string>()
-
-// function loadScript(scope: string, url: string) {
-//   if (loadedScopes.has(scope)) return Promise.resolve()
-
-//   return new Promise<void>((resolve, reject) => {
-//     const script = document.createElement('script')
-//     script.type = 'module'
-//     script.src = url
-//     script.async = true
-//     script.onload = () => {
-//       loadedScopes.add(scope)
-//       resolve()
-//     }
-//     script.onerror = () => reject(new Error(`load remoteEntry failed: ${url}`))
-//     document.head.appendChild(script)
-//   })
-// }
-
-// export async function loadRemote(
-//   el: HTMLElement,
-//   config: {
-//     scope: string
-//     module: string
-//     url: string
-//     timeout?: number
-//   },
-//   props?: any,
-// ) {
-//   let unmount: (() => void) | null = null
-
-//   const task = (async () => {
-//     await loadScript(config.scope, config.url)
-
-//     // ✅ Vite MF 运行时模块直接挂到 window[scope]
-//     const container = (window as any)[config.scope]
-//     if (!container)
-//       throw new Error(`Remote container ${config.scope} not found`)
-
-//     const factory = await container.get(config.module)
-//     const mod = factory() as MicroAppModule
-//     unmount = mod.mount(el, props)
-//   })()
-
-//   await Promise.race([
-//     task,
-//     new Promise((_, reject) =>
-//       setTimeout(
-//         () => reject(new Error('load timeout')),
-//         config.timeout ?? 8000,
-//       ),
-//     ),
-//   ])
-
-//   return () => unmount?.()
-// }

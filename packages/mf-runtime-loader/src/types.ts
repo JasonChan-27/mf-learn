@@ -13,6 +13,7 @@ export type MicroAppConfig = {
   scope: string
   module: string
   url: string
+  alternates?: string[]
   props?: MicroAppConfigProps
   activeWhen?: (ctx: RouteContext) => boolean
   timeout?: number

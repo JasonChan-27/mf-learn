@@ -1,3 +1,4 @@
+import { createErrorFallback } from 'mf-runtime-loader'
 import type { MicroAppConfig } from 'mf-runtime-loader'
 import { sharedRuntime } from '@/utils'
 
@@ -12,6 +13,9 @@ export const microRegistry: MicroAppConfig[] = [
     props: { runtime: sharedRuntime },
     activeWhen: ({ pathname }) => pathname.startsWith('/'),
     timeout: 8000,
+    fallback: () => {
+      return createErrorFallback('远程组件DashBoard加载超时')
+    },
   },
   {
     name: 'vueHome',
@@ -20,5 +24,8 @@ export const microRegistry: MicroAppConfig[] = [
     url: import.meta.env.VITE_VUE_REMOTE_URL,
     props: { runtime: sharedRuntime },
     activeWhen: ({ pathname }) => pathname === '/',
+    fallback: () => {
+      return createErrorFallback('远程组件Home加载超时')
+    },
   },
 ]

@@ -7,7 +7,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "tsc -w",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +16,15 @@
   "packageManager": "pnpm@10.26.0",
   "dependencies": {
     "mf-shared": "workspace:*"
+  },
+  "devDependencies": {
+    "vitest": "^1.0.0",
+    "jsdom": "^21.1.0"
+  },
+  "vitest": {
+    "test": {
+      "environment": "jsdom",
+      "globals": false
+    }
   }
 }
