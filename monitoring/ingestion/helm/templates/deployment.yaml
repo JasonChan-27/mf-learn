@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "mf-metrics-ingestion.fullname" . }}
+  labels:
+    app: {{ include "mf-metrics-ingestion.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "mf-metrics-ingestion.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "mf-metrics-ingestion.name" . }}
+    spec:
+      containers:
+        - name: ingestion
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          env:
+            - name: PUSHGATEWAY_URL
+              value: "{{ .Values.ingestion.pushgatewayUrl }}"

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: mf-metrics-ingestion
+description: Helm chart for MF metrics ingestion receiver
+type: application
+version: 0.1.0
+appVersion: '1.0'
