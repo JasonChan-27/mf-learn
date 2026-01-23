@@ -18,10 +18,14 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
     for (const url of urls) {
       try {
         // record an attempt
+        const traceparent =
+          (config as any).props?.traceparent ||
+          (config as any).props?.trace?.traceparent
         sendMetric('mf_remote_load_attempt_total', 1, {
           app: (config as any).app || 'main',
           name: config.name,
           url,
+          ...(traceparent ? { traceparent } : {}),
         })
         const importPromise = import(/* @vite-ignore */ url)
         remote = await Promise.race([
@@ -41,9 +45,13 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
 
     if (!remote) {
       // record overall failure
+      const traceparent =
+        (config as any).props?.traceparent ||
+        (config as any).props?.trace?.traceparent
       sendMetric('mf_remote_load_failure_total', 1, {
         app: (config as any).app || 'main',
         name: config.name,
+        ...(traceparent ? { traceparent } : {}),
       })
       throw lastError ?? new Error('no remote loaded')
     }
@@ -68,17 +76,22 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
     }
 
     console.log(`正在挂载远程模块: ${config.module}`)
+    const traceparent =
+      (config as any).props?.traceparent ||
+      (config as any).props?.trace?.traceparent
     const mountStart = performance.now()
     const unmount: any = mod.mount(el, config.props)
     const mountDuration = (performance.now() - mountStart) / 1000
     sendMetric('mf_mount_duration_seconds', mountDuration, {
       app: (config as any).app || 'main',
       name: config.name,
+      ...(traceparent ? { traceparent } : {}),
     })
     // success
     sendMetric('mf_remote_load_success_total', 1, {
       app: (config as any).app || 'main',
       name: config.name,
+      ...(traceparent ? { traceparent } : {}),
     })
 
     // 返回销毁函数
@@ -105,10 +118,14 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
         if (fb instanceof HTMLElement) {
           el.innerHTML = ''
           el.appendChild(fb)
+          const traceparent =
+            (config as any).props?.traceparent ||
+            (config as any).props?.trace?.traceparent
           sendMetric('mf_remote_fallback_total', 1, {
             app: (config as any).app || 'main',
             name: config.name,
             reason: 'custom-fallback',
+            ...(traceparent ? { traceparent } : {}),
           })
           return () => {}
         }

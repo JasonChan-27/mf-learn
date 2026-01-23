@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mf-metrics-ingestion
+  labels:
+    app: mf-metrics-ingestion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mf-metrics-ingestion
+  template:
+    metadata:
+      labels:
+        app: mf-metrics-ingestion
+    spec:
+      containers:
+        - name: ingestion
+          image: your-registry/mf-metrics-ingestion:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9090
+          env:
+            - name: PUSHGATEWAY_URL
+              value: ''
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mf-metrics-ingestion
+spec:
+  selector:
+    app: mf-metrics-ingestion
+  ports:
+    - port: 9090
+      targetPort: 9090
+  type: ClusterIP
