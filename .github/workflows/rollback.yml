@@ -1,0 +1,32 @@
+name: Manual Rollback
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_tag:
+        description: '目标回滚 tag（例如 v1.2.2）'
+        required: true
+        type: string
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup git
+        run: |
+          git config user.name "automation"
+          git config user.email "automation@localhost"
+
+      - name: Make retag executable
+        run: chmod +x ./scripts/rollback/retag.sh
+
+      - name: Run retag
+        env:
+          GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ./scripts/rollback/retag.sh "${{ github.event.inputs.target_tag }}"
