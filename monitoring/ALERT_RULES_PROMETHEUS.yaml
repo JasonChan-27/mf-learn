@@ -32,3 +32,33 @@ groups:
         annotations:
           summary: '关键业务转化率下降超过 10%'
           description: '关键业务转化相较历史基线下降超过 10%，需要人工核查并可能回滚。'
+
+      - alert: MfRemoteLoadFailureRate
+        expr: |
+          sum(rate(mf_remote_load_failure_total[5m])) / sum(rate(mf_remote_load_attempt_total[5m])) > 0.02
+        for: 3m
+        labels:
+          severity: critical
+        annotations:
+          summary: '微前端加载失败率过高'
+          description: 'mf_remote_load_failure_total / mf_remote_load_attempt_total 超过 2% 持续 3 分钟。建议暂停灰度或回滚。'
+
+      - alert: MfRemoteLoadP95High
+        expr: |
+          histogram_quantile(0.95, sum(rate(mf_mount_duration_seconds_bucket[5m])) by (le)) > 3
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: '微前端 mount p95 高于 3s'
+          description: 'p95 mount 时长超过 3 秒，可能影响用户体验。'
+
+      - alert: MfRemoteFallbackRate
+        expr: |
+          sum(rate(mf_remote_fallback_total[10m])) / sum(rate(mf_remote_load_attempt_total[10m])) > 0.01
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: '微前端回退率超过 1%'
+          description: '回退率过高，检查回退原因（超时、错误等）。'

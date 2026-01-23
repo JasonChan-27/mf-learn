@@ -1,5 +1,6 @@
 import { createErrorFallback } from './fallback'
 import type { MicroAppModule, MicroAppConfig } from './types'
+import { sendMetric } from './metrics'
 
 /**
  * 远程模块加载器
@@ -16,6 +17,12 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
 
     for (const url of urls) {
       try {
+        // record an attempt
+        sendMetric('mf_remote_load_attempt_total', 1, {
+          app: (config as any).app || 'main',
+          name: config.name,
+          url,
+        })
         const importPromise = import(/* @vite-ignore */ url)
         remote = await Promise.race([
           importPromise,
@@ -33,6 +40,11 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
     }
 
     if (!remote) {
+      // record overall failure
+      sendMetric('mf_remote_load_failure_total', 1, {
+        app: (config as any).app || 'main',
+        name: config.name,
+      })
       throw lastError ?? new Error('no remote loaded')
     }
 
@@ -56,7 +68,18 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
     }
 
     console.log(`正在挂载远程模块: ${config.module}`)
+    const mountStart = performance.now()
     const unmount: any = mod.mount(el, config.props)
+    const mountDuration = (performance.now() - mountStart) / 1000
+    sendMetric('mf_mount_duration_seconds', mountDuration, {
+      app: (config as any).app || 'main',
+      name: config.name,
+    })
+    // success
+    sendMetric('mf_remote_load_success_total', 1, {
+      app: (config as any).app || 'main',
+      name: config.name,
+    })
 
     // 返回销毁函数
     return () => {
@@ -82,12 +105,23 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
         if (fb instanceof HTMLElement) {
           el.innerHTML = ''
           el.appendChild(fb)
+          sendMetric('mf_remote_fallback_total', 1, {
+            app: (config as any).app || 'main',
+            name: config.name,
+            reason: 'custom-fallback',
+          })
           return () => {}
         }
       }
     } catch (e) {
       console.warn('执行自定义 fallback 时出错', e)
     }
+
+    sendMetric('mf_remote_fallback_total', 1, {
+      app: (config as any).app || 'main',
+      name: config.name,
+      reason: message,
+    })
 
     const errFallback = createErrorFallback(`远程组件加载失败: ${message}`)
     el.innerHTML = errFallback.outerHTML

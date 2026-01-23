@@ -6,10 +6,12 @@ import { sharedRuntime } from '@/utils'
 
 export const microRegistry: MicroAppConfig[] = [
   {
+    app: 'react',
     name: 'reactDashboard',
     scope: 'reactApp',
     module: './DashBoard',
     url: import.meta.env.VITE_REACT_REMOTE_URL,
+    alternates: [import.meta.env.VITE_REACT_REMOTE_ALT_URL],
     props: { runtime: sharedRuntime },
     activeWhen: ({ pathname }) => pathname.startsWith('/'),
     timeout: 8000,
@@ -18,10 +20,12 @@ export const microRegistry: MicroAppConfig[] = [
     },
   },
   {
+    app: 'vue',
     name: 'vueHome',
     scope: 'vueApp',
     module: './Home',
     url: import.meta.env.VITE_VUE_REMOTE_URL,
+    alternates: [import.meta.env.VITE_VUE_REMOTE_ALT_URL],
     props: { runtime: sharedRuntime },
     activeWhen: ({ pathname }) => pathname === '/',
     fallback: () => {

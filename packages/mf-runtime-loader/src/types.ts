@@ -9,6 +9,7 @@ export type MicroAppModule = {
 export type MicroAppConfigProps = { runtime: SharedRuntime; [key: string]: any }
 
 export type MicroAppConfig = {
+  app: string
   name: string
   scope: string
   module: string

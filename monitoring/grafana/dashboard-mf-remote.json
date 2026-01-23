@@ -1,0 +1,35 @@
+{
+  "title": "MF Remote Loads Overview",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Load Success Rate",
+      "targets": [
+        {
+          "expr": "sum(rate(mf_remote_load_success_total[5m])) / sum(rate(mf_remote_load_attempt_total[5m]))",
+          "legendFormat": "success_rate"
+        }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "p95 Load Duration (s)",
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(mf_mount_duration_seconds_bucket[5m])) by (le))",
+          "legendFormat": "p95_mount"
+        }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "Fallback Rate",
+      "targets": [
+        {
+          "expr": "sum(rate(mf_remote_fallback_total[5m])) / sum(rate(mf_remote_load_attempt_total[5m]))",
+          "legendFormat": "fallback_rate"
+        }
+      ]
+    }
+  ]
+}
