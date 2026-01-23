@@ -10,9 +10,11 @@ This PR implements gray-release and rollback support for the monorepo:
 - Webhook receiver example for Alertmanager -> GitHub dispatch in `monitoring/webhook-receiver/`.
 
 How to test locally:
+
 1. Run package tests: `pnpm --filter mf-runtime-loader test`.
 2. Simulate webhook receiver locally and post example alert (see monitoring/webhook-receiver/test-send.sh).
 
 Notes:
+
 - The rollback workflow requires repo dispatch permissions; add `GITHUB_TOKEN`/secrets in CI.
 - See `DEPLOYMENT_GUIDE.md` and `GRAY_RELEASE_STRATEGY.md` for environment-specific steps.
