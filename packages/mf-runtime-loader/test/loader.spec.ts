@@ -82,6 +82,32 @@ describe('mf-runtime-loader loadRemote', () => {
       } as any),
     ).rejects.toThrow(/circuit open/)
   })
+
+  it('dedupes concurrent imports for same url', async () => {
+    // reset counter
+    ;(globalThis as any).__LOAD_COUNT__ = 0
+    const code = `window.__LOAD_COUNT__ = (window.__LOAD_COUNT__ || 0) + 1; export async function init(){}; export function get(){ return () => ({ mount: (el) => { el.innerHTML = 'dedupe'; return () => { el.innerHTML = '' } } }) }`
+    const url = 'data:text/javascript;base64,' + Buffer.from(code).toString('base64')
+    const el1 = document.createElement('div')
+    const el2 = document.createElement('div')
+
+    const cfg = {
+      app: 'test',
+      name: 'm4',
+      scope: 's',
+      module: './x',
+      url,
+    } as any
+
+    const p1 = loadRemote(el1, cfg)
+    const p2 = loadRemote(el2, cfg)
+
+    await Promise.all([p1, p2])
+
+    expect((globalThis as any).__LOAD_COUNT__).toBe(1)
+    expect(el1.innerHTML).toBe('dedupe')
+    expect(el2.innerHTML).toBe('dedupe')
+  })
 })
 import { describe, it, expect } from 'vitest'
 import { loadRemote } from '../src/loader'

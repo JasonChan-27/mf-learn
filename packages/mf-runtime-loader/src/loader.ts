@@ -38,6 +38,8 @@ function recordSuccess(key: string) {
 
 // in-memory cache for loaded remote modules
 const remoteCache: Record<string, any> = {}
+// in-flight import promises to dedupe concurrent requests for same URL
+const inFlightRequests: Record<string, Promise<any> | undefined> = {}
 
 async function tryImportWithRetry(
   url: string,
@@ -46,35 +48,47 @@ async function tryImportWithRetry(
 ) {
   // return cached module when available
   if (remoteCache[url]) return remoteCache[url]
+  // if another request is already importing this URL, reuse its promise
+  if (inFlightRequests[url]) return await inFlightRequests[url]
 
-  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-    try {
-      // dynamic import with per-attempt timeout
-      // eslint-disable-next-line no-await-in-loop
-      const mod = await Promise.race([
-        import(/* @vite-ignore */ url),
-        new Promise((_, reject) =>
-          setTimeout(() => reject(new Error('import timeout')), timeoutMs),
-        ),
-      ])
-      // cache and return
-      remoteCache[url] = mod
-      return mod
-    } catch (e) {
-      const base = 200
-      const jitter = 0.8 + Math.random() * 0.4
-      const wait = Math.round(base * Math.pow(2, attempt - 1) * jitter)
-      if (process.env.NODE_ENV !== 'production')
-        console.warn(
-          `[mf-runtime-loader] import ${url} attempt ${attempt} failed`,
-          e,
-          `wait ${wait}ms`,
-        )
-      // eslint-disable-next-line no-await-in-loop
-      await new Promise((r) => setTimeout(r, wait))
+  const importPromise = (async () => {
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      try {
+        // dynamic import with per-attempt timeout
+        // eslint-disable-next-line no-await-in-loop
+        const mod = await Promise.race([
+          import(/* @vite-ignore */ url),
+          new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('import timeout')), timeoutMs),
+          ),
+        ])
+        // cache and return
+        remoteCache[url] = mod
+        return mod
+      } catch (e) {
+        const base = 200
+        const jitter = 0.8 + Math.random() * 0.4
+        const wait = Math.round(base * Math.pow(2, attempt - 1) * jitter)
+        if (process.env.NODE_ENV !== 'production')
+          console.warn(
+            `[mf-runtime-loader] import ${url} attempt ${attempt} failed`,
+            e,
+            `wait ${wait}ms`,
+          )
+        // eslint-disable-next-line no-await-in-loop
+        await new Promise((r) => setTimeout(r, wait))
+      }
     }
+    throw new Error('max attempts reached')
+  })()
+
+  inFlightRequests[url] = importPromise
+  try {
+    const res = await importPromise
+    return res
+  } finally {
+    delete inFlightRequests[url]
   }
-  throw new Error('max attempts reached')
 }
 
 /**
