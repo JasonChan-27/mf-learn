@@ -9,6 +9,12 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig(({ mode }: ConfigEnv) => {
   const isProduction = mode === 'production'
+  console.log(
+    'Vite isProduction:',
+    isProduction,
+    mode,
+    process.env.VITE_APP_BASE,
+  )
   // const isDEV = mode === 'development'
 
   // const vueAppEntry = isProduction
@@ -20,7 +26,8 @@ export default defineConfig(({ mode }: ConfigEnv) => {
   //   : 'http://localhost:3002/remoteEntry.js'
 
   return {
-    base: isProduction ? '/my-learn/' : '/',
+    // base: isProduction ? '/mf-learn/' : '/',
+    base: process.env.VITE_APP_BASE || '/',
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),

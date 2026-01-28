@@ -57,6 +57,9 @@ jobs:
 
       - name: Build
         run: pnpm turbo run build --cache-dir=.turbo
+        env:
+          # 动态获取仓库名并传给 Vite
+          VITE_APP_BASE: /${{ github.event.repository.name }}/
 
       # —— ① 构建产物下载（Artifact）——
       - name: Upload build artifact for main
