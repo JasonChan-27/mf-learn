@@ -11,23 +11,30 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      NODE_VERSION: 20.11.1
+      NODE_VERSION: 20.19.0
       PNPM_VERSION: 10.26.0
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
       - name: Enable corepack & setup pnpm
         run: |
           corepack enable
           corepack prepare pnpm@${{ env.PNPM_VERSION }} --activate
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Cache pnpm store
+        uses: actions/cache@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
+          path: ~/.pnpm-store
+          key: pnpm-store-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-store-${{ runner.os }}-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -42,3 +49,43 @@ jobs:
 
       - name: Run tests
         run: pnpm test
+
+      - name: Build
+        run: pnpm turbo run build --cache-dir=.turbo
+
+      # —— ① 构建产物下载（Artifact）——
+      - name: Upload build artifact for main
+        uses: actions/upload-artifact@v4
+        with:
+          name: main-dist
+          path: apps/main/dist
+
+      - name: Upload build artifact for vue
+        uses: actions/upload-artifact@v4
+        with:
+          name: vue-dist
+          path: apps/vue/dist
+
+      - name: Upload build artifact for react
+        uses: actions/upload-artifact@v4
+        with:
+          name: react-dist
+          path: apps/react/dist
+
+      # —— ② 部署到 GitHub Pages（Preview）——
+      # - name: Upload main app
+      #   run: |
+      #     aws s3 sync apps/main/dist s3://xxx/main
+
+      # - name: Upload vue app
+      #   run: |
+      #     aws s3 sync apps/vue/dist s3://xxx/vue
+
+      # - name: Upload react app
+      #   run: |
+      #     aws s3 sync apps/react/dist s3://react/vue
+
+      - name: Upload Pages artifact for main
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/main/dist

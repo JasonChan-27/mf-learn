@@ -5,7 +5,7 @@
   "description": "",
   "private": true,
   "engines": {
-    "node": "20.11.1",
+    "node": "20.19.x",
     "pnpm": "10.26.0"
   },
   "scripts": {
@@ -15,6 +15,7 @@
     "build": "turbo run build",
     "build:main": "turbo run build --filter=main...",
     "clean:mf": "rimraf .turbo apps/*/.__mf__temp apps/*/.turbo apps/*/dist apps/*/node_modules/__mf__virtual apps/*/node_modules/.vite apps/*/node_modules/.vite-temp",
+    "clean:node_modules": "pnpm -r exec rimraf node_modules && rimraf node_modules",
     "test": "turbo run test",
     "lint": "turbo run lint",
     "format": "prettier --write ."
