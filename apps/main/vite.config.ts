@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-// import { defineConfig, type ConfigEnv } from 'vite'
+import type { ConfigEnv } from 'vite'
 // import type { UserConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 // import react from '@vitejs/plugin-react'
@@ -7,9 +7,8 @@ import { federation } from '@module-federation/vite'
 import path from 'path'
 
 // https://vite.dev/config/
-// { mode }: ConfigEnv
-export default defineConfig(() => {
-  // const isProduction = mode === 'production'
+export default defineConfig(({ mode }: ConfigEnv) => {
+  const isProduction = mode === 'production'
   // const isDEV = mode === 'development'
 
   // const vueAppEntry = isProduction
@@ -21,6 +20,7 @@ export default defineConfig(() => {
   //   : 'http://localhost:3002/remoteEntry.js'
 
   return {
+    base: isProduction ? '/my-learn/' : '/',
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
