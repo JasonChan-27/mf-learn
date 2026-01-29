@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 jobs:
-  checkAndBuildAndPublish:
+  check_build_publish:
     runs-on: ubuntu-latest
 
     env:
@@ -52,8 +52,8 @@ jobs:
           restore-keys: |
             turbo-${{ runner.os }}-
 
-      - name: Check
-        run: pnpm check
+      # - name: Check
+      #   run: pnpm check
 
       - name: Build
         run: pnpm turbo run build --cache-dir=.turbo
@@ -61,8 +61,8 @@ jobs:
           # 动态获取仓库名并传给 Vite
           VITE_APP_BASE: /${{ github.event.repository.name }}/
 
-      # - name: Check
-      #   run: pnpm check
+      - name: Check
+        run: pnpm check
 
       # - name: Run tests
       #   run: pnpm test
@@ -105,7 +105,7 @@ jobs:
           path: apps/main/dist
 
   deploy:
-    needs: checkAndBuildAndPublish
+    needs: check_build_publish
     runs-on: ubuntu-latest
     environment:
       name: github-pages
