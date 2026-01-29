@@ -7,8 +7,6 @@ try {
   if (typeof window.__MF_METRICS_ENDPOINT__ === 'string') {
     initMetrics({ endpoint: window.__MF_METRICS_ENDPOINT__ })
   }
-} catch {
-  // eslint-disable-next-line no-empty
-}
+} catch {}
 
 createApp(App).mount('#app')
