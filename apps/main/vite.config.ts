@@ -63,6 +63,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
     ],
     build: {
       target: 'esnext',
+      sourcemap: true,
     },
     // optimizeDeps: {
     //   // 必须把共享的依赖加入预构建，防止加载子应用时 Vite 重启导致白屏

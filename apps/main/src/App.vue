@@ -50,7 +50,7 @@ onUnmounted(() => {
     <div data-micro="vueHome"></div>
     <!-- 加载 React19 子应用组件 -->
     <div data-micro="reactDashboard"></div>
-    <HelloWorld msg="I am HelloWorld" />
+    <!-- <HelloWorld msg="I am HelloWorld" /> -->
   </div>
 </template>
 
