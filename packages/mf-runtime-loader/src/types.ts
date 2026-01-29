@@ -1,11 +1,5 @@
 import type { SharedRuntime } from 'mf-shared'
 
-declare global {
-  interface Window {
-    __federation_shared_instance__?: unknown
-  }
-}
-
 export type UnmountFn = () => void | Promise<void>
 
 export type MicroAppModule = {

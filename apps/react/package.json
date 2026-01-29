@@ -8,7 +8,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.tsx,.vue",
     "check": "pnpm typecheck && pnpm lint",
-    "build": "vite build",
+    "build": "pnpm typecheck && vite build",
     "preview": "vite preview --port 4002"
   },
   "devDependencies": {

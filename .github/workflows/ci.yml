@@ -52,14 +52,17 @@ jobs:
           restore-keys: |
             turbo-${{ runner.os }}-
 
+      - name: Check
+        run: pnpm check
+
       - name: Build
         run: pnpm turbo run build --cache-dir=.turbo
         env:
           # 动态获取仓库名并传给 Vite
           VITE_APP_BASE: /${{ github.event.repository.name }}/
 
-      - name: Check
-        run: pnpm check
+      # - name: Check
+      #   run: pnpm check
 
       # - name: Run tests
       #   run: pnpm test

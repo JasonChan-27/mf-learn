@@ -67,7 +67,7 @@ function scheduleFlush() {
 async function postWithRetry(batch: Metric[], maxRetries = 3) {
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
     try {
-      const res = await fetch(endpoint, {
+      const res = await fetch(typeof endpoint === 'string' ? endpoint : '', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(batch),
