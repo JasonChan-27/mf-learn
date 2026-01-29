@@ -9,6 +9,7 @@
     "pnpm": "10.26.0"
   },
   "scripts": {
+    "prepare": "husky install",
     "dev": "turbo run dev",
     "dev:vue": "turbo run dev --filter=vue",
     "dev:react": "turbo run dev --filter=react",
@@ -39,11 +40,21 @@
     "eslint-plugin-react-refresh": "^0.4.26",
     "eslint-plugin-vue": "^10.6.2",
     "globals": "^16.5.0",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
     "rimraf": "^6.1.2",
     "turbo": "^2.6.3",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.50.0",
     "vue-tsc": "^3.1.8"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
   }
 }
