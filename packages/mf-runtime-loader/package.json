@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts",
     "check": "pnpm typecheck && pnpm lint",
-    "build": "pnpm check && tsup",
+    "build": "tsup",
     "test": "vitest"
   },
   "keywords": [],

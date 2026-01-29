@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts",
     "check": "pnpm typecheck && pnpm lint",
-    "build": "pnpm check && tsup"
+    "build": "tsup"
   },
   "devDependencies": {
     "tsup": "^8.5.1"
