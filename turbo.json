@@ -1,6 +1,9 @@
 {
   "$schema": "turbo.build",
   "tasks": {
+    "check": {
+      "outputs": []
+    },
     "build": {
       "dependsOn": ["^build"], // 表示依赖的子包 build 完后，自己才开始 build
       "outputs": ["dist/**", ".next/**", "!.cache"], // 将这些目录的结果缓存起来

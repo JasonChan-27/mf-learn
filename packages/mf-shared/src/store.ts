@@ -1,9 +1,9 @@
 import { BehaviorSubject } from 'rxjs'
 
 export interface GlobalState {
-  user?: { id: number; name: string; [key: string]: any }
+  user?: { id: number; name: string; [key: string]: unknown }
   theme?: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 // 初始化全局状态

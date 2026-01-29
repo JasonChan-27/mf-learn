@@ -1,4 +1,4 @@
-type Callback = (payload?: any) => void
+type Callback = (payload?: unknown) => void
 
 export class EventBus {
   private events = new Map<string, Set<Callback>>()
@@ -12,7 +12,7 @@ export class EventBus {
     this.events.get(event)?.delete(callback)
   }
 
-  emit(event: string, payload?: any) {
+  emit(event: string, payload?: unknown) {
     this.events.get(event)?.forEach((cb) => cb(payload))
   }
 }

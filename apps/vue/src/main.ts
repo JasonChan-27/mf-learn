@@ -4,9 +4,9 @@ import './style.css'
 import App from './App.vue'
 
 try {
-  if (typeof (window as any).__MF_METRICS_ENDPOINT__ === 'string') {
-    initMetrics({ endpoint: (window as any).__MF_METRICS_ENDPOINT__ })
+  if (typeof window.__MF_METRICS_ENDPOINT__ === 'string') {
+    initMetrics({ endpoint: window.__MF_METRICS_ENDPOINT__ })
   }
-} catch (e) {}
+} catch {}
 
 createApp(App).mount('#app')

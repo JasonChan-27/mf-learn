@@ -5,6 +5,8 @@ import { createErrorFallback } from './fallback'
 import type { MicroAppModule, MicroAppConfig } from './types'
 import { sendMetric } from 'mf-telemetry'
 
+type Module = Record<string, unknown>
+
 // Simple circuit breaker state per app
 const circuitState: Record<string, { failures: number; openedAt?: number }> = {}
 const DEFAULT_CIRCUIT_FAILURE_THRESHOLD = 5
@@ -37,15 +39,15 @@ function recordSuccess(key: string) {
 }
 
 // in-memory cache for loaded remote modules
-const remoteCache: Record<string, any> = {}
+const remoteCache: Record<string, Promise<Module> | undefined> = {}
 // in-flight import promises to dedupe concurrent requests for same URL
-const inFlightRequests: Record<string, Promise<any> | undefined> = {}
+const inFlightRequests: Record<string, Promise<Module> | undefined> = {}
 
 async function tryImportWithRetry(
   url: string,
   maxAttempts = 3,
   timeoutMs = 5000,
-) {
+): Promise<Module> {
   // return cached module when available
   if (remoteCache[url]) return remoteCache[url]
   // if another request is already importing this URL, reuse its promise
@@ -101,7 +103,7 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
     const urls = [config.url, ...(config.alternates ?? [])]
     const timeout = config.timeout ?? 5000
 
-    let remote: any = null
+    let remote: Module | null = null
     let lastError: unknown = null
 
     const key = config.name || config.url
@@ -109,7 +111,7 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
       sendMetric({
         name: 'mf_remote_circuit_open_total',
         value: 1,
-        labels: { app: (config as any).app || 'main', name: config.name },
+        labels: { app: config.app || 'main', name: config.name },
       })
       throw new Error('circuit open')
     }
@@ -118,13 +120,12 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
       try {
         // record an attempt
         const traceparent =
-          (config as any).props?.traceparent ||
-          (config as any).props?.trace?.traceparent
+          config.props?.traceparent || config.props?.trace?.traceparent
         sendMetric({
           name: 'mf_remote_load_attempt_total',
           value: 1,
           labels: {
-            app: (config as any).app || 'main',
+            app: config.app || 'main',
             name: config.name,
             url,
             ...(traceparent ? { traceparent } : {}),
@@ -139,7 +140,7 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
             name: 'mf_remote_load_fetched_total',
             value: 1,
             labels: {
-              app: (config as any).app || 'main',
+              app: config.app || 'main',
               name: config.name,
               url,
             },
@@ -163,13 +164,12 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
     if (!remote) {
       // record overall failure
       const traceparent =
-        (config as any).props?.traceparent ||
-        (config as any).props?.trace?.traceparent
+        config.props?.traceparent || config.props?.trace?.traceparent
       sendMetric({
         name: 'mf_remote_load_failure_total',
         value: 1,
         labels: {
-          app: (config as any).app || 'main',
+          app: config.app || 'main',
           name: config.name,
           ...(traceparent ? { traceparent } : {}),
         },
@@ -180,14 +180,19 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
     // 2. 初始化共享作用域 (重要！)
     // 由于主应用没用插件，这里我们手动创建一个空作用域
     // 如果后续需要共享依赖，可以在这个对象里按协议注入
-    if (!(window as any).__federation_shared_instance__) {
+    if (
+      !window.__federation_shared_instance__ &&
+      typeof remote.init === 'function'
+    ) {
       await remote.init({})
     }
 
     // 3. 获取模块工厂并执行
     // config.module 必须是子应用 exposes 里的 Key，例如 './DashBoard'
     // console.log('1111', remote, config.module)
-    const factory = await remote.get(config.module)
+    const factory = await (typeof remote.get === 'function'
+      ? remote.get(config.module)
+      : () => {})
     const mod = factory() as MicroAppModule
 
     // 4. 统一调用约定好的 mount 方法
@@ -198,16 +203,15 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
 
     console.log(`正在挂载远程模块: ${config.module}`)
     const traceparent =
-      (config as any).props?.traceparent ||
-      (config as any).props?.trace?.traceparent
+      config.props?.traceparent || config.props?.trace?.traceparent
     const mountStart = performance.now()
-    const unmount: any = mod.mount(el, config.props)
+    const unmount: unknown = mod.mount(el, config.props)
     const mountDuration = (performance.now() - mountStart) / 1000
     sendMetric({
       name: 'mf_mount_duration_seconds',
       value: mountDuration,
       labels: {
-        app: (config as any).app || 'main',
+        app: config.app || 'main',
         name: config.name,
         ...(traceparent ? { traceparent } : {}),
       },
@@ -217,7 +221,7 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
       name: 'mf_remote_load_success_total',
       value: 1,
       labels: {
-        app: (config as any).app || 'main',
+        app: config.app || 'main',
         name: config.name,
         ...(traceparent ? { traceparent } : {}),
       },
@@ -227,9 +231,12 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
     return () => {
       if (typeof unmount === 'function') {
         unmount()
-      } else if (unmount && typeof unmount.then === 'function') {
+      } else if (
+        unmount instanceof Promise &&
+        typeof unmount.then === 'function'
+      ) {
         // 处理异步卸载的情况
-        unmount.then((fn: any) => fn?.())
+        unmount.then((fn: () => void | undefined) => fn?.())
       }
     }
   } catch (error: unknown) {
@@ -238,23 +245,19 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
 
     // 优先使用上层配置中提供的 fallback 回退（manager 会做相同处理），否则渲染默认错误提示
     try {
-      if (
-        (config as any).fallback &&
-        typeof (config as any).fallback === 'function'
-      ) {
-        const fb = (config as any).fallback()
+      if (config.fallback && typeof config.fallback === 'function') {
+        const fb = config.fallback()
         // 如果 fallback 元素存在，插入并返回一个 noop 卸载函数
         if (fb instanceof HTMLElement) {
           el.innerHTML = ''
           el.appendChild(fb)
           const traceparent =
-            (config as any).props?.traceparent ||
-            (config as any).props?.trace?.traceparent
+            config.props?.traceparent || config.props?.trace?.traceparent
           sendMetric({
             name: 'mf_remote_fallback_total',
             value: 1,
             labels: {
-              app: (config as any).app || 'main',
+              app: config.app || 'main',
               name: config.name,
               reason: 'custom-fallback',
               ...(traceparent ? { traceparent } : {}),
@@ -271,7 +274,7 @@ export async function loadRemote(el: HTMLElement, config: MicroAppConfig) {
       name: 'mf_remote_fallback_total',
       value: 1,
       labels: {
-        app: (config as any).app || 'main',
+        app: config.app || 'main',
         name: config.name,
         reason: message,
       },

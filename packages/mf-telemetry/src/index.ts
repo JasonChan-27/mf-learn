@@ -1,9 +1,4 @@
-export type Metric = {
-  name: string
-  value?: number | string
-  labels?: Record<string, string>
-  ts?: number
-}
+import type { Metric } from './type'
 
 const STORAGE_KEY = 'mf_telemetry_queue_v1'
 const DEFAULT_FLUSH_INTERVAL = 2000
@@ -11,8 +6,7 @@ const DEFAULT_BATCH_SIZE = 20
 const DEFAULT_RETRY_BASE_MS = 500
 
 let endpoint =
-  (typeof window !== 'undefined' && (window as any).__MF_METRICS_ENDPOINT__) ||
-  ''
+  (typeof window !== 'undefined' && window.__MF_METRICS_ENDPOINT__) || ''
 let queue: Metric[] = []
 let flushTimer: number | null = null
 let FLUSH_INTERVAL = DEFAULT_FLUSH_INTERVAL
@@ -89,7 +83,6 @@ async function postWithRetry(batch: Metric[], maxRetries = 3) {
           `wait ${wait}ms`,
         )
       // last attempt fallthrough
-      // eslint-disable-next-line no-await-in-loop
       await new Promise((r) => setTimeout(r, wait))
     }
   }

@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs'
-import { bus, EventBus } from './eventBus'
-import { globalState$, type GlobalState } from './store'
+import { EventBus } from './eventBus'
+import type { GlobalState } from './store'
 
 export interface SharedRuntime {
   bus: EventBus

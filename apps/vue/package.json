@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "eslint . --ext .ts,.tsx,.vue",
+    "check": "pnpm typecheck && pnpm lint",
+    "build": "pnpm typecheck && vite build",
     "preview": "vite preview --port 4001"
   },
   "dependencies": {

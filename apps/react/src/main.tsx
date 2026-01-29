@@ -4,12 +4,13 @@ import { initMetrics } from 'mf-telemetry'
 import './index.css'
 import App from './App.tsx'
 
-// Init metrics if endpoint provided globally (e.g., staging)
 try {
-  if (typeof (window as any).__MF_METRICS_ENDPOINT__ === 'string') {
-    initMetrics({ endpoint: (window as any).__MF_METRICS_ENDPOINT__ })
+  if (typeof window.__MF_METRICS_ENDPOINT__ === 'string') {
+    initMetrics({ endpoint: window.__MF_METRICS_ENDPOINT__ })
   }
-} catch (e) {}
+} catch {
+  // eslint-disable-next-line no-empty
+}
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

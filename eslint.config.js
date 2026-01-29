@@ -2,11 +2,18 @@ import js from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import { globalIgnores } from 'eslint/config'
 import eslintConfigPrettier from 'eslint-config-prettier'
+import globals from 'globals'
 
 export default tseslint.config(
-  globalIgnores(['dist']),
+  globalIgnores([
+    'dist',
+    'node_modules',
+    '**/dist/',
+    '**/node_modules/',
+    '**/.__mf__temp/',
+  ]),
   js.configs.recommended,
-  ...tseslint.configs.flat.recommended,
+  ...tseslint.configs.recommended,
   {
     rules: {},
     languageOptions: {

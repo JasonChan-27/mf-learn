@@ -1,12 +1,24 @@
 import type { SharedRuntime } from 'mf-shared'
 
+declare global {
+  interface Window {
+    __federation_shared_instance__?: unknown
+  }
+}
+
 export type UnmountFn = () => void | Promise<void>
 
 export type MicroAppModule = {
-  mount: (el: HTMLElement, props?: { [key: string]: any }) => UnmountFn
+  mount: (el: HTMLElement, props?: { [key: string]: unknown }) => UnmountFn
 }
 
-export type MicroAppConfigProps = { runtime: SharedRuntime; [key: string]: any }
+export type MicroAppConfigProps = {
+  runtime: SharedRuntime
+  trace?: {
+    traceparent?: string
+  }
+  [key: string]: unknown
+}
 
 export type MicroAppConfig = {
   app: string

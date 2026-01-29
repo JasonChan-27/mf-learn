@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
 import { startMicroRouter } from 'mf-runtime-loader'
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 import { microRegistry } from '@/config'
 import { sharedRuntime } from '@/utils'
 
@@ -23,11 +23,11 @@ onMounted(async () => {
     microRegistry,
   )
 
-  sharedRuntime.bus.on('mainAppBtnClick', (data: any) => {
+  sharedRuntime.bus.on('mainAppBtnClick', (data: unknown) => {
     console.log('主应用页面收到主应用按钮点击事件，时间：', data)
   })
 
-  sharedRuntime.globalState$.subscribe((state: any) => {
+  sharedRuntime.globalState$.subscribe((state: unknown) => {
     console.log('主应用页面收到全局状态更新：', state)
   })
 })

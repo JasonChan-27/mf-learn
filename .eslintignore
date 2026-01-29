@@ -1,3 +1,8 @@
+dist/
+node_modules/
+**/dist/
+**/node_modules/
+
 # Node / JavaScript
 /node_modules/
 **/node_modules/

@@ -1,13 +1,14 @@
 import { defineConfig } from 'vite'
 // import react from '@vitejs/plugin-react'
 import { federation } from '@module-federation/vite'
-// import type { UserConfig } from 'vite'
+import type { UserConfig, ConfigEnv, PluginOption } from 'vite'
 import path from 'path'
 
 // https://vite.dev/config/
-export default defineConfig(({}) => {
-  // const isProduction = mode === 'production'
+export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
+  const isProduction = mode === 'production'
   // const isDEV = mode === 'development'
+  console.log('isProduction', isProduction, mode)
 
   return {
     resolve: {
@@ -29,8 +30,8 @@ export default defineConfig(({}) => {
           // rxjs: { singleton: true },
           'mf-shared': { singleton: true, strictVersion: true },
         },
-      }) as any,
-    ],
+      }),
+    ].filter(Boolean) as PluginOption[],
     build: {
       target: 'esnext',
       minify: true,

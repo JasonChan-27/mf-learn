@@ -12,11 +12,17 @@ export async function init(opts?: { endpoint?: string }) {
     const webVitals = await import('web-vitals')
     if (webVitals) {
       const { getCLS, getFID, getLCP } = webVitals
-      getCLS((m: any) => sendMetric({ name: 'webvitals.cls', value: m.value }))
-      getFID((m: any) => sendMetric({ name: 'webvitals.fid', value: m.value }))
-      getLCP((m: any) => sendMetric({ name: 'webvitals.lcp', value: m.value }))
+      getCLS((m: { value: number }) =>
+        sendMetric({ name: 'webvitals.cls', value: m.value }),
+      )
+      getFID((m: { value: number }) =>
+        sendMetric({ name: 'webvitals.fid', value: m.value }),
+      )
+      getLCP((m: { value: number }) =>
+        sendMetric({ name: 'webvitals.lcp', value: m.value }),
+      )
     }
-  } catch (e) {
+  } catch {
     // web-vitals not installed — that's fine
     if (process.env.NODE_ENV !== 'production')
       console.debug('[mf-telemetry] web-vitals not available')

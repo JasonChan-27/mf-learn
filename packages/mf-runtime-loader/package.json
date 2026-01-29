@@ -6,8 +6,11 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "tsc -w",
-    "build": "tsc",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts",
+    "check": "pnpm typecheck && pnpm lint",
+    "build": "pnpm check && tsup",
     "test": "vitest"
   },
   "keywords": [],
@@ -23,6 +26,7 @@
   },
   "devDependencies": {
     "jsdom": "^21.1.0",
+    "tsup": "^8.5.1",
     "vitest": "^1.0.0"
   },
   "vitest": {
