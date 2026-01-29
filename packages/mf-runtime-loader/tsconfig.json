@@ -10,8 +10,9 @@
 
     "composite": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+
+    "noEmit": true
   },
-  "include": ["src"],
-  "references": [{ "path": "../mf-shared" }, { "path": "../mf-telemetry" }]
+  "include": ["src"]
 }

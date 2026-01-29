@@ -2,9 +2,6 @@
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" },
-    { "path": "../../packages/mf-runtime-loader" },
-    { "path": "../../packages/mf-shared" },
-    { "path": "../../packages/mf-telemetry" }
+    { "path": "./tsconfig.node.json" }
   ]
 }
