@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/mf-runtime-loader" },
+    { "path": "packages/mf-shared" },
+    { "path": "packages/mf-telemetry" }
+  ]
+}

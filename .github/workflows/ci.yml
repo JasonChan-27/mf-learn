@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 jobs:
-  buildAndPublish:
+  checkAndBuildAndPublish:
     runs-on: ubuntu-latest
 
     env:
@@ -102,7 +102,7 @@ jobs:
           path: apps/main/dist
 
   deploy:
-    needs: buildAndPublish
+    needs: checkAndBuildAndPublish
     runs-on: ubuntu-latest
     environment:
       name: github-pages
