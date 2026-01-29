@@ -9,7 +9,6 @@
     "pnpm": "10.26.0"
   },
   "scripts": {
-    "prepare": "husky install",
     "dev": "turbo run dev",
     "dev:vue": "turbo run dev --filter=vue",
     "dev:react": "turbo run dev --filter=react",
