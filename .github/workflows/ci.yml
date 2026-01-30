@@ -6,18 +6,21 @@ on:
   pull_request:
     branches: [main, master]
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
-  check_build_publish:
+  # -----------------------------
+  # 【PR】 校验
+  # -----------------------------
+  check:
+    name: Check (typecheck + lint + test)
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
 
     env:
       NODE_VERSION: 20.19.0
       PNPM_VERSION: 10.26.0
+
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout
@@ -38,8 +41,6 @@ jobs:
         with:
           path: ~/.pnpm-store
           key: pnpm-store-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: |
-            pnpm-store-${{ runner.os }}-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -48,12 +49,66 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .turbo
-          key: turbo-${{ runner.os }}-${{ github.sha }}
-          restore-keys: |
-            turbo-${{ runner.os }}-
+          key: turbo-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
 
-      - name: Check
+      - name: Run checks
         run: pnpm check
+
+      - name: Run tests
+        run: pnpm test
+
+  # -----------------------------
+  # 【push】 构建
+  # -----------------------------
+  build:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    needs: check
+
+    env:
+      NODE_VERSION: 20.19.0
+      PNPM_VERSION: 10.26.0
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Enable corepack & setup pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@${{ env.PNPM_VERSION }} --activate
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: pnpm-store-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Restore Turbo cache
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: turbo-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - name: Run checks again (cache hit)
+        run: pnpm check
+
+      # - name: Run tests
+      #   run: pnpm test
 
       - name: Build
         run: pnpm turbo run build --cache-dir=.turbo
@@ -61,13 +116,7 @@ jobs:
           # 动态获取仓库名并传给 Vite
           VITE_APP_BASE: /${{ github.event.repository.name }}/
 
-      # - name: Check
-      #   run: pnpm check
-
-      # - name: Run tests
-      #   run: pnpm test
-
-      # —— ① 构建产物下载（Artifact）——
+      # —— 构建产物下载（Artifact）——
       - name: Upload build artifact for main
         uses: actions/upload-artifact@v4
         with:
@@ -86,7 +135,7 @@ jobs:
           name: react-dist
           path: apps/react/dist
 
-      # —— ② 部署到 GitHub Pages（Preview）——
+      # —— 部署到 GitHub Pages（Preview）——
       # - name: Upload main app
       #   run: |
       #     aws s3 sync apps/main/dist s3://xxx/main
@@ -104,12 +153,21 @@ jobs:
         with:
           path: apps/main/dist
 
+  # -----------------------------
+  # 【deploy】Pages
+  # -----------------------------
   deploy:
-    needs: check_build_publish
+    name: Deploy Pages
+    needs: build
     runs-on: ubuntu-latest
+
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      pages: write
+      id-token: write
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
