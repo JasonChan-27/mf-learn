@@ -1,0 +1,10 @@
+dist/
+node_modules/
+**/dist/
+**/node_modules/
+
+**/templates/*.yaml
+**/templates/*.tpl
+
+package-lock.json
+pnpm-lock.yaml
