@@ -8,7 +8,14 @@ try {
     initMetrics({ endpoint: window.__MF_METRICS_ENDPOINT__ })
   }
 } catch {
-  // eslint-disable-next-line no-empty
+  // ignore
 }
+
+console.log(`
+createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes,
+})
+`)
 
 createApp(App).mount('#app')
