@@ -1,6 +1,9 @@
 {
   "$schema": "turbo.build",
   "tasks": {
+    "lint": {
+      "outputs": []
+    },
     "check": {
       "outputs": []
     },
