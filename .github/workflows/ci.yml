@@ -1,9 +1,9 @@
 name: CI
 
 on:
-  push:
-    branches: [main, master]
   pull_request:
+    branches: [main, master]
+  push:
     branches: [main, master]
 
 jobs:
@@ -13,7 +13,6 @@ jobs:
   check:
     name: Check (typecheck + lint + test)
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
 
     env:
       NODE_VERSION: 20.19.0
@@ -61,7 +60,7 @@ jobs:
   # 【push】 构建
   # -----------------------------
   build:
-    name: Build & Deploy
+    name: Build
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     needs: check
@@ -103,12 +102,6 @@ jobs:
         with:
           path: .turbo
           key: turbo-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
-
-      - name: Run checks again (cache hit)
-        run: pnpm check
-
-      # - name: Run tests
-      #   run: pnpm test
 
       - name: Build
         run: pnpm turbo run build --cache-dir=.turbo
