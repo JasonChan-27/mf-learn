@@ -1,6 +1,10 @@
 {
   "files": [],
   "references": [
+    { "path": "apps/main" },
+    { "path": "apps/vue" },
+    { "path": "apps/react" },
+
     { "path": "packages/mf-runtime-loader" },
     { "path": "packages/mf-shared" },
     { "path": "packages/mf-telemetry" }
