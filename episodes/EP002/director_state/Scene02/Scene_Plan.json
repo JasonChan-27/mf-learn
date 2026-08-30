@@ -1,0 +1,192 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "director_plan_revision": 2,
+  "plan_status": "LOCKED",
+  "scene_goal": "揭开三只猫在小南离开后的真实状态，并用小南突然折返形成完整的反转喜剧闭环。",
+  "environment_asset": "environments.玄关master2",
+  "character_assets": {
+    "小南": "characters.小南-xiaonan-master",
+    "大漂亮": "characters.大漂亮-dapiaoliang-master",
+    "小帅": "characters.小帅-xiaoshuai-master",
+    "阿诺": "characters.阿诺-arno-master"
+  },
+  "outfit_assets": {
+    "小南": "outfits.小南_周末休闲外出款"
+  },
+  "prop_assets": [],
+  "shot_count": 6,
+  "shots": [
+    {
+      "shot_id": "Shot02-01",
+      "order": 1,
+      "primary_function": "INFORMATION_SHOT",
+      "primary_focus": "大漂亮从悲伤凝固到眼神恢复兴奋并喊出“燥起来！”",
+      "coverage": "MEDIUM_WIDE",
+      "composition_intent": "入户门居后景中心并保持完全关闭；大漂亮位于门前主要动作区，小帅与阿诺分处前中景形成不均匀三角。静默时三猫都朝门，变脸后大漂亮成为唯一主动移动主体并走入画面较开阔的地面区域。",
+      "selected_camera": "cameras.entrance-hall-camera01",
+      "camera_status": "MATCH",
+      "camera_motion": "LOCKED_OFF",
+      "continuity_mode": "CAMERA_CUT_CONTINUITY",
+      "previous_frame_policy": "STATE_REFERENCE_ONLY",
+      "visible_characters": [
+        "大漂亮",
+        "小帅",
+        "阿诺"
+      ],
+      "partial_characters": [],
+      "off_screen_characters": [
+        "小南"
+      ],
+      "estimated_duration": 4.5,
+      "scene_end": false,
+      "next_shot": "Shot02-02"
+    },
+    {
+      "shot_id": "Shot02-02",
+      "order": 2,
+      "primary_function": "PERFORMANCE_SHOT",
+      "primary_focus": "大漂亮在空地上投入地跳短视频舞蹈",
+      "coverage": "MEDIUM",
+      "composition_intent": "大漂亮位于门前空地中央偏下，完整猫身占据主要画面；关闭的入户门和木质门框保留为后景空间锚点，地面留出左右动作余量，小帅、阿诺和小南全部退出画面。",
+      "selected_camera": "cameras.entrance-hall-camera03",
+      "camera_status": "MATCH",
+      "camera_motion": "LOCKED_OFF",
+      "continuity_mode": "CAMERA_CUT_CONTINUITY",
+      "previous_frame_policy": "STATE_REFERENCE_ONLY",
+      "visible_characters": [
+        "大漂亮"
+      ],
+      "partial_characters": [],
+      "off_screen_characters": [
+        "小帅",
+        "阿诺",
+        "小南"
+      ],
+      "estimated_duration": 4.2,
+      "scene_end": false,
+      "next_shot": "Shot02-03"
+    },
+    {
+      "shot_id": "Shot02-03",
+      "order": 3,
+      "primary_function": "ACTION_SHOT",
+      "primary_focus": "小帅眼泪消失后朝室内厨房方向飞快起跑",
+      "coverage": "MEDIUM",
+      "composition_intent": "小帅在画面靠门一侧的起跑区形成主焦点，身体朝向通往室内的前景或侧前方；地面动线占据构图主要空间，关闭的门仍作为后方原因锚点。小帅在镜头末端沿既定方向完整退出构图，大漂亮、阿诺和小南均不进入画面。",
+      "selected_camera": "cameras.entrance-hall-camera03",
+      "camera_status": "MATCH",
+      "camera_motion": "LOCKED_OFF",
+      "continuity_mode": "CAMERA_CUT_CONTINUITY",
+      "previous_frame_policy": "STATE_REFERENCE_ONLY",
+      "visible_characters": [
+        "小帅"
+      ],
+      "partial_characters": [],
+      "off_screen_characters": [
+        "大漂亮",
+        "阿诺",
+        "小南"
+      ],
+      "estimated_duration": 3.5,
+      "scene_end": false,
+      "next_shot": "Shot02-04"
+    },
+    {
+      "shot_id": "Shot02-04",
+      "order": 4,
+      "primary_function": "CHARACTER_SHOT",
+      "primary_focus": "阿诺慢慢趴下并伸出舒服的懒腰",
+      "coverage": "MEDIUM_WIDE",
+      "composition_intent": "阿诺位于前中景完整可见并占据稳定主焦点；大漂亮只在门前空地的后侧边缘部分可见，以小幅舞步维持连续性。关闭的入户门仍居后景，小帅与小南均不进入构图。",
+      "selected_camera": "cameras.entrance-hall-camera01",
+      "camera_status": "MATCH",
+      "camera_motion": "LOCKED_OFF",
+      "continuity_mode": "CAMERA_CUT_CONTINUITY",
+      "previous_frame_policy": "STATE_REFERENCE_ONLY",
+      "visible_characters": [
+        "阿诺"
+      ],
+      "partial_characters": [
+        "大漂亮"
+      ],
+      "off_screen_characters": [
+        "小帅",
+        "小南"
+      ],
+      "estimated_duration": 5.8,
+      "scene_end": false,
+      "next_shot": "Shot02-05"
+    },
+    {
+      "shot_id": "Shot02-05",
+      "order": 5,
+      "primary_function": "REVEAL_SHOT",
+      "primary_focus": "门锁响起后画内两猫与画外小帅同步停止",
+      "coverage": "MEDIUM_WIDE",
+      "composition_intent": "严格沿用上一镜构图：阿诺完整位于前中景伸展，大漂亮只在门前空地边缘部分可见并保持舞姿；入户门居后景中心，从完全关闭打开为窄缝。小帅和小南均不进入画面。",
+      "selected_camera": "cameras.entrance-hall-camera01",
+      "camera_status": "MATCH",
+      "camera_motion": "LOCKED_OFF",
+      "continuity_mode": "SAME_CAMERA_CONTINUATION",
+      "previous_frame_policy": "HIGH_PRIORITY_VISUAL_CONTINUITY",
+      "visible_characters": [
+        "阿诺"
+      ],
+      "partial_characters": [
+        "大漂亮"
+      ],
+      "off_screen_characters": [
+        "小帅",
+        "小南"
+      ],
+      "estimated_duration": 2.2,
+      "scene_end": false,
+      "next_shot": "Shot02-06"
+    },
+    {
+      "shot_id": "Shot02-06",
+      "order": 6,
+      "primary_function": "REACTION_SHOT",
+      "primary_focus": "小南探头后无言看着画内两猫，两猫心虚移开视线",
+      "coverage": "MEDIUM_WIDE",
+      "composition_intent": "小南的头部和上身从后景门缝进入，身体大部分留在门外；阿诺在前中景维持伸展，大漂亮在门前空地边缘部分维持舞姿。小帅位于通往厨房的画外方向。小南取钥匙时手臂短暂伸向构图侧边之外，钥匙本体始终不进入画面，随后她退出并让门闭合。",
+      "selected_camera": "cameras.entrance-hall-camera01",
+      "camera_status": "MATCH",
+      "camera_motion": "LOCKED_OFF",
+      "continuity_mode": "CAMERA_CUT_CONTINUITY",
+      "previous_frame_policy": "STATE_REFERENCE_ONLY",
+      "visible_characters": [
+        "小南",
+        "阿诺"
+      ],
+      "partial_characters": [
+        "大漂亮"
+      ],
+      "off_screen_characters": [
+        "小帅"
+      ],
+      "estimated_duration": 5.8,
+      "scene_end": true,
+      "next_shot": "Scene03"
+    }
+  ],
+  "scene_end_state": {
+    "description": "小南拿走门边钥匙后再次关门离开，入户门完全关闭；三只猫留在室内，离别演技已经被识破，短暂心虚后将各自散向客厅，衔接 Scene03 的无人活动状态。"
+  },
+  "next_scene": "Scene03",
+  "director_qa": {
+    "result": "PASS",
+    "scene_score": 91,
+    "dimension_scores": {
+      "narrative_coverage": 90,
+      "shot_necessity": 92,
+      "visual_differentiation": 86,
+      "camera_and_motion": 94,
+      "continuity": 94,
+      "frozen_moment": 95,
+      "rhythm": 89
+    }
+  }
+}

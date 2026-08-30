@@ -1,0 +1,55 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-05",
+  "assets": [
+    {
+      "asset_id": "environments.玄关master2",
+      "source_path": "assets/environments/玄关Master2.png",
+      "source_sha256": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+      "size_bytes": 1743104,
+      "upload_path": "upload/environments__玄关master2.png"
+    },
+    {
+      "asset_id": "characters.小南-xiaonan-master",
+      "source_path": "assets/characters/小南（XiaoNan）Master.png",
+      "source_sha256": "b1dac21d003e2de21fc67e3fe8dec6cf000ab1d61d0a6e3f2bdd056cbe0f4f32",
+      "size_bytes": 2374087,
+      "upload_path": "upload/characters__小南-xiaonan-master.png"
+    },
+    {
+      "asset_id": "characters.大漂亮-dapiaoliang-master",
+      "source_path": "assets/characters/大漂亮（DaPiaoLiang）Master.png",
+      "source_sha256": "b94b594efb02c415c2d243246c6aae16b68adfeff7f9c0e0c47290fbaff5aad1",
+      "size_bytes": 2490111,
+      "upload_path": "upload/characters__大漂亮-dapiaoliang-master.png"
+    },
+    {
+      "asset_id": "outfits.小南_周末休闲外出款",
+      "source_path": "assets/outfits/小南_周末休闲外出款.png",
+      "source_sha256": "d46f7a2dc01eee59a3e91a2e84d21367c44a8d30f8389b9ed7dda98fb95de857",
+      "size_bytes": 1700306,
+      "upload_path": "upload/outfits__小南_周末休闲外出款.png"
+    },
+    {
+      "asset_id": "cameras.entrance-hall-camera02",
+      "source_path": "assets/cameras/Entrance Hall camera02.png",
+      "source_sha256": "47a994d34f9cedaefaa281725e83744355bcf04a53d512d4ffff602a06486e9f",
+      "size_bytes": 1820289,
+      "upload_path": "upload/cameras__entrance-hall-camera02.png"
+    }
+  ],
+  "previous_frame": {
+    "policy": "STATE_REFERENCE_ONLY",
+    "previous_shot_id": "Shot01-04",
+    "include_previous_final_in_upload": false,
+    "previous_final_path": "episodes/EP002/production/Scene01/Shot01-04/Shot01-04_Final.png",
+    "instruction": "只继承上一镜的 Identity / Space / Lighting / Props / Action State。不上传上一 Final；Camera / Coverage / Composition 以当前 Director Plan 为准。",
+    "copied_to_upload": false,
+    "upload_path": null,
+    "source_sha256": null
+  },
+  "unresolved_asset_ids": [],
+  "blocking": false
+}

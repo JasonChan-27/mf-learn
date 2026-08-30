@@ -1,0 +1,16 @@
+{
+  "json_parse": {
+    "Scene_Director_Plan.schema.json": "PASS",
+    "Director_Decision.schema.json": "PASS",
+    "Scene_Plan.schema.json": "PASS",
+    "Shot_State.schema.json": "PASS",
+    "Runtime_State.schema.json": "PASS"
+  },
+  "jsonschema_check": {
+    "Scene_Director_Plan.schema.json": "PASS",
+    "Director_Decision.schema.json": "PASS",
+    "Scene_Plan.schema.json": "PASS",
+    "Shot_State.schema.json": "PASS",
+    "Runtime_State.schema.json": "PASS"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-03",
+  "package_version": "v001",
+  "previous_frame": {
+    "policy": "STATE_REFERENCE_ONLY",
+    "previous_shot_id": "Shot01-02",
+    "include_previous_final_in_upload": false,
+    "previous_final_path": "episodes/EP002/production/Scene01/Shot01-02/Shot01-02_Final.png",
+    "instruction": "只继承上一镜的 Identity / Space / Lighting / Props / Action State。不上传上一 Final；Camera / Coverage / Composition 以当前 Director Plan 为准。"
+  },
+  "upload_items": [
+    {
+      "type": "MASTER_ASSET",
+      "asset_id": "environments.玄关master2",
+      "source_path": "assets/environments/玄关Master2.png",
+      "filename": "environments__玄关master2.png",
+      "package_path": "upload/environments__玄关master2.png",
+      "source_sha256": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+      "priority": "REQUIRED"
+    },
+    {
+      "type": "MASTER_ASSET",
+      "asset_id": "characters.小帅-xiaoshuai-master",
+      "source_path": "assets/characters/小帅（XiaoShuai）Master.png",
+      "filename": "characters__小帅-xiaoshuai-master.png",
+      "package_path": "upload/characters__小帅-xiaoshuai-master.png",
+      "source_sha256": "b9a0c2ec75871044d8d73ba47d898c9ff8a51b453d546b88c9a5932371cc25ea",
+      "priority": "REQUIRED"
+    },
+    {
+      "type": "MASTER_ASSET",
+      "asset_id": "characters.小南-xiaonan-master",
+      "source_path": "assets/characters/小南（XiaoNan）Master.png",
+      "filename": "characters__小南-xiaonan-master.png",
+      "package_path": "upload/characters__小南-xiaonan-master.png",
+      "source_sha256": "b1dac21d003e2de21fc67e3fe8dec6cf000ab1d61d0a6e3f2bdd056cbe0f4f32",
+      "priority": "REQUIRED"
+    },
+    {
+      "type": "MASTER_ASSET",
+      "asset_id": "outfits.小南_周末休闲外出款",
+      "source_path": "assets/outfits/小南_周末休闲外出款.png",
+      "filename": "outfits__小南_周末休闲外出款.png",
+      "package_path": "upload/outfits__小南_周末休闲外出款.png",
+      "source_sha256": "d46f7a2dc01eee59a3e91a2e84d21367c44a8d30f8389b9ed7dda98fb95de857",
+      "priority": "REQUIRED"
+    },
+    {
+      "type": "MASTER_ASSET",
+      "asset_id": "cameras.entrance-hall-camera03",
+      "source_path": "assets/cameras/Entrance Hall camera03.png",
+      "filename": "cameras__entrance-hall-camera03.png",
+      "package_path": "upload/cameras__entrance-hall-camera03.png",
+      "source_sha256": "465ea58257381b5bc7fe623fcab0e5900cd9824341dcdb80c6aedb5df0635d22",
+      "priority": "REQUIRED"
+    }
+  ],
+  "unresolved_asset_ids": [],
+  "blocking": false,
+  "prompt_contract_qa": {
+    "result": "PASS",
+    "issues": []
+  },
+  "rule": "只复制当前 Shot State 声明的 Master；只有 HIGH_PRIORITY_VISUAL_CONTINUITY 才复制上一 Shot Final。"
+}

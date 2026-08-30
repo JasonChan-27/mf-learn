@@ -1,0 +1,17 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-05",
+  "package_version": "v001",
+  "package_dir": "episodes/EP002/production/Scene01/Shot01-05/packages/v001",
+  "package_input_sha256": "70a5f291559b9a239382fce8a2d0cba11370b6789ef429680ef0e637ce149662",
+  "package_filenames": [
+    "environments__玄关master2.png",
+    "characters__小南-xiaonan-master.png",
+    "characters__大漂亮-dapiaoliang-master.png",
+    "outfits__小南_周末休闲外出款.png",
+    "cameras__entrance-hall-camera02.png"
+  ],
+  "updated_at": "2026-08-29T20:10:05+00:00"
+}

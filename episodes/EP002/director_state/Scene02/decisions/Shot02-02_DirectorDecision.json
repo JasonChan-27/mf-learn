@@ -1,0 +1,18 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-02",
+  "primary_function": "PERFORMANCE_SHOT",
+  "secondary_effect": "CHARACTER_REVEAL",
+  "narrative_purpose": "用一段身体完整可读的投入舞蹈，证明大漂亮刚才的依依不舍已经彻底消失。",
+  "audience_feeling": "看见大漂亮无缝切换成快乐独处状态，获得第一轮明确反差笑点。",
+  "information_gain": "大漂亮独处时外向、爱玩且会主动释放自己，先前的悲伤不是持续情绪。",
+  "why_this_shot": "舞蹈需要独立的地面中景来保证猫体、四肢和动作节奏完整可读，并让大漂亮成为唯一视觉中心。",
+  "why_not_previous_shot": "上一镜承担安静确认、群像位置和变脸启动；继续在中广群像中完成舞蹈会让动作尺度过小，也会让小帅和阿诺分散表演焦点。",
+  "coverage_reason": "低位中景能够完整保留大漂亮从耳尖到尾部和四爪落点，使侧步、抬前爪和头部节拍清楚可验，同时排除其余角色的竞争信息。",
+  "camera_reason": "Camera03 的贴地视点和充足前景地面适合组织单猫全身中景，可清楚验证大漂亮的四足舞步并继续看见关闭的入户门；它与 Camera01 处于同一室内朝门轴侧，切换不会越轴。",
+  "camera_motion_reason": "固定低机位让舞蹈节奏在稳定框架内自行制造活力，也便于保持四肢落点和猫体比例；跟拍或摇移会增加生成漂移并把轻喜剧处理得过度炫技。",
+  "continuity_reason": "CAMERA_CUT_CONTINUITY / STATE_REFERENCE_ONLY",
+  "freeze_reason": "大漂亮刚站定在舞蹈区域、身体蓄势但尚未做出第一个舞步的最后稳定瞬间。"
+}

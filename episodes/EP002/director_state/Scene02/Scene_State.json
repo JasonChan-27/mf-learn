@@ -1,0 +1,20 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "scene_number": 2,
+  "scene_title": "玄关｜主人离开后的真实状态",
+  "plan_status": "LOCKED",
+  "status": "PRODUCTION",
+  "shot_count": 6,
+  "shots": [
+    "Shot02-01",
+    "Shot02-02",
+    "Shot02-03",
+    "Shot02-04",
+    "Shot02-05",
+    "Shot02-06"
+  ],
+  "next_scene": "Scene03",
+  "updated_at": "2026-08-30T05:06:07+00:00"
+}

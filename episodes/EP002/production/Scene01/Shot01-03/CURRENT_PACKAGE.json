@@ -1,0 +1,17 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-03",
+  "package_version": "v001",
+  "package_dir": "episodes/EP002/production/Scene01/Shot01-03/packages/v001",
+  "package_input_sha256": "af7def98a36ee86358bf4829cd3d420c60d098218c98eac0a3baf6656244e1a3",
+  "package_filenames": [
+    "environments__玄关master2.png",
+    "characters__小帅-xiaoshuai-master.png",
+    "characters__小南-xiaonan-master.png",
+    "outfits__小南_周末休闲外出款.png",
+    "cameras__entrance-hall-camera03.png"
+  ],
+  "updated_at": "2026-08-29T20:00:55+00:00"
+}

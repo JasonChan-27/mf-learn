@@ -1,0 +1,86 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-01",
+  "package_version": "v001",
+  "previous_frame": {
+    "policy": "NONE",
+    "previous_shot_id": null,
+    "include_previous_final_in_upload": false,
+    "previous_final_path": null,
+    "instruction": "不上传上一 Shot Final；当前镜头独立建立。"
+  },
+  "upload_items": [
+    {
+      "type": "MASTER_ASSET",
+      "asset_id": "environments.玄关master2",
+      "source_path": "assets/environments/玄关Master2.png",
+      "filename": "environments__玄关master2.png",
+      "package_path": "upload/environments__玄关master2.png",
+      "source_sha256": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+      "priority": "REQUIRED"
+    },
+    {
+      "type": "MASTER_ASSET",
+      "asset_id": "characters.小南-xiaonan-master",
+      "source_path": "assets/characters/小南（XiaoNan）Master.png",
+      "filename": "characters__小南-xiaonan-master.png",
+      "package_path": "upload/characters__小南-xiaonan-master.png",
+      "source_sha256": "b1dac21d003e2de21fc67e3fe8dec6cf000ab1d61d0a6e3f2bdd056cbe0f4f32",
+      "priority": "REQUIRED"
+    },
+    {
+      "type": "MASTER_ASSET",
+      "asset_id": "characters.大漂亮-dapiaoliang-master",
+      "source_path": "assets/characters/大漂亮（DaPiaoLiang）Master.png",
+      "filename": "characters__大漂亮-dapiaoliang-master.png",
+      "package_path": "upload/characters__大漂亮-dapiaoliang-master.png",
+      "source_sha256": "b94b594efb02c415c2d243246c6aae16b68adfeff7f9c0e0c47290fbaff5aad1",
+      "priority": "REQUIRED"
+    },
+    {
+      "type": "MASTER_ASSET",
+      "asset_id": "characters.小帅-xiaoshuai-master",
+      "source_path": "assets/characters/小帅（XiaoShuai）Master.png",
+      "filename": "characters__小帅-xiaoshuai-master.png",
+      "package_path": "upload/characters__小帅-xiaoshuai-master.png",
+      "source_sha256": "b9a0c2ec75871044d8d73ba47d898c9ff8a51b453d546b88c9a5932371cc25ea",
+      "priority": "REQUIRED"
+    },
+    {
+      "type": "MASTER_ASSET",
+      "asset_id": "characters.阿诺-arno-master",
+      "source_path": "assets/characters/阿诺（Arno）Master.png",
+      "filename": "characters__阿诺-arno-master.png",
+      "package_path": "upload/characters__阿诺-arno-master.png",
+      "source_sha256": "59c4623eb8f737cf830fcbb94b9bb755829cf316e77a59f8f99edcc76b1c76ad",
+      "priority": "REQUIRED"
+    },
+    {
+      "type": "MASTER_ASSET",
+      "asset_id": "outfits.小南_周末休闲外出款",
+      "source_path": "assets/outfits/小南_周末休闲外出款.png",
+      "filename": "outfits__小南_周末休闲外出款.png",
+      "package_path": "upload/outfits__小南_周末休闲外出款.png",
+      "source_sha256": "d46f7a2dc01eee59a3e91a2e84d21367c44a8d30f8389b9ed7dda98fb95de857",
+      "priority": "REQUIRED"
+    },
+    {
+      "type": "MASTER_ASSET",
+      "asset_id": "cameras.entrance-hall-camera01",
+      "source_path": "assets/cameras/Entrance Hall camera01.png",
+      "filename": "cameras__entrance-hall-camera01.png",
+      "package_path": "upload/cameras__entrance-hall-camera01.png",
+      "source_sha256": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+      "priority": "REQUIRED"
+    }
+  ],
+  "unresolved_asset_ids": [],
+  "blocking": false,
+  "prompt_contract_qa": {
+    "result": "PASS",
+    "issues": []
+  },
+  "rule": "只复制当前 Shot State 声明的 Master；只有 HIGH_PRIORITY_VISUAL_CONTINUITY 才复制上一 Shot Final。"
+}

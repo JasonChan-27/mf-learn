@@ -1,0 +1,18 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-02",
+  "primary_function": "PERFORMANCE_SHOT",
+  "secondary_effect": "CHARACTER_REVEAL",
+  "narrative_purpose": "让大漂亮以认真担忧的怀中表演完成第一层离别演技，建立她情绪投入最快、最主动的角色差异。",
+  "audience_feeling": "明知夸张却短暂被它的认真感染。",
+  "information_gain": "大漂亮把普通出门解释为“外面的世界竞争太激烈”，离别演技由动作升级为完整情绪表达。",
+  "why_this_shot": "大漂亮的蓝眼、耳位、抬头视线与小南抱持关系是本 Beat 的信息主体，需要从群像中独立出来才能让台词的认真感和反差成立。",
+  "why_not_previous_shot": "Camera01 的中大全景已经完成空间与起跳动作，但无法清楚读取怀中猫咪的细微担忧表演；继续留在上一镜会让长台词落在过小主体上并稀释角色揭示。",
+  "coverage_reason": "中近景可同时保留大漂亮完整头胸、前爪与小南抱持它的双臂及部分面部反应，让猫的表演和人猫关系同等清晰，而不塞入其余角色。",
+  "camera_reason": "Entrance Hall Camera02 保持 Camera01 已建立的室内朝门方向，并以更紧凑的竖向中近景覆盖入户门前上半身互动区域；小南面部、抱持双臂和怀中大漂亮可共同进入主要画面，木质门与门框能够作为稳定的玄关背景，同时排除脚边小帅和地面阿诺，符合本镜的表演读取、构图和轴线要求。",
+  "camera_motion_reason": "台词的笑点来自大漂亮过度认真的静态凝视与小南半拍发愣，锁定画面比推近更能保留克制观察感。",
+  "continuity_reason": "CAMERA_CUT_CONTINUITY / STATE_REFERENCE_ONLY",
+  "freeze_reason": "大漂亮在小南怀中稳定下来、即将开口说“主人……”之前的静止凝视。"
+}

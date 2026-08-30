@@ -1,0 +1,18 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-01",
+  "primary_function": "INFORMATION_SHOT",
+  "secondary_effect": "COMEDIC_REVERSAL_SETUP",
+  "narrative_purpose": "承接小南刚离开的空间与动作状态，让三只猫确认门外没有动静，并由大漂亮率先撕下悲伤伪装、宣布开始放松。",
+  "audience_feeling": "先屏息观察，再因大漂亮骤然变脸而感到意外和好笑。",
+  "information_gain": "小南已在门外，三猫的离别姿态只是暂时维持；大漂亮是最先打破伪装、主动带动气氛的角色。",
+  "why_this_shot": "场景必须先保留 Scene01 末尾的静止余韵，才能让同一构图内的情绪翻转产生可见反差，并重新确认门与三猫的空间关系。",
+  "why_not_previous_shot": "Scene01 最后一镜的任务是完成小南离开和门关闭；若把三猫变脸并入上一镜，会消除离别表演与无人真实状态之间必要的场景断点。",
+  "coverage_reason": "中广景可同时验证关闭的入户门、三猫仍在玄关地面的初始位置以及大漂亮走向空地的完整路径，是建立真实状态反转所需的最低空间覆盖。",
+  "camera_reason": "Camera01 的低位中广视角与 Scene01 末镜一致，能够同时保留关闭的门、长条地面和三猫层次；它既满足跨 Scene 的动作连续性，也为大漂亮走向空地留下可执行路径，主轴保持不变。",
+  "camera_motion_reason": "固定画面可让数秒安静与突然变脸发生在同一空间基准内，反差由表演完成；移动镜头会提前暗示变化并削弱观察式笑点。",
+  "continuity_reason": "CAMERA_CUT_CONTINUITY / STATE_REFERENCE_ONLY",
+  "freeze_reason": "关门后的安静刚开始，三只猫保持原位听门外动静，尚无任何一只猫解除离别表演。"
+}

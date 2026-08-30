@@ -1,0 +1,14 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "current_scene_id": "Scene02",
+  "current_shot_id": "Shot02-01",
+  "director_session_mode": "PROMPT_ONLY",
+  "scene_status": "PRODUCTION",
+  "next_action": "WAIT_FOR_IMAGE_APPROVAL",
+  "pending_director_plan": "director_state/Scene02/Scene_Director_Plan_RESULT.json",
+  "pending_director_qa": "director_state/Scene02/Director_QA_RESULT.json",
+  "last_event": "CURRENT_SHOT_PACKAGE_GENERATED",
+  "updated_at": "2026-08-30T05:06:07+00:00",
+  "pending_camera_match": null
+}

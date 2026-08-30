@@ -1,0 +1,110 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-06",
+  "order": 6,
+  "status": "COMPLETED",
+  "primary_function": "COMEDY_TIMING_SHOT",
+  "primary_focus": "三只猫集体僵住后收回离别表演",
+  "coverage": "MEDIUM_WIDE",
+  "composition_intent": "回到 Camera01 的门内正向构图：小南在门前，大漂亮仍在怀中起始，小帅位于腿边，阿诺在正前方端坐；先让三猫的僵硬层级占据注意力，随后小南与门的动作成为中心。门关闭后，三猫留在室内前中景，形成通向 Scene02 的最终画面。",
+  "information_density": "HIGH",
+  "visible_characters": [
+    "小南",
+    "大漂亮",
+    "小帅",
+    "阿诺"
+  ],
+  "partial_characters": [],
+  "off_screen_characters": [],
+  "camera_state": {
+    "camera_asset": "cameras.entrance-hall-camera01",
+    "camera_status": "MATCH",
+    "movement": "LOCKED_OFF",
+    "movement_reason": "尴尬笑点依赖空气凝固和角色缓慢撤回，固定机位能把停顿留给观众；门的关闭也无需跟随即可清楚完成。",
+    "axis_status": "PRESERVED"
+  },
+  "continuity": {
+    "mode": "CAMERA_CUT_CONTINUITY",
+    "previous_frame_policy": "STATE_REFERENCE_ONLY",
+    "previous_frame_filename": "Shot01-05_Final.png",
+    "locked_facts": [
+      "Identity",
+      "Space",
+      "Lighting",
+      "Props",
+      "Action State"
+    ],
+    "change_allowed": [
+      "Coverage",
+      "Camera",
+      "Composition"
+    ]
+  },
+  "start_state": {
+    "description": "承接 Shot01-05 真相落地后的第一拍：小南仍在关闭的门内抱着大漂亮；大漂亮表情僵住；小帅前爪仍贴在小南小腿且停止表演；阿诺仍在正前方端正坐着并保持严肃。"
+  },
+  "frozen_moment": {
+    "description": "“只是取个快递”真相落地后，三只猫同时僵住且尚未撤回任何表演动作的集体静止瞬间。",
+    "physical_boundaries": [
+      "大漂亮仍完整处于小南怀中，四爪尚未回到地面",
+      "小帅前爪仍贴在小南一侧小腿，尚未松开，后腿仍在地面承重",
+      "阿诺臀部与前爪稳定接触地面，保持端正坐姿",
+      "小南双脚仍在门内，抱持大漂亮，手尚未移向门把手",
+      "入户门完全关闭"
+    ],
+    "forbidden_advanced_states": [
+      "大漂亮已经下地或转身离开",
+      "小帅已经松开前爪或跑开",
+      "阿诺已经起身或放松趴下",
+      "小南已经打开门、说完叮嘱或走到门外",
+      "入户门已经再次关闭且小南已在门外"
+    ]
+  },
+  "shot_delta": {
+    "primary_action": "保持一拍集体尴尬后，大漂亮慢慢从小南怀中回到地面，小帅松开前爪恢复四爪着地，阿诺仍维持严肃端坐；小南转向门、打开门，在跨出前回头说：“在家乖一点。”随后走出并从外侧把门完全关上。",
+    "secondary_actions": [
+      "三只猫在收回动作时互不对视，不用额外对白解释尴尬",
+      "门打开时三只猫都留在门内，不跟随小南跨过门槛",
+      "门关闭后保留三只猫在屋内面对门的稳定状态"
+    ],
+    "performance_notes": "先让静默足够落下笑点，再以慢半拍、尽量若无其事的撤回制造尴尬；阿诺不崩掉严肃姿态。小南的叮嘱自然宠溺，不强化胜负感。",
+    "timing": [
+      "0.0-1.2秒：三猫集体僵住，空气安静",
+      "1.2-3.6秒：大漂亮下地，小帅松爪，阿诺保持端坐",
+      "3.6-5.3秒：小南转身并打开门",
+      "5.3-6.7秒：小南回头说“在家乖一点。”",
+      "6.7-8.2秒：小南跨出并把门完全关上",
+      "8.2-8.8秒：三猫留在门内，门关闭，保持短暂静止"
+    ]
+  },
+  "end_state": {
+    "description": "入户门已经从外侧完全关闭，小南位于门外且不再可见；大漂亮四爪着地靠近原抱持位置，小帅四爪着地靠近原腿边位置，阿诺仍在门前端正坐着；三只猫留在屋内面对关闭的门，Scene02 可从同一空间的安静状态直接开始。",
+    "next_state_anchor": "Scene02"
+  },
+  "required_assets": {
+    "asset_ids": [
+      "environments.玄关master2",
+      "characters.小南-xiaonan-master",
+      "characters.大漂亮-dapiaoliang-master",
+      "characters.小帅-xiaoshuai-master",
+      "characters.阿诺-arno-master",
+      "outfits.小南_周末休闲外出款",
+      "cameras.entrance-hall-camera01"
+    ],
+    "package_filenames": [
+      "environments__玄关master2.png",
+      "characters__小南-xiaonan-master.png",
+      "characters__大漂亮-dapiaoliang-master.png",
+      "characters__小帅-xiaoshuai-master.png",
+      "characters__阿诺-arno-master.png",
+      "outfits__小南_周末休闲外出款.png",
+      "cameras__entrance-hall-camera01.png"
+    ]
+  },
+  "estimated_duration": 8.8,
+  "scene_end": true,
+  "next_shot": "Scene02",
+  "approved_image": "episodes/EP002/production/Scene01/Shot01-06/Shot01-06_Final.png"
+}

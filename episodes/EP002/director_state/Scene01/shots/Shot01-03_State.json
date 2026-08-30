@@ -1,0 +1,105 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-03",
+  "order": 3,
+  "status": "COMPLETED",
+  "primary_function": "PERFORMANCE_SHOT",
+  "primary_focus": "小帅靠近并抱住小南腿部的悲情加码",
+  "coverage": "MEDIUM",
+  "composition_intent": "小帅位于画面下半部主焦点，后爪和身体重量明确落在地面，双前爪短暂贴住小南一侧小腿；小南只以膝下腿部进入画面形成尺度和依附关系，背景保留门口地垫或鞋柜边缘作为空间锚点。",
+  "information_density": "LOW",
+  "visible_characters": [
+    "小帅"
+  ],
+  "partial_characters": [
+    "小南"
+  ],
+  "off_screen_characters": [
+    "大漂亮",
+    "阿诺"
+  ],
+  "camera_state": {
+    "camera_asset": "cameras.entrance-hall-camera03",
+    "camera_status": "MATCH",
+    "movement": "LOCKED_OFF",
+    "movement_reason": "抱腿动作和颤抖台词本身承担升级，固定低机位可让真实接触边界清晰，避免跟拍造成拟人站立或爪部错位。",
+    "axis_status": "PRESERVED"
+  },
+  "continuity": {
+    "mode": "CAMERA_CUT_CONTINUITY",
+    "previous_frame_policy": "STATE_REFERENCE_ONLY",
+    "previous_frame_filename": "Shot01-02_Final.png",
+    "locked_facts": [
+      "Identity",
+      "Space",
+      "Lighting",
+      "Props",
+      "Action State"
+    ],
+    "change_allowed": [
+      "Coverage",
+      "Camera",
+      "Composition"
+    ]
+  },
+  "start_state": {
+    "description": "承接 Shot01-02：大漂亮仍在小南怀中；小南站在关闭的门内尚未回答；小帅已在小南腿边，四爪着地并仰头，尚未抬起前爪；阿诺在稍后方缓慢靠近。"
+  },
+  "frozen_moment": {
+    "description": "小帅已来到小南腿边、即将抬起前爪抱腿前的稳定四爪着地状态。",
+    "physical_boundaries": [
+      "小帅四只爪全部接触门内地面，后腿承重清楚",
+      "小帅胸腹没有贴住小南腿部，身体与小南小腿之间仍有窄小可见空隙",
+      "小帅两只前爪尚未离地或搭上小南腿部",
+      "小南双脚位置不变，裙摆与腿部保持自然垂落",
+      "入户门保持完全关闭"
+    ],
+    "forbidden_advanced_states": [
+      "小帅已经双足直立或以人类姿势站立",
+      "小帅已经抱住腿并说完台词",
+      "小南已经弯腰安慰小帅或开始回答",
+      "大漂亮已经从小南怀中下来",
+      "阿诺已经坐到小南正前方"
+    ]
+  },
+  "shot_delta": {
+    "primary_action": "小帅保持后腿和身体重量贴近地面，短暂抬起前爪抱住小南一侧小腿，仰头用颤抖语气说：“主人……如果你回不来了……我们该怎么办呀？”",
+    "secondary_actions": [
+      "说到“回不来了”时停半拍后再完成后半句",
+      "小南腿部保持不动，不通过夸张踉跄放大动作"
+    ],
+    "performance_notes": "小帅是在自信地升级悲情，不是失去常识；动作必须保持真实猫咪短暂扒腿姿态，禁止长时间双足直立和人类式搂抱。",
+    "timing": [
+      "0.0-0.7秒：小帅四爪着地仰视",
+      "0.7-1.5秒：前爪贴上小南小腿并稳定身体",
+      "1.5-5.8秒：完成台词，中间在第二个省略号处留自然停顿",
+      "5.8-6.5秒：维持悲伤表情等待回应"
+    ]
+  },
+  "end_state": {
+    "description": "小帅前爪仍贴在小南一侧小腿，后腿承重并仰头保持悲伤表情；大漂亮仍在小南怀中；阿诺已靠近到小南正前方附近但尚未坐下；门仍关闭。",
+    "next_state_anchor": "Shot01-04"
+  },
+  "required_assets": {
+    "asset_ids": [
+      "environments.玄关master2",
+      "characters.小帅-xiaoshuai-master",
+      "characters.小南-xiaonan-master",
+      "outfits.小南_周末休闲外出款",
+      "cameras.entrance-hall-camera03"
+    ],
+    "package_filenames": [
+      "environments__玄关master2.png",
+      "characters__小帅-xiaoshuai-master.png",
+      "characters__小南-xiaonan-master.png",
+      "outfits__小南_周末休闲外出款.png",
+      "cameras__entrance-hall-camera03.png"
+    ]
+  },
+  "estimated_duration": 6.5,
+  "scene_end": false,
+  "next_shot": "Shot01-04",
+  "approved_image": "episodes/EP002/production/Scene01/Shot01-03/Shot01-03_Final.png"
+}

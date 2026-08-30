@@ -1,0 +1,21 @@
+{
+  "shot1_build_returncode": 0,
+  "shot1_after_build_action": "WAIT_FOR_IMAGE_APPROVAL",
+  "shot1_previous_policy": "NONE",
+  "shot1_previous_final_uploaded": false,
+  "after_shot1_complete_current_shot": "Shot01-02",
+  "after_shot1_complete_action": "WAIT_FOR_IMAGE_APPROVAL",
+  "shot2_build_returncode": 0,
+  "shot2_previous_policy": "STATE_REFERENCE_ONLY",
+  "shot2_previous_final_exists_for_state_reference": true,
+  "shot2_previous_final_uploaded": false,
+  "shot2_image_contains_frozen_moment": true,
+  "shot2_video_contains_action_delta": true,
+  "after_scene_end_current_scene": "Scene02",
+  "after_scene_end_action": "PLAN_CURRENT_SCENE",
+  "expected": {
+    "shot1_after_build": "WAIT_FOR_IMAGE_APPROVAL",
+    "shot2_previous_final_uploaded": false,
+    "scene_end_next": "Scene02 / PLAN_CURRENT_SCENE"
+  }
+}

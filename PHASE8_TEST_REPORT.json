@@ -1,0 +1,45 @@
+{
+  "phase": "Phase8 — Workflow",
+  "project_version": "4.1.0",
+  "generated_at": "2026-08-29T03:03:16Z",
+  "python": "3.12",
+  "result": "PASS",
+  "tests_passed": 22,
+  "tests_failed": 0,
+  "checks": {
+    "compileall": "PASS",
+    "tabnanny": "PASS",
+    "unittest_discovery": "22/22 PASS",
+    "project_validation": "PASS",
+    "source_json_parse": "31/31 PASS",
+    "source_only_build_json_outputs": "7/7 PASS",
+    "ep002_source_only_build": "PASS",
+    "official_entry": "python3.12 tools/run.py",
+    "legacy_prompt_docs_in_official_build": false
+  },
+  "workflow_contract": {
+    "director_plan_is_shot_design_authority": true,
+    "shot_state_is_prompt_authority": true,
+    "runtime_state_is_progress_authority": true,
+    "python_creative_decision_allowed": false,
+    "run_py_is_only_daily_entry": true,
+    "need_new_camera_is_blocking": true,
+    "need_asset_is_blocking": true
+  },
+  "ep002_state": {
+    "current_scene_id": "Scene01",
+    "scene_status": "PLANNING",
+    "plan_status": "DRAFT",
+    "current_shot_id": "",
+    "shot_count": 0,
+    "next_action": "PLAN_CURRENT_SCENE"
+  },
+  "asset_fixture": {
+    "registry_entries": 83,
+    "root_master_images_uploaded": 0,
+    "ep002_requested_assets": 26,
+    "source_only_build_missing_assets": 26,
+    "source_only_build_ambiguous_assets": 0,
+    "phase9_real_asset_regression": "DEFERRED_UNTIL_MASTER_IMAGES_ARE_RESTORED"
+  }
+}

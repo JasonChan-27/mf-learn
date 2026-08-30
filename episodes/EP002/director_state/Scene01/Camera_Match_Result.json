@@ -1,0 +1,26 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "source_plan_revision": 1,
+  "resolutions": [
+    {
+      "shot_id": "Shot01-02",
+      "selected_camera": "cameras.entrance-hall-camera02",
+      "camera_status": "MATCH",
+      "camera_reason": "Entrance Hall Camera02 保持 Camera01 已建立的室内朝门方向，并以更紧凑的竖向中近景覆盖入户门前上半身互动区域；小南面部、抱持双臂和怀中大漂亮可共同进入主要画面，木质门与门框能够作为稳定的玄关背景，同时排除脚边小帅和地面阿诺，符合本镜的表演读取、构图和轴线要求。"
+    },
+    {
+      "shot_id": "Shot01-03",
+      "selected_camera": "cameras.entrance-hall-camera03",
+      "camera_status": "MATCH",
+      "camera_reason": "Entrance Hall Camera03 从门内同侧轴线以贴近地面的低机位观察小南脚边活动区，前景保留充足地面，可完整容纳小帅身体、着地后爪、抬起前爪与小南一侧小腿的接触关系；入户门、地垫和鞋柜仍提供明确空间锚点，能够在不越轴和不过度广角变形的条件下完成真实抱腿动作验证。"
+    },
+    {
+      "shot_id": "Shot01-05",
+      "selected_camera": "cameras.entrance-hall-camera02",
+      "camera_status": "MATCH",
+      "camera_reason": "复用 Entrance Hall Camera02 可与 Shot01-02 建立明确的视觉回环，并保持相同的室内朝门互动轴、人物尺度和玄关背景关系；其紧凑竖向画面能够同时读取小南由动容转为忍笑的面部变化、手部摸头动作和怀中大漂亮的反应，同时自然排除脚边角色，符合本镜中近景揭示笑点的构图与连续性要求。"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-02",
+  "order": 2,
+  "status": "COMPLETED",
+  "primary_function": "PERFORMANCE_SHOT",
+  "primary_focus": "大漂亮在小南怀中的认真担忧表演",
+  "coverage": "MEDIUM_CLOSE",
+  "composition_intent": "大漂亮占画面主要视觉面积并位于小南怀中上扬视线，小南的下半张脸、眼神和双臂作为关系框架进入画面；入户门或木质门框以柔焦背景维持玄关身份，小帅与阿诺完全退出画面。",
+  "information_density": "LOW",
+  "visible_characters": [
+    "大漂亮"
+  ],
+  "partial_characters": [
+    "小南"
+  ],
+  "off_screen_characters": [
+    "小帅",
+    "阿诺"
+  ],
+  "camera_state": {
+    "camera_asset": "cameras.entrance-hall-camera02",
+    "camera_status": "MATCH",
+    "movement": "LOCKED_OFF",
+    "movement_reason": "台词的笑点来自大漂亮过度认真的静态凝视与小南半拍发愣，锁定画面比推近更能保留克制观察感。",
+    "axis_status": "PRESERVED"
+  },
+  "continuity": {
+    "mode": "CAMERA_CUT_CONTINUITY",
+    "previous_frame_policy": "STATE_REFERENCE_ONLY",
+    "previous_frame_filename": "Shot01-01_Final.png",
+    "locked_facts": [
+      "Identity",
+      "Space",
+      "Lighting",
+      "Props",
+      "Action State"
+    ],
+    "change_allowed": [
+      "Coverage",
+      "Camera",
+      "Composition"
+    ]
+  },
+  "start_state": {
+    "description": "承接 Shot01-01：大漂亮已经稳定处于小南怀中，身体得到双臂支撑；小南仍站在关闭的入户门内；小帅和阿诺保持上一镜结束位置但在本镜画外。"
+  },
+  "frozen_moment": {
+    "description": "大漂亮在小南怀中稳定下来、即将开口说“主人……”之前的静止凝视。",
+    "physical_boundaries": [
+      "大漂亮胸腹由小南双臂稳定支撑，身体没有继续上升或下落",
+      "大漂亮前爪自然搭在小南手臂附近，没有挥爪或触碰小南面部",
+      "大漂亮嘴部闭合，视线向上落在小南脸部",
+      "小南双脚仍在门内地面，抱持姿势稳定，身体没有朝门外移动",
+      "入户门完全关闭"
+    ],
+    "forbidden_advanced_states": [
+      "大漂亮已经开始或已经说完离别台词",
+      "小南已经笑出声或开始回答",
+      "小帅已经抱住小南腿部并进入本镜画面",
+      "阿诺已经坐到小南正前方",
+      "入户门已经打开"
+    ]
+  },
+  "shot_delta": {
+    "primary_action": "大漂亮保持被抱住的真实猫咪姿态，认真仰视小南并说：“主人……外面的世界竞争太激烈了。你一定要注意安全。”",
+    "secondary_actions": [
+      "小南先轻微睁大眼并停顿，没有立刻回应",
+      "大漂亮在句尾维持担忧凝视，不追加夸张肢体动作"
+    ],
+    "performance_notes": "大漂亮的情绪投入必须真诚而非故意搞怪；以眼神、耳位和稳定姿态表演，不做拟人式手势。小南只给克制的意外反应。",
+    "timing": [
+      "0.0-0.6秒：怀中静止凝视",
+      "0.6-5.1秒：大漂亮自然完成两句台词",
+      "5.1-5.8秒：保留小南发愣与大漂亮认真等待的半拍"
+    ]
+  },
+  "end_state": {
+    "description": "大漂亮仍被小南稳稳抱住并保持担忧目光；小南由意外进入短暂迟疑，尚未回答；门仍关闭，小帅即将从画外抱腿。",
+    "next_state_anchor": "Shot01-03"
+  },
+  "required_assets": {
+    "asset_ids": [
+      "environments.玄关master2",
+      "characters.大漂亮-dapiaoliang-master",
+      "characters.小南-xiaonan-master",
+      "outfits.小南_周末休闲外出款",
+      "cameras.entrance-hall-camera02"
+    ],
+    "package_filenames": [
+      "environments__玄关master2.png",
+      "characters__大漂亮-dapiaoliang-master.png",
+      "characters__小南-xiaonan-master.png",
+      "outfits__小南_周末休闲外出款.png",
+      "cameras__entrance-hall-camera02.png"
+    ]
+  },
+  "estimated_duration": 5.8,
+  "scene_end": false,
+  "next_shot": "Shot01-03",
+  "approved_image": "episodes/EP002/production/Scene01/Shot01-02/Shot01-02_Final.png"
+}

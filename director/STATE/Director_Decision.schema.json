@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "Director_Decision.schema.json",
+  "title": "CatDrama V4.1 Shot Director Decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "episode_id",
+    "scene_id",
+    "shot_id",
+    "primary_function",
+    "secondary_effect",
+    "narrative_purpose",
+    "audience_feeling",
+    "information_gain",
+    "why_this_shot",
+    "why_not_previous_shot",
+    "coverage_reason",
+    "camera_reason",
+    "camera_motion_reason",
+    "continuity_reason",
+    "freeze_reason"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "4.1"
+    },
+    "episode_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scene_id": {
+      "type": "string",
+      "pattern": "^Scene\\d{2}$"
+    },
+    "shot_id": {
+      "type": "string",
+      "pattern": "^Shot\\d{2}-\\d{2}$"
+    },
+    "primary_function": {
+      "type": "string",
+      "minLength": 1
+    },
+    "secondary_effect": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "narrative_purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "audience_feeling": {
+      "type": "string",
+      "minLength": 1
+    },
+    "information_gain": {
+      "type": "string",
+      "minLength": 1
+    },
+    "why_this_shot": {
+      "type": "string",
+      "minLength": 1
+    },
+    "why_not_previous_shot": {
+      "type": "string",
+      "minLength": 1
+    },
+    "coverage_reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "camera_reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "camera_motion_reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "continuity_reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "freeze_reason": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

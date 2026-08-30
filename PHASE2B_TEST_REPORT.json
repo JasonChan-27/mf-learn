@@ -1,0 +1,39 @@
+{
+  "reset_returncode": 0,
+  "reset_stdout": "/mnt/data/v41_phase2b_test/build/EP002\n\nDirector Runtime\n{\n  \"schema_version\": \"4.1\",\n  \"episode_id\": \"EP002\",\n  \"current_scene_id\": \"Scene01\",\n  \"current_shot_id\": \"\",\n  \"director_session_mode\": \"PROMPT_ONLY\",\n  \"scene_status\": \"PLANNING\",\n  \"next_action\": \"PLAN_CURRENT_SCENE\",\n  \"pending_director_plan\": null,\n  \"pending_director_qa\": null,\n  \"last_event\": \"EPISODE_INITIALIZED_WAIT_DIRECTOR\",\n  \"updated_at\": \"2026-08-23T10:52:14+00:00\"\n}\n\nNext: GPT Director Planning\nCurrent Scene: Scene01\nShot Count: 0（尚未由导演决定）\n\nGenerated:\nepisodes/EP002/director_state/Scene01/SCENE_PLANNING_REQUEST.md\nepisodes/EP002/director_state/Scene01/Scene_Director_Plan_TEMPLATE.json\n\n操作：\n1. 新建/进入导演规划对话。\n2. 上传最新 Production Package。\n3. 发送 episodes/EP002/director_state/Scene01/SCENE_PLANNING_REQUEST.md 的完整内容。\n4. 将 GPT 返回的纯 JSON 保存为 Scene_Director_Plan_RESULT.json。\n5. Phase3 将提供正式 Director Plan Import 命令。\n",
+  "reset_stderr": "Spreadsheet runtime warmup failed during python startup\nTraceback (most recent call last):\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py\", line 26, in warm_spreadsheet_runtime_on_startup\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py\", line 785, in warm_spreadsheet_runtime\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py\", line 720, in _warm_feature_flows\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py\", line 704, in _warm_collaboration_flows\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/generated/interface/models.py\", line 32317, in hydrate_crdt_from_proto\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/remote.py\", line 749, in __call__\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/client.py\", line 150, in call\nartifact_tool.rpc.client.RemoteError: hydrateCrdtFromProto requires an empty collaborative document.\nSpreadsheet runtime warmup failed during python startup\nTraceback (most recent call last):\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py\", line 26, in warm_spreadsheet_runtime_on_startup\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py\", line 785, in warm_spreadsheet_runtime\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py\", line 720, in _warm_feature_flows\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py\", line 704, in _warm_collaboration_flows\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/generated/interface/models.py\", line 32317, in hydrate_crdt_from_proto\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/remote.py\", line 749, in __call__\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/client.py\", line 150, in call\nartifact_tool.rpc.client.RemoteError: hydrateCrdtFromProto requires an empty collaborative document.\n",
+  "status_returncode": 0,
+  "normal_returncode": 0,
+  "runtime": {
+    "schema_version": "4.1",
+    "episode_id": "EP002",
+    "current_scene_id": "Scene01",
+    "current_shot_id": "",
+    "director_session_mode": "PROMPT_ONLY",
+    "scene_status": "PLANNING",
+    "next_action": "PLAN_CURRENT_SCENE",
+    "pending_director_plan": null,
+    "pending_director_qa": null,
+    "last_event": "EPISODE_INITIALIZED_WAIT_DIRECTOR",
+    "updated_at": "2026-08-23T10:52:14+00:00"
+  },
+  "scene_count": 12,
+  "scene01": {
+    "schema_version": "4.1",
+    "episode_id": "EP002",
+    "scene_id": "Scene01",
+    "scene_number": 1,
+    "scene_title": "玄关｜离别演技",
+    "plan_status": "DRAFT",
+    "status": "PLANNING",
+    "shot_count": 0,
+    "shots": [],
+    "next_scene": "Scene02",
+    "updated_at": "2026-08-23T10:52:14+00:00"
+  },
+  "shot_state_files_created": [],
+  "planning_request_exists": true,
+  "planning_template_exists": true,
+  "normal_stdout_contains_planning": true,
+  "new_production_shot_dirs_detected": []
+}

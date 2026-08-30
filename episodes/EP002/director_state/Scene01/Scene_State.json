@@ -1,0 +1,20 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "scene_number": 1,
+  "scene_title": "玄关｜离别演技",
+  "plan_status": "LOCKED",
+  "status": "COMPLETED",
+  "shot_count": 6,
+  "shots": [
+    "Shot01-01",
+    "Shot01-02",
+    "Shot01-03",
+    "Shot01-04",
+    "Shot01-05",
+    "Shot01-06"
+  ],
+  "next_scene": "Scene02",
+  "updated_at": "2026-08-29T20:25:44+00:00"
+}

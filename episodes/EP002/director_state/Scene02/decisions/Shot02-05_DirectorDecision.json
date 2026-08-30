@@ -1,0 +1,18 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-05",
+  "primary_function": "REVEAL_SHOT",
+  "secondary_effect": "COMEDY_TIMING_SHOT",
+  "narrative_purpose": "用门锁声瞬间截断三猫各自的放松状态，并让入户门打开窄缝，在小南尚未入画前建立即将被撞见的悬停。",
+  "audience_feeling": "因突如其来的门锁声紧张一拍，并从可见两猫急停和画外脚步骤停中预感三猫即将被抓现行。",
+  "information_gain": "门外有人正在重新开门，三只猫已经来不及恢复离别演技。",
+  "why_this_shot": "门锁声和同步急停是独立的节奏断点；先让门打开但不提前显示小南，可以完整保存三猫受惊状态，并让下一镜为小南提供已映射资产的可执行首帧。",
+  "why_not_previous_shot": "上一镜需要完整保留阿诺的慢节奏独白；若门锁声在独白镜头中提前发生，会压缩第三个角色揭示，也无法给三猫完全放松后的骤停留出独立节拍。",
+  "coverage_reason": "中广景能同时验证大漂亮的舞姿、阿诺的伸展姿势和入户门从关闭到打开的变化；小帅已在室内画外，以奔跑脚步突然停止完成同步反应，不制造不可能的画面位置连续性。",
+  "camera_reason": "Camera01 已在上一镜锁定阿诺、大漂亮和关闭门的分层位置，继续使用可在不改变主轴和构图的前提下记录门锁打断、画内急停和门打开；小南不在本镜入画，因此不存在角色资产缺失。",
+  "camera_motion_reason": "镜头必须像固定观察者一样让动作被突然截停，锁定构图才能产生“现场证据”式喜剧；任何推拉或摇移都会削弱急停同步性。",
+  "continuity_reason": "SAME_CAMERA_CONTINUATION / HIGH_PRIORITY_VISUAL_CONTINUITY",
+  "freeze_reason": "阿诺与大漂亮完全放松，小帅的奔跑声位于画外，门锁尚未发出声音的最后一个稳定瞬间。"
+}

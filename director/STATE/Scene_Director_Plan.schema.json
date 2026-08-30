@@ -1,0 +1,514 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "Scene_Director_Plan.schema.json",
+  "title": "CatDrama V4.1 Scene Director Plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "episode_id",
+    "scene_id",
+    "revision",
+    "plan_status",
+    "scene_director_decision",
+    "scene_assets",
+    "shots",
+    "scene_end_state",
+    "next_scene"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "4.1"
+    },
+    "episode_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scene_id": {
+      "type": "string",
+      "pattern": "^Scene\\d{2}$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "plan_status": {
+      "const": "LOCKED"
+    },
+    "scene_director_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scene_goal",
+        "narrative_change",
+        "primary_character",
+        "secondary_characters",
+        "audience_start_state",
+        "audience_end_state",
+        "emotion_curve",
+        "information_curve",
+        "rhythm_strategy",
+        "primary_style",
+        "secondary_style",
+        "scene_visual_strategy",
+        "scene_camera_strategy",
+        "scene_end_intent"
+      ],
+      "properties": {
+        "scene_goal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "narrative_change": {
+          "type": "string",
+          "minLength": 1
+        },
+        "primary_character": {
+          "type": "string",
+          "minLength": 1
+        },
+        "secondary_characters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "audience_start_state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "audience_end_state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "emotion_curve": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "information_curve": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "rhythm_strategy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "primary_style": {
+          "type": "string",
+          "minLength": 1
+        },
+        "secondary_style": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scene_visual_strategy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scene_camera_strategy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scene_end_intent": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "scene_assets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "environment_asset",
+        "character_assets",
+        "outfit_assets",
+        "prop_assets"
+      ],
+      "properties": {
+        "environment_asset": {
+          "type": "string",
+          "minLength": 1
+        },
+        "character_assets": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "outfit_assets": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "prop_assets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "shots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/shot"
+      }
+    },
+    "scene_end_state": {
+      "type": "object",
+      "required": [
+        "description"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "next_scene": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^Scene\\d{2}$"
+        },
+        {
+          "const": "EPISODE_END"
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "shot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shot_id",
+        "order",
+        "primary_function",
+        "secondary_effect",
+        "narrative_purpose",
+        "audience_feeling",
+        "information_gain",
+        "why_this_shot",
+        "why_not_previous_shot",
+        "primary_focus",
+        "secondary_focus",
+        "coverage",
+        "coverage_reason",
+        "composition_intent",
+        "information_density",
+        "visible_characters",
+        "partial_characters",
+        "off_screen_characters",
+        "camera_requirement",
+        "selected_camera",
+        "camera_status",
+        "camera_reason",
+        "camera_motion",
+        "camera_motion_reason",
+        "axis_status",
+        "continuity_mode",
+        "previous_frame_policy",
+        "start_state",
+        "frozen_moment",
+        "shot_delta",
+        "end_state",
+        "estimated_duration",
+        "scene_end",
+        "next_shot"
+      ],
+      "properties": {
+        "shot_id": {
+          "type": "string",
+          "pattern": "^Shot\\d{2}-\\d{2}$"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "primary_function": {
+          "type": "string",
+          "minLength": 1
+        },
+        "secondary_effect": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "narrative_purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "audience_feeling": {
+          "type": "string",
+          "minLength": 1
+        },
+        "information_gain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why_this_shot": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why_not_previous_shot": {
+          "type": "string",
+          "minLength": 1
+        },
+        "primary_focus": {
+          "type": "string",
+          "minLength": 1
+        },
+        "secondary_focus": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "coverage": {
+          "enum": [
+            "EXTREME_WIDE",
+            "WIDE",
+            "MEDIUM_WIDE",
+            "MEDIUM",
+            "MEDIUM_CLOSE",
+            "CLOSE",
+            "EXTREME_CLOSE",
+            "INSERT"
+          ]
+        },
+        "coverage_reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "composition_intent": {
+          "type": "string",
+          "minLength": 1
+        },
+        "information_density": {
+          "enum": [
+            "LOW",
+            "MEDIUM",
+            "HIGH"
+          ]
+        },
+        "visible_characters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "partial_characters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "off_screen_characters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "camera_requirement": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "purpose",
+            "scale",
+            "subject_zone",
+            "axis_requirement",
+            "lens_intent"
+          ],
+          "properties": {
+            "purpose": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scale": {
+              "type": "string",
+              "minLength": 1
+            },
+            "subject_zone": {
+              "type": "string",
+              "minLength": 1
+            },
+            "axis_requirement": {
+              "type": "string",
+              "minLength": 1
+            },
+            "lens_intent": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "selected_camera": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "camera_status": {
+          "enum": [
+            "MATCH",
+            "PARTIAL_MATCH",
+            "NEED_NEW_CAMERA"
+          ]
+        },
+        "camera_reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "camera_motion": {
+          "enum": [
+            "LOCKED_OFF",
+            "SLOW_PUSH_IN",
+            "SLOW_PULL_OUT",
+            "PAN",
+            "TILT",
+            "TRACK",
+            "HANDHELD_MICRO"
+          ]
+        },
+        "camera_motion_reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "axis_status": {
+          "enum": [
+            "PRESERVED",
+            "NEW_AXIS_ESTABLISHED"
+          ]
+        },
+        "continuity_mode": {
+          "enum": [
+            "SAME_CAMERA_CONTINUATION",
+            "CAMERA_CUT_CONTINUITY"
+          ]
+        },
+        "previous_frame_policy": {
+          "enum": [
+            "NONE",
+            "STATE_REFERENCE_ONLY",
+            "HIGH_PRIORITY_VISUAL_CONTINUITY"
+          ]
+        },
+        "start_state": {
+          "type": "object",
+          "required": [
+            "description"
+          ],
+          "properties": {
+            "description": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        },
+        "frozen_moment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "description",
+            "physical_boundaries",
+            "forbidden_advanced_states"
+          ],
+          "properties": {
+            "description": {
+              "type": "string",
+              "minLength": 1
+            },
+            "physical_boundaries": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "forbidden_advanced_states": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "shot_delta": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "primary_action",
+            "secondary_actions",
+            "performance_notes",
+            "timing"
+          ],
+          "properties": {
+            "primary_action": {
+              "type": "string",
+              "minLength": 1
+            },
+            "secondary_actions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "performance_notes": {
+              "type": "string"
+            },
+            "timing": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "end_state": {
+          "type": "object",
+          "required": [
+            "description"
+          ],
+          "properties": {
+            "description": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        },
+        "estimated_duration": {
+          "type": "number",
+          "minimum": 0.1
+        },
+        "scene_end": {
+          "type": "boolean"
+        },
+        "next_shot": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

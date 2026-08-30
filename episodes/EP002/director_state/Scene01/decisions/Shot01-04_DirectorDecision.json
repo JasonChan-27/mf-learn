@@ -1,0 +1,18 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-04",
+  "primary_function": "CHARACTER_REVEAL",
+  "secondary_effect": "COMEDY_ESCALATION",
+  "narrative_purpose": "让阿诺以端正坐姿和正式承诺完成三猫离别演技的最高点，同时重新建立完整群体关系，让小南的短暂感动有可见对象。",
+  "audience_feeling": "感到一本正经的荒诞，同时接受三只猫确实关心小南。",
+  "information_gain": "阿诺自然承担大家长角色，三只猫形成完整的情绪与行动层级，小南也被这套集体表演短暂打动。",
+  "why_this_shot": "阿诺的喜剧价值来自他与怀中大漂亮、腿边小帅组成的完整家庭构图，必须回到空间关系清楚的群像才能读出“照顾他们两个”的指代和一本正经反差。",
+  "why_not_previous_shot": "上一镜只覆盖脚边小帅，阿诺和怀中大漂亮均在画外，无法建立承诺对象、三猫层级与小南对整体的反应；继续低位单猫覆盖会丢失台词关系。",
+  "coverage_reason": "中大全景能够同时容纳小南、怀中大漂亮、腿边小帅和正前方阿诺，并保留门与换鞋区以维持人物指向和场景地理。",
+  "camera_reason": "Camera01 的门内正向低位中大全景正好恢复完整玄关群体关系，并与首镜共享明确轴线和空间比例。",
+  "camera_motion_reason": "阿诺的笑点依赖端正坐下后像正式负责人一样稳定发言，固定镜头让其严肃姿态与另外两猫的夸张悲伤形成可观察反差。",
+  "continuity_reason": "CAMERA_CUT_CONTINUITY / STATE_REFERENCE_ONLY",
+  "freeze_reason": "阿诺已经走到小南正前方、即将收腿端正坐下之前的稳定站立瞬间。"
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene11",
+  "scene_number": 11,
+  "scene_title": "餐厅｜蛋糕危机",
+  "plan_status": "DRAFT",
+  "status": "PLANNING",
+  "shot_count": 0,
+  "shots": [],
+  "next_scene": "Scene12",
+  "updated_at": "2026-08-23T10:58:45+00:00"
+}

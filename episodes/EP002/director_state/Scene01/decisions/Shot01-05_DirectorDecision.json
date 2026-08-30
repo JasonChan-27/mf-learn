@@ -1,0 +1,18 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-05",
+  "primary_function": "EMOTIONAL_SHOT",
+  "secondary_effect": "COMEDY_TURN",
+  "narrative_purpose": "让小南从短暂感动转为忍笑，以摸头回应三猫的心意，再用“只是出去取个快递”完成生活化真相揭示。",
+  "audience_feeling": "先感到温柔，随即因巨大情绪落差发笑。",
+  "information_gain": "观众得到 Scene 的关键真相：小南不会远行，只是短暂取快递，三只猫此前的悲情规模完全过度。",
+  "why_this_shot": "真相需要落在小南的细微表情变化、摸头动作和大漂亮的近距离接收反应上，才能同时保留家庭温度与反差，而不是把揭示处理成宽景中的信息播报。",
+  "why_not_previous_shot": "上一镜必须容纳四个角色以完成阿诺的群体承诺，信息密度过高，无法精确读取小南从感动一秒到忍不住笑的渐变，也会削弱摸头与真相台词的亲密感。",
+  "coverage_reason": "中近景可覆盖小南面部、上身、抱持双臂和大漂亮头部，让情绪渐变、摸头接触与两句台词同时可读，并主动排除脚边复杂动作。",
+  "camera_reason": "复用 Entrance Hall Camera02 可与 Shot01-02 建立明确的视觉回环，并保持相同的室内朝门互动轴、人物尺度和玄关背景关系；其紧凑竖向画面能够同时读取小南由动容转为忍笑的面部变化、手部摸头动作和怀中大漂亮的反应，同时自然排除脚边角色，符合本镜中近景揭示笑点的构图与连续性要求。",
+  "camera_motion_reason": "小南先动容、再忍笑、最后平静揭示的表演需要稳定观察，额外推近会把生活化反差处理得过度煽情。",
+  "continuity_reason": "CAMERA_CUT_CONTINUITY / STATE_REFERENCE_ONLY",
+  "freeze_reason": "小南被三猫打动一秒、笑意尚未明显出现且手尚未开始摸大漂亮头部的稳定瞬间。"
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-01",
+  "compiler_mode": "PURE_STATE_TRANSLATION",
+  "creative_decision_allowed": false,
+  "source_state_sha256": "538c041784cd7d0404383e19d4f6457e47cc977e7d0170323522e5428a79b8ac",
+  "image_prompt_sha256": "fb800d62d63b45f29e02fc86d19c29912cd8243a68d3af7191441c89d89282e8",
+  "video_prompt_sha256": "6d8f51b829e7f2ac49d947824cc146b655dcc69f9ea6e43e58563dcd7c2bff05",
+  "handoff_sha256": "50ae66731151599b93fcb0d89242f4454039002d250876cae8b229968eb6a7e2",
+  "locked_fields": [
+    "episode_id",
+    "scene_id",
+    "shot_id",
+    "primary_function",
+    "primary_focus",
+    "coverage",
+    "composition_intent",
+    "information_density",
+    "visible_characters",
+    "partial_characters",
+    "off_screen_characters",
+    "camera_state",
+    "continuity",
+    "start_state",
+    "frozen_moment",
+    "shot_delta",
+    "end_state",
+    "estimated_duration"
+  ]
+}

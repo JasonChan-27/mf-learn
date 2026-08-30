@@ -1,0 +1,106 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-01",
+  "order": 1,
+  "status": "COMPLETED",
+  "primary_function": "INFORMATION_SHOT",
+  "primary_focus": "小南准备出门与三只猫同时改变注意力",
+  "coverage": "MEDIUM_WIDE",
+  "composition_intent": "入户门作为后景中心和离开信号，小南位于门前主要纵轴；三只猫在前中景形成不均匀三角分布，大漂亮离小南最近，小帅稍后，阿诺最稳；大漂亮启动后成为画面内唯一快速移动主体，其余角色保持清楚但不争抢注意力。",
+  "information_density": "HIGH",
+  "visible_characters": [
+    "小南",
+    "大漂亮",
+    "小帅",
+    "阿诺"
+  ],
+  "partial_characters": [],
+  "off_screen_characters": [],
+  "camera_state": {
+    "camera_asset": "cameras.entrance-hall-camera01",
+    "camera_status": "MATCH",
+    "movement": "LOCKED_OFF",
+    "movement_reason": "开场需要先锁定空间并让三猫同步变脸与大漂亮的冲刺在稳定画面内形成反差，移动摄影会削弱位置认知和喜剧突变。",
+    "axis_status": "NEW_AXIS_ESTABLISHED"
+  },
+  "continuity": {
+    "mode": "CAMERA_CUT_CONTINUITY",
+    "previous_frame_policy": "NONE",
+    "previous_frame_filename": null,
+    "locked_facts": [
+      "Identity",
+      "Space",
+      "Lighting",
+      "Props",
+      "Action State"
+    ],
+    "change_allowed": [
+      "Coverage",
+      "Camera",
+      "Composition"
+    ]
+  },
+  "start_state": {
+    "description": "下午的玄关，入户门关闭；小南已穿周末休闲外出款并站在门前准备离开，三只猫在室内地面各自处于自然玩耍或休息后的稳定位置，尚未进入离别表演。"
+  },
+  "frozen_moment": {
+    "description": "三只猫刚刚发现小南准备离开的最后一个稳定瞬间，注意力已转向小南但集体表演尚未启动。",
+    "physical_boundaries": [
+      "入户门完全关闭，门扇与门框贴合，门把手未被小南按下",
+      "小南双脚都在室内地面，身体朝向门，双手尚未抱猫",
+      "大漂亮四爪全部接触地面，与小南身体之间仍有清楚可见的空隙",
+      "小帅四爪全部接触地面，前爪尚未触碰小南腿部",
+      "阿诺身体保持在原地，尚未走到小南正前方坐下"
+    ],
+    "forbidden_advanced_states": [
+      "大漂亮已经离地、被抱起或进入小南怀中",
+      "小帅已经抱住小南的腿",
+      "阿诺已经端正坐在小南面前",
+      "小南已经打开入户门或跨出门外",
+      "任一角色已经开始说出台词"
+    ]
+  },
+  "shot_delta": {
+    "primary_action": "三只猫的视线几乎同时锁定小南，身体状态从松散迅速变得专注；大漂亮第一个冲到小南脚边并真实起跳，小南顺势弯身接住它，让它稳定进入怀中。",
+    "secondary_actions": [
+      "小帅从原位置靠近一步但仍未抱腿，为下一镜保留动作起点",
+      "阿诺抬头观察并缓慢起身，但尚未走到小南正前方"
+    ],
+    "performance_notes": "变化要像猫咪捕捉到熟悉离家信号后的自然集体反应；大漂亮投入最快，但动作仍是写实猫咪起跳，不使用拟人站立或动画式夸张。",
+    "timing": [
+      "0.0-0.8秒：小南整理离开状态，三猫保持分散",
+      "0.8-1.5秒：三猫同时抬眼并锁定小南，留半拍气氛突变",
+      "1.5-3.8秒：大漂亮冲近、起跳，小南弯身接住并恢复稳定站姿"
+    ]
+  },
+  "end_state": {
+    "description": "大漂亮被小南稳定抱在怀中并正面关注她；小帅已靠近小南腿边但双前爪仍在地面；阿诺已起身，仍在稍后方；入户门保持关闭。",
+    "next_state_anchor": "Shot01-02"
+  },
+  "required_assets": {
+    "asset_ids": [
+      "environments.玄关master2",
+      "characters.小南-xiaonan-master",
+      "characters.大漂亮-dapiaoliang-master",
+      "characters.小帅-xiaoshuai-master",
+      "characters.阿诺-arno-master",
+      "outfits.小南_周末休闲外出款",
+      "cameras.entrance-hall-camera01"
+    ],
+    "package_filenames": [
+      "environments__玄关master2.png",
+      "characters__小南-xiaonan-master.png",
+      "characters__大漂亮-dapiaoliang-master.png",
+      "characters__小帅-xiaoshuai-master.png",
+      "characters__阿诺-arno-master.png",
+      "outfits__小南_周末休闲外出款.png",
+      "cameras__entrance-hall-camera01.png"
+    ]
+  },
+  "estimated_duration": 3.8,
+  "scene_end": false,
+  "next_shot": "Shot01-02",
+  "approved_image": "episodes/EP002/production/Scene01/Shot01-01/Shot01-01_Final.png"
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-06",
+  "primary_function": "COMEDY_TIMING_SHOT",
+  "secondary_effect": "SCENE_EXIT",
+  "narrative_purpose": "用完整群像展示三猫被真相同时冻住、默默收回各自表演，再让小南叮嘱并关门离开，完成笑点 Payoff 和 Scene02 的连续性入口。",
+  "audience_feeling": "在尴尬静默中发笑，并自然期待门后反转。",
+  "information_gain": "三只猫的悲伤迅速失去支点：大漂亮下地、小帅松爪、阿诺只剩严肃坐姿；小南最终确实离开且门完全关闭。",
+  "why_this_shot": "笑点必须由三只猫同一时刻的僵住和依次撤回动作共同完成，并且门的开启、人物离开与关闭需要可验证的空间全貌，宽一些的稳定群像是 Scene 收束所必需。",
+  "why_not_previous_shot": "上一镜只聚焦小南与怀中大漂亮，无法同时看到小帅松爪、阿诺维持严肃、三猫集体尴尬以及门从关闭到再次关闭的完整结果；继续中近景会丢失 Payoff 和下一 Scene 的物理起点。",
+  "coverage_reason": "中大全景可以同时容纳四个角色、入户门和门内地面，让集体停顿、三个不同撤回动作及门的最终关闭都在同一稳定空间中可验证。",
+  "camera_reason": "Camera01 同时覆盖门体、门前完整人物和三猫地面区域，且与 Scene 开场共享构图基准，最适合完成集体尴尬 Payoff 与门关闭的连续性校验。",
+  "camera_motion_reason": "尴尬笑点依赖空气凝固和角色缓慢撤回，固定机位能把停顿留给观众；门的关闭也无需跟随即可清楚完成。",
+  "continuity_reason": "CAMERA_CUT_CONTINUITY / STATE_REFERENCE_ONLY",
+  "freeze_reason": "“只是取个快递”真相落地后，三只猫同时僵住且尚未撤回任何表演动作的集体静止瞬间。"
+}

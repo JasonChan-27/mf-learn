@@ -1,0 +1,117 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_count": 12,
+  "scenes": [
+    {
+      "scene_id": "Scene01",
+      "scene_number": 1,
+      "scene_title": "玄关｜离别演技",
+      "plan_status": "LOCKED",
+      "status": "COMPLETED",
+      "shot_count": 6,
+      "path": "Scene01/Scene_State.json"
+    },
+    {
+      "scene_id": "Scene02",
+      "scene_number": 2,
+      "scene_title": "玄关｜主人离开后的真实状态",
+      "plan_status": "LOCKED",
+      "status": "PRODUCTION",
+      "shot_count": 6,
+      "path": "Scene02/Scene_State.json"
+    },
+    {
+      "scene_id": "Scene03",
+      "scene_number": 3,
+      "scene_title": "客厅｜发现主人的“烦恼”",
+      "plan_status": "DRAFT",
+      "status": "PLANNING",
+      "shot_count": 0,
+      "path": "Scene03/Scene_State.json"
+    },
+    {
+      "scene_id": "Scene04",
+      "scene_number": 4,
+      "scene_title": "客厅｜决定帮助主人",
+      "plan_status": "DRAFT",
+      "status": "PLANNING",
+      "shot_count": 0,
+      "path": "Scene04/Scene_State.json"
+    },
+    {
+      "scene_id": "Scene05",
+      "scene_number": 5,
+      "scene_title": "餐厅｜第一次猫咪吃播",
+      "plan_status": "DRAFT",
+      "status": "PLANNING",
+      "shot_count": 0,
+      "path": "Scene05/Scene_State.json"
+    },
+    {
+      "scene_id": "Scene06",
+      "scene_number": 6,
+      "scene_title": "小佳视角｜无法理解的直播",
+      "plan_status": "DRAFT",
+      "status": "PLANNING",
+      "shot_count": 0,
+      "path": "Scene06/Scene_State.json"
+    },
+    {
+      "scene_id": "Scene07",
+      "scene_number": 7,
+      "scene_title": "餐厅｜直播结束",
+      "plan_status": "DRAFT",
+      "status": "PLANNING",
+      "shot_count": 0,
+      "path": "Scene07/Scene_State.json"
+    },
+    {
+      "scene_id": "Scene08",
+      "scene_number": 8,
+      "scene_title": "玄关｜小南回来",
+      "plan_status": "DRAFT",
+      "status": "PLANNING",
+      "shot_count": 0,
+      "path": "Scene08/Scene_State.json"
+    },
+    {
+      "scene_id": "Scene09",
+      "scene_number": 9,
+      "scene_title": "客厅｜真相揭晓",
+      "plan_status": "DRAFT",
+      "status": "PLANNING",
+      "shot_count": 0,
+      "path": "Scene09/Scene_State.json"
+    },
+    {
+      "scene_id": "Scene10",
+      "scene_number": 10,
+      "scene_title": "客厅｜奖励蛋糕",
+      "plan_status": "DRAFT",
+      "status": "PLANNING",
+      "shot_count": 0,
+      "path": "Scene10/Scene_State.json"
+    },
+    {
+      "scene_id": "Scene11",
+      "scene_number": 11,
+      "scene_title": "餐厅｜蛋糕危机",
+      "plan_status": "DRAFT",
+      "status": "PLANNING",
+      "shot_count": 0,
+      "path": "Scene11/Scene_State.json"
+    },
+    {
+      "scene_id": "Scene12",
+      "scene_number": 12,
+      "scene_title": "餐厅｜贪吃的代价",
+      "plan_status": "DRAFT",
+      "status": "PLANNING",
+      "shot_count": 0,
+      "path": "Scene12/Scene_State.json"
+    }
+  ],
+  "runtime_state": "Runtime_State.json",
+  "updated_at": "2026-08-30T05:06:07+00:00"
+}

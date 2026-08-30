@@ -1,0 +1,19 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-04",
+  "package_version": "v001",
+  "package_dir": "episodes/EP002/production/Scene01/Shot01-04/packages/v001",
+  "package_input_sha256": "9ed19889e7eac2930a85d145282ac9a68f271f61d33383cbcd57f79c050dd3bb",
+  "package_filenames": [
+    "environments__玄关master2.png",
+    "characters__小南-xiaonan-master.png",
+    "characters__大漂亮-dapiaoliang-master.png",
+    "characters__小帅-xiaoshuai-master.png",
+    "characters__阿诺-arno-master.png",
+    "outfits__小南_周末休闲外出款.png",
+    "cameras__entrance-hall-camera01.png"
+  ],
+  "updated_at": "2026-08-29T20:05:28+00:00"
+}

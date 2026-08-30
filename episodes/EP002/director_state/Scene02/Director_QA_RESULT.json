@@ -1,0 +1,37 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "result": "PASS",
+  "scene_score": 91,
+  "dimension_scores": {
+    "narrative_coverage": 90,
+    "shot_necessity": 92,
+    "visual_differentiation": 86,
+    "camera_and_motion": 94,
+    "continuity": 94,
+    "frozen_moment": 95,
+    "rhythm": 89
+  },
+  "issues": [
+    {
+      "severity": "MINOR",
+      "shot_ids": ["Shot02-05", "Shot02-06"],
+      "category": "OFFSCREEN_AUDIO_READABILITY",
+      "problem": "小帅的急停与移开视线保持在画外，钥匙也被有意放在画外；叙事可通过脚步骤停、小南扫向画外的视线、伸手动作和钥匙轻响成立，但最终可读性依赖这些声音及视线提示在下游 VIDEO PROMPT 和剪辑中被保留。",
+      "required_change": "下游 Prompt 编译和后期剪辑必须保留 Shot02-05 的画外脚步骤停，以及 Shot02-06 的画外方向扫视和钥匙轻响；钥匙本体与小帅均不得为了增强可读性而被临时重新加入画面。"
+    }
+  ],
+  "approved_strengths": [
+    "Scene Goal、三只猫的真实动机、小南折返、确认被抓现行以及 Scene03 交接均被完整覆盖，Confirmed Script 的事件顺序和对白保持不变。",
+    "六个 Shot 各自承担安静确认、舞蹈揭示、食物动机、阿诺反差、门锁打断和反应收尾，没有仅因微小动作变化而拆镜。",
+    "Shot02-03 让小帅完成起跑后真实退出构图，Shot02-04 至 Shot02-06 始终将其保持在厨房方向画外，已经消除上一版本跨越长镜头仍停留于原边缘位置的物理矛盾。",
+    "Shot02-04 将阿诺设为唯一主要表演，大漂亮只承担低幅度边缘连续性，小帅完全画外，生成负荷已降至可执行水平。",
+    "Shot02-05 使用 SAME_CAMERA_CONTINUATION 与 HIGH_PRIORITY_VISUAL_CONTINUITY 延续阿诺、大漂亮和门的精确状态；Shot02-06 改用 CAMERA_CUT_CONTINUITY 与 STATE_REFERENCE_ONLY，使小南首次可见时能够正确打包 Character Master 与 Outfit Master。",
+    "所有 Camera 均服务明确叙事目的，Camera01 和 Camera03 保持既定室内朝门轴线，LOCKED_OFF 与观察式轻喜剧、真实猫体动作和冻结笑点一致，不存在 Camera Library 缺口。",
+    "各镜 Frozen Moment 均早于本镜核心动作，physical_boundaries 可见可验，forbidden_advanced_states 能阻止舞步、起跑、伸展、开门、取物与对白提前发生。",
+    "未登记钥匙通过始终画外的取物设计处理，静态画面明确禁止出现钥匙，因此 scene_assets.prop_assets 为空不再构成可见道具映射违规。",
+    "Shot02-05 与 Shot02-06 虽连续使用 Camera01 中广景，但前者承担声音打断、同步急停和空门缝悬停，后者承担小南出现、沉默反应、取物对白和关门，视觉相似具有喜剧连续性理由。"
+  ],
+  "replan_instruction": null
+}

@@ -1,0 +1,39 @@
+{
+  "phase": "Phase7 Deterministic Shot Package Builder",
+  "tested_at": "2026-08-29",
+  "python": "3.12",
+  "unit_tests": {
+    "command": "python3.12 -m unittest discover -s tests -p 'test_*.py' -v",
+    "test_count": 16,
+    "result": "PASS",
+    "phase7_coverage": [
+      "Builder consumes locked Runtime, Scene State and Shot State",
+      "Production Runtime no longer compiles prompts or assembles packages",
+      "Only required assets are copied to upload",
+      "Registered-but-missing source files block as NEED_ASSET",
+      "Asset SHA256 mismatch blocks as NEED_ASSET",
+      "Collision-safe upload filenames",
+      "STATE_REFERENCE_ONLY does not copy Previous Final",
+      "HIGH_PRIORITY_VISUAL_CONTINUITY copies Previous Final",
+      "Versioned v001/v002 packages without overwrite",
+      "Identical complete input reuses current package",
+      "Corrupted package creates a new version",
+      "Package, prompt and source hashes are recorded"
+    ]
+  },
+  "builder_contract": {
+    "builder_mode": "DETERMINISTIC_STATE_BUILDER",
+    "creative_decision_allowed": false,
+    "reads_director_decision": false,
+    "state_authority": "Shot_State.json",
+    "runtime_entry": "tools/run.py"
+  },
+  "asset_test_context": {
+    "registry_entries_preserved": 83,
+    "root_master_images_in_delivery": false,
+    "real_asset_copy_regression": "DEFERRED_UNTIL_MASTER_FILES_ARE_RESTORED",
+    "isolated_fixture_asset_copy": "PASS",
+    "missing_source_blocker": "PASS"
+  },
+  "next_phase": "Phase8 Workflow"
+}

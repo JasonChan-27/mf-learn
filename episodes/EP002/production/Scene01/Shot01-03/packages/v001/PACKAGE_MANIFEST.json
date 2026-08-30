@@ -1,0 +1,59 @@
+{
+  "schema_version": "4.1",
+  "builder_mode": "DETERMINISTIC_STATE_BUILDER",
+  "creative_decision_allowed": false,
+  "reads_director_decision": false,
+  "state_authority": "Shot_State.json",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-03",
+  "package_version": "v001",
+  "package_input_sha256": "af7def98a36ee86358bf4829cd3d420c60d098218c98eac0a3baf6656244e1a3",
+  "package_input": {
+    "builder_mode": "DETERMINISTIC_STATE_BUILDER",
+    "prompt_source_state_sha256": "22f65b31494f2853ac76dad6f90c5d07be4008b21c9178ea0f39d935bcf06a1b",
+    "assets": [
+      {
+        "asset_id": "environments.玄关master2",
+        "source_sha256": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+        "upload_filename": "environments__玄关master2.png"
+      },
+      {
+        "asset_id": "characters.小帅-xiaoshuai-master",
+        "source_sha256": "b9a0c2ec75871044d8d73ba47d898c9ff8a51b453d546b88c9a5932371cc25ea",
+        "upload_filename": "characters__小帅-xiaoshuai-master.png"
+      },
+      {
+        "asset_id": "characters.小南-xiaonan-master",
+        "source_sha256": "b1dac21d003e2de21fc67e3fe8dec6cf000ab1d61d0a6e3f2bdd056cbe0f4f32",
+        "upload_filename": "characters__小南-xiaonan-master.png"
+      },
+      {
+        "asset_id": "outfits.小南_周末休闲外出款",
+        "source_sha256": "d46f7a2dc01eee59a3e91a2e84d21367c44a8d30f8389b9ed7dda98fb95de857",
+        "upload_filename": "outfits__小南_周末休闲外出款.png"
+      },
+      {
+        "asset_id": "cameras.entrance-hall-camera03",
+        "source_sha256": "465ea58257381b5bc7fe623fcab0e5900cd9824341dcdb80c6aedb5df0635d22",
+        "upload_filename": "cameras__entrance-hall-camera03.png"
+      }
+    ],
+    "previous_final_sha256": null
+  },
+  "artifact_sha256": {
+    "CHATGPT_HANDOFF.md": "a5f0668047f1649914cd4e509d24607530f0cb960fef37acd4ab161fb475e033",
+    "IMAGE_PROMPT.md": "3b5580513cf193da87fc87aa2a5df9d1b930df83ebb213f8b6e25ea397827182",
+    "PROMPT_COMPILATION_MANIFEST.json": "4f08cd84549a8028fe1c46b86de3d78c1478c886bdaadad1ca2c6811a0417a33",
+    "UPLOAD_MANIFEST.json": "789a05910e70bd7306056e6739b37696a8a9edd51ed97e8c857c3edc2e799fd5",
+    "VIDEO_PROMPT.md": "ccf6d4f274b7ce9ca9fecc37a3a461cbb502ee2f3eab08e5ba3c5a0d37c1e3a0",
+    "prompt.md": "ca35f3bff0b6d35b5e0c625e06d5cbd04c80e9252ae76010e3574a4569a77dc3",
+    "required_assets.json": "275d582a3978872ca2936c7a292b08e6eeac4cfe459ad6c6f750d4e121560473",
+    "upload/cameras__entrance-hall-camera03.png": "465ea58257381b5bc7fe623fcab0e5900cd9824341dcdb80c6aedb5df0635d22",
+    "upload/characters__小南-xiaonan-master.png": "b1dac21d003e2de21fc67e3fe8dec6cf000ab1d61d0a6e3f2bdd056cbe0f4f32",
+    "upload/characters__小帅-xiaoshuai-master.png": "b9a0c2ec75871044d8d73ba47d898c9ff8a51b453d546b88c9a5932371cc25ea",
+    "upload/environments__玄关master2.png": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+    "upload/outfits__小南_周末休闲外出款.png": "d46f7a2dc01eee59a3e91a2e84d21367c44a8d30f8389b9ed7dda98fb95de857"
+  },
+  "created_at": "2026-08-29T20:00:55+00:00"
+}

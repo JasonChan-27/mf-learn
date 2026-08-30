@@ -1,0 +1,106 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-04",
+  "order": 4,
+  "status": "COMPLETED",
+  "primary_function": "CHARACTER_REVEAL",
+  "primary_focus": "阿诺走到小南正前方端正坐下并郑重承诺",
+  "coverage": "MEDIUM_WIDE",
+  "composition_intent": "小南在门前形成竖向中心，怀中大漂亮位于上层、腿边小帅位于下层、阿诺在前方地面端正居中，三猫形成围绕小南的层级三角；门保持后景中心，观众第一眼落在阿诺严肃坐姿，随后读到另外两猫的悲伤配合和小南软化的表情。",
+  "information_density": "HIGH",
+  "visible_characters": [
+    "小南",
+    "大漂亮",
+    "小帅",
+    "阿诺"
+  ],
+  "partial_characters": [],
+  "off_screen_characters": [],
+  "camera_state": {
+    "camera_asset": "cameras.entrance-hall-camera01",
+    "camera_status": "MATCH",
+    "movement": "LOCKED_OFF",
+    "movement_reason": "阿诺的笑点依赖端正坐下后像正式负责人一样稳定发言，固定镜头让其严肃姿态与另外两猫的夸张悲伤形成可观察反差。",
+    "axis_status": "PRESERVED"
+  },
+  "continuity": {
+    "mode": "CAMERA_CUT_CONTINUITY",
+    "previous_frame_policy": "STATE_REFERENCE_ONLY",
+    "previous_frame_filename": "Shot01-03_Final.png",
+    "locked_facts": [
+      "Identity",
+      "Space",
+      "Lighting",
+      "Props",
+      "Action State"
+    ],
+    "change_allowed": [
+      "Coverage",
+      "Camera",
+      "Composition"
+    ]
+  },
+  "start_state": {
+    "description": "承接 Shot01-03：小南仍在门内抱着大漂亮，小帅前爪贴在小南一侧小腿，阿诺已走到小南正前方附近但仍四爪站立，入户门关闭。"
+  },
+  "frozen_moment": {
+    "description": "阿诺已经走到小南正前方、即将收腿端正坐下之前的稳定站立瞬间。",
+    "physical_boundaries": [
+      "阿诺四爪全部接触地面，臀部尚未落地，前腿仍为站立承重状态",
+      "阿诺与小南之间保留一只猫身长度以内的清楚地面间距",
+      "大漂亮仍由小南双臂支撑在怀中，没有下地",
+      "小帅前爪仍贴在小南小腿，后腿与腹部靠近地面承重",
+      "入户门保持完全关闭"
+    ],
+    "forbidden_advanced_states": [
+      "阿诺已经端正坐好或已经说出承诺",
+      "小南已经笑出来或揭示取快递",
+      "大漂亮已经从怀中下来",
+      "小帅已经松开前爪",
+      "入户门已经打开"
+    ]
+  },
+  "shot_delta": {
+    "primary_action": "阿诺缓慢收腿，在小南正前方端正坐好，抬头以严肃稳定的语气说：“主人放心。我会照顾好他们两个。”",
+    "secondary_actions": [
+      "大漂亮和小帅继续维持悲伤表情，不新增动作抢戏",
+      "小南依次看过三只猫，表情由错愕轻微软化，短暂被感动但尚未笑"
+    ],
+    "performance_notes": "阿诺完全相信自己正在做可靠承诺，语气不得带自知搞笑；小南的感动只持续一拍，为下一镜的生活化拆穿保留反差。",
+    "timing": [
+      "0.0-1.2秒：阿诺缓慢坐正并抬头",
+      "1.2-4.8秒：阿诺完成两句承诺",
+      "4.8-6.5秒：小南看过三猫并短暂感动，保留静默拍点"
+    ]
+  },
+  "end_state": {
+    "description": "阿诺在小南正前方端正坐好并保持严肃目光；大漂亮仍在怀中，小帅仍抱腿；小南看着三只猫短暂动容，尚未笑或说明真相；门保持关闭。",
+    "next_state_anchor": "Shot01-05"
+  },
+  "required_assets": {
+    "asset_ids": [
+      "environments.玄关master2",
+      "characters.小南-xiaonan-master",
+      "characters.大漂亮-dapiaoliang-master",
+      "characters.小帅-xiaoshuai-master",
+      "characters.阿诺-arno-master",
+      "outfits.小南_周末休闲外出款",
+      "cameras.entrance-hall-camera01"
+    ],
+    "package_filenames": [
+      "environments__玄关master2.png",
+      "characters__小南-xiaonan-master.png",
+      "characters__大漂亮-dapiaoliang-master.png",
+      "characters__小帅-xiaoshuai-master.png",
+      "characters__阿诺-arno-master.png",
+      "outfits__小南_周末休闲外出款.png",
+      "cameras__entrance-hall-camera01.png"
+    ]
+  },
+  "estimated_duration": 6.5,
+  "scene_end": false,
+  "next_shot": "Shot01-05",
+  "approved_image": "episodes/EP002/production/Scene01/Shot01-04/Shot01-04_Final.png"
+}

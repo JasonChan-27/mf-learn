@@ -1,0 +1,34 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "revision": 1,
+  "plan_status": "LOCKED",
+  "scene_director_decision": {
+    "scene_goal": "",
+    "narrative_change": "",
+    "primary_character": "",
+    "secondary_characters": [],
+    "audience_start_state": "",
+    "audience_end_state": "",
+    "emotion_curve": [],
+    "information_curve": [],
+    "rhythm_strategy": "",
+    "primary_style": "",
+    "secondary_style": null,
+    "scene_visual_strategy": "",
+    "scene_camera_strategy": "",
+    "scene_end_intent": ""
+  },
+  "scene_assets": {
+    "environment_asset": "",
+    "character_assets": {},
+    "outfit_assets": {},
+    "prop_assets": []
+  },
+  "shots": [],
+  "scene_end_state": {
+    "description": ""
+  },
+  "next_scene": "Scene03"
+}

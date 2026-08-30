@@ -1,0 +1,93 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-05",
+  "order": 5,
+  "status": "PLANNED",
+  "primary_function": "REVEAL_SHOT",
+  "primary_focus": "门锁响起后画内两猫与画外小帅同步停止",
+  "coverage": "MEDIUM_WIDE",
+  "composition_intent": "严格沿用上一镜构图：阿诺完整位于前中景伸展，大漂亮只在门前空地边缘部分可见并保持舞姿；入户门居后景中心，从完全关闭打开为窄缝。小帅和小南均不进入画面。",
+  "information_density": "HIGH",
+  "visible_characters": [
+    "阿诺"
+  ],
+  "partial_characters": [
+    "大漂亮"
+  ],
+  "off_screen_characters": [
+    "小帅",
+    "小南"
+  ],
+  "camera_state": {
+    "camera_asset": "cameras.entrance-hall-camera01",
+    "camera_status": "MATCH",
+    "movement": "LOCKED_OFF",
+    "movement_reason": "镜头必须像固定观察者一样让动作被突然截停，锁定构图才能产生“现场证据”式喜剧；任何推拉或摇移都会削弱急停同步性。",
+    "axis_status": "PRESERVED"
+  },
+  "continuity": {
+    "mode": "SAME_CAMERA_CONTINUATION",
+    "previous_frame_policy": "HIGH_PRIORITY_VISUAL_CONTINUITY",
+    "previous_frame_filename": null,
+    "locked_facts": [
+      "Identity",
+      "Space",
+      "Lighting",
+      "Props",
+      "Action State"
+    ],
+    "change_allowed": []
+  },
+  "start_state": {
+    "description": "承接上一镜末状态：门完全关闭，阿诺在前中景完成伸懒腰，大漂亮仍在门前空地边缘跳舞；小帅已经跑入室内画外，小南仍在门外。"
+  },
+  "frozen_moment": {
+    "description": "阿诺与大漂亮完全放松，小帅的奔跑声位于画外，门锁尚未发出声音的最后一个稳定瞬间。",
+    "physical_boundaries": [
+      "入户门完全关闭，门扇贴合门框，门锁和门把手均静止",
+      "大漂亮仅在门前空地边缘部分可见并保持真实猫体舞姿，至少三处肢体承重点稳定",
+      "阿诺胸腹接近地面、前腿向前伸展，身体仍处于舒服懒腰状态",
+      "画面内没有小帅的身体、尾巴或四肢",
+      "小南完全位于门外，画面内没有她的头部、手臂、腿或衣物"
+    ],
+    "forbidden_advanced_states": [
+      "门锁已经响起或入户门已经出现缝隙",
+      "大漂亮或阿诺已经因声音冻结、回头或改变原动作",
+      "画外小帅的奔跑声已经停止",
+      "小南已经探头、伸手或跨过门槛",
+      "小南已经拿起钥匙或说出“坏猫咪”"
+    ]
+  },
+  "shot_delta": {
+    "primary_action": "门锁突然响起，大漂亮定在舞姿、阿诺定在伸懒腰姿势；与此同时，画外小帅的快速奔跑脚步声骤然停止。随后入户门从外侧打开窄缝，但小南尚未进入画面。",
+    "secondary_actions": [
+      "大漂亮和阿诺只以眼睛与极小幅耳位变化指向门口，不重置身体姿势",
+      "门打开后保持窄幅角度，门缝内暂时没有人物身体部分"
+    ],
+    "performance_notes": "画内急停和画外脚步停止必须同步、干净，不使用卡通定格特效；门打开后留出极短悬停，不提前生成小南。",
+    "timing": [
+      "0.0-0.4秒：门锁突然发出清楚声响",
+      "0.4-0.8秒：画内两猫急停，画外小帅脚步同步停止",
+      "0.8-1.8秒：门从外侧打开为窄缝",
+      "1.8-2.2秒：空门缝与冻结姿势形成悬停"
+    ]
+  },
+  "end_state": {
+    "description": "门保持窄幅打开但小南尚未进入画面；大漂亮和阿诺分别定在舞蹈与伸懒腰姿势，画外小帅停止奔跑，三猫都处于被声音截断的紧张状态。",
+    "next_state_anchor": "Shot02-06"
+  },
+  "required_assets": {
+    "asset_ids": [
+      "environments.玄关master2",
+      "characters.阿诺-arno-master",
+      "characters.大漂亮-dapiaoliang-master",
+      "cameras.entrance-hall-camera01"
+    ],
+    "package_filenames": []
+  },
+  "estimated_duration": 2.2,
+  "scene_end": false,
+  "next_shot": "Shot02-06"
+}

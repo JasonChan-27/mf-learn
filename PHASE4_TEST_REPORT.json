@@ -1,0 +1,19 @@
+{
+  "qa_request_generated": false,
+  "apply_returncode": 0,
+  "stdout": "Director QA Import: PASS\n\nDirector Runtime\n{\n  \"schema_version\": \"4.1\",\n  \"episode_id\": \"EP002\",\n  \"current_scene_id\": \"Scene01\",\n  \"current_shot_id\": \"Shot01-01\",\n  \"director_session_mode\": \"PROMPT_ONLY\",\n  \"scene_status\": \"PRODUCTION\",\n  \"next_action\": \"GENERATE_CURRENT_SHOT_PACKAGE\",\n  \"pending_director_plan\": \"/mnt/data/v41_phase3_test/episodes/EP002/director_state/Scene01/Scene_Director_Plan_RESULT.json\",\n  \"pending_director_qa\": \"/mnt/data/v41_phase4_test/episodes/EP002/director_state/Scene01/Director_QA_RESULT.json\",\n  \"last_event\": \"DIRECTOR_QA_PASS_SCENE_LOCKED\",\n  \"updated_at\": \"2026-08-23T11:10:44+00:00\"\n}\n\nScene 已锁定，可进入 Shot Production。Phase3/5 完成后由 run.py 自动继续。\n",
+  "runtime_next_action": "GENERATE_CURRENT_SHOT_PACKAGE",
+  "runtime_current_shot_id": "Shot01-01",
+  "runtime_scene_status": "PRODUCTION",
+  "scene_plan_status": "LOCKED",
+  "scene_status": "PRODUCTION",
+  "scene_plan_locked": "LOCKED",
+  "first_shot_status": "READY",
+  "expected": {
+    "next_action": "GENERATE_CURRENT_SHOT_PACKAGE",
+    "current_shot_id": "Shot01-01",
+    "scene": "LOCKED",
+    "first_shot": "READY"
+  },
+  "qa_request_direct_test_returncode": 1
+}

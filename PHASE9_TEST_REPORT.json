@@ -1,0 +1,89 @@
+{
+  "phase": "Phase9 — EP002 Real-Asset Regression",
+  "project_version": "4.1.0",
+  "release_status": "STABLE",
+  "generated_at": "2026-08-29T10:57:33Z",
+  "python": "3.12",
+  "result": "PASS",
+  "tests_passed": 28,
+  "tests_failed": 0,
+  "checks": {
+    "compileall": "PASS",
+    "tabnanny": "PASS",
+    "unittest_discovery": "28/28 PASS",
+    "project_validation": "PASS",
+    "director_plan_import": "PASS",
+    "director_qa": "PASS",
+    "builder_packages": "4/4 PASS",
+    "runtime_scene_transition": "PASS"
+  },
+  "assets": {
+    "registry_entries": 83,
+    "scanned_master_files": 83,
+    "registry_metadata_mismatches": 0,
+    "ep002_selected": 26,
+    "ep002_missing": 0,
+    "ep002_ambiguous": 0,
+    "scene01_package_assets_per_shot": 7
+  },
+  "director_acceptance": {
+    "source": "GPT Director regression fixture",
+    "shot_count": 4,
+    "python_preset_shot_count": false,
+    "coverages": [
+      "MEDIUM_WIDE",
+      "MEDIUM",
+      "MEDIUM_CLOSE",
+      "WIDE"
+    ],
+    "selected_camera": "cameras.entrance-hall-camera01",
+    "why_this_shot_complete": true,
+    "why_not_previous_shot_complete": true,
+    "frozen_moment_boundaries_complete": true,
+    "duplicate_visual_micro_shots": 0,
+    "scene_end": true,
+    "next_scene": "Scene02",
+    "estimated_duration_seconds": 24.0,
+    "qa_score": 92
+  },
+  "builder_acceptance": {
+    "versions": [
+      "v001",
+      "v001",
+      "v001",
+      "v001"
+    ],
+    "blocking_packages": 0,
+    "unrelated_assets_copied": 0,
+    "compiler_mode": "PURE_STATE_TRANSLATION",
+    "builder_mode": "DETERMINISTIC_STATE_BUILDER"
+  },
+  "runtime_acceptance": {
+    "scene01_final_status": "COMPLETED",
+    "scene02_plan_status": "DRAFT",
+    "scene02_status": "PLANNING",
+    "scene02_shot_count": 0,
+    "final_next_action": "PLAN_CURRENT_SCENE",
+    "pending_director_plan": null,
+    "pending_director_qa": null
+  },
+  "media_approval_scope": "ISOLATED_ARCHITECTURE_FIXTURE_ONLY_NOT_VISUAL_QA",
+  "canonical_ep002_state": {
+    "current_scene_id": "Scene01",
+    "current_shot_id": "",
+    "scene_status": "PLANNING",
+    "next_action": "PLAN_CURRENT_SCENE",
+    "shot_count": 0
+  },
+  "removed_legacy_files": [
+    "episodes/EP002/Production_Package.md",
+    "episodes/EP002/prompt/image_prompt.md",
+    "episodes/EP002/prompt/scnene_prompt.md",
+    "episodes/EP002/prompt/video_prompt.md",
+    "director/Draft_Stage_Prompt.md",
+    "director/Output_Spec.md",
+    "director/Production_Prompt_Quality_Gate.md",
+    "director/Production_Stage_Prompt.md",
+    "director/Prompt_Language_Policy.md"
+  ]
+}

@@ -1,0 +1,377 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "revision": 1,
+  "plan_status": "LOCKED",
+  "scene_director_decision": {
+    "scene_goal": "在同一玄关轴线上建立三只猫夸张的离别表演，并用小南只是取快递的生活化真相完成第一层喜剧反转。",
+    "narrative_change": "三只猫从各自活动切换为郑重告别，又在真相揭晓后集体僵住；小南完成离场，把尴尬状态交给 Scene02。",
+    "primary_character": "XiaoNan",
+    "secondary_characters": [
+      "DaPiaoLiang",
+      "XiaoShuai",
+      "Arno"
+    ],
+    "audience_start_state": "观众只知道小南准备出门，尚不知道三只猫会如何反应。",
+    "audience_end_state": "观众看穿三只猫的过度表演，并期待门关后它们立刻恢复本性。",
+    "emotion_curve": [
+      "日常",
+      "突然郑重",
+      "夸张感动",
+      "真相揭晓",
+      "尴尬停顿"
+    ],
+    "information_curve": [
+      "小南准备出门",
+      "三只猫瞬间进入离别表演",
+      "三只猫分别表达担忧与担当",
+      "小南只是取快递",
+      "小南离场，猫咪僵住"
+    ],
+    "rhythm_strategy": "先用一个中广景快速建立群体反差，再按角色焦点切换两次，最后回到宽景完成真相后的静默与离场；对白完整但反应停顿短促。",
+    "primary_style": "观察式家庭轻喜剧",
+    "secondary_style": "克制的反差喜剧",
+    "scene_visual_strategy": "保持玄关空间与午后光线稳定，通过主体前后层次和景别变化读取三只猫不同的表演方式，不用连续同构图拆解微动作。",
+    "scene_camera_strategy": "严格使用 Entrance Hall Camera01 的低机位玄关轴线；以 MEDIUM_WIDE、MEDIUM、MEDIUM_CLOSE、WIDE 四种覆盖改变信息重点，不虚构新 Camera Master。",
+    "scene_end_intent": "门关闭后保留三只猫暴露表演后的尴尬静止状态，为 Scene02 的短暂停顿与恢复本性提供明确起点。"
+  },
+  "scene_assets": {
+    "environment_asset": "environments.玄关master2",
+    "character_assets": {
+      "XiaoNan": "characters.小南-xiaonan-master",
+      "DaPiaoLiang": "characters.大漂亮-dapiaoliang-master",
+      "XiaoShuai": "characters.小帅-xiaoshuai-master",
+      "Arno": "characters.阿诺-arno-master"
+    },
+    "outfit_assets": {
+      "XiaoNan": "outfits.小南_周末休闲外出款"
+    },
+    "prop_assets": []
+  },
+  "shots": [
+    {
+      "shot_id": "Shot01-01",
+      "order": 1,
+      "primary_function": "ESTABLISH_AND_PERFORMANCE_TRIGGER",
+      "secondary_effect": "COMEDY_SETUP",
+      "narrative_purpose": "建立玄关地理、小南出门状态和三只猫从日常到郑重表演的瞬间反差，并让大漂亮率先行动。",
+      "audience_feeling": "先感到日常，再因三只猫突然过度认真而产生轻微好笑与期待。",
+      "information_gain": "观众确认三只猫的舍不得是集体表演，大漂亮是情绪发动者。",
+      "why_this_shot": "必须先在一个可读的群体画面里建立空间和行为反差，否则后续角色表演缺少共同起点。",
+      "why_not_previous_shot": "这是 Scene 首镜，没有上一镜；它承担空间建立与表演触发，不能从局部反应开始。",
+      "primary_focus": "XiaoNan与三只猫的群体关系",
+      "secondary_focus": "DaPiaoLiang",
+      "coverage": "MEDIUM_WIDE",
+      "coverage_reason": "中广景同时容纳小南、门、三只猫和大漂亮的接近路径，足以读懂空间与群体反差。",
+      "composition_intent": "小南靠近入户门形成竖向主体，三只猫分布在较低前中景；大漂亮的移动路径保持清晰，门和鞋柜保留空间身份。",
+      "information_density": "HIGH",
+      "visible_characters": [
+        "XiaoNan",
+        "DaPiaoLiang",
+        "XiaoShuai",
+        "Arno"
+      ],
+      "partial_characters": [],
+      "off_screen_characters": [],
+      "camera_requirement": {
+        "purpose": "玄关地理建立与群体表演触发",
+        "scale": "MEDIUM_WIDE",
+        "subject_zone": "入户门前换鞋区及猫咪活动区",
+        "axis_requirement": "保持从室内猫咪视角朝向入户门的既有轴线",
+        "lens_intent": "保留人物与三只猫的空间距离，同时避免广角变形"
+      },
+      "selected_camera": "cameras.entrance-hall-camera01",
+      "camera_status": "MATCH",
+      "camera_reason": "Entrance Hall Camera01 的低机位和玄关朝门轴线能够同时交代小南离场方向与三只猫位置。",
+      "camera_motion": "LOCKED_OFF",
+      "camera_motion_reason": "表演状态的突然变化依靠角色动作完成，固定镜头能让反差更清楚。",
+      "axis_status": "PRESERVED",
+      "continuity_mode": "CAMERA_CUT_CONTINUITY",
+      "previous_frame_policy": "NONE",
+      "start_state": {
+        "description": "小南穿周末休闲外出款站在玄关靠近入户门处整理出门状态；大漂亮、小帅、阿诺分别在她附近的地面区域，各自保持自然日常姿态。"
+      },
+      "frozen_moment": {
+        "description": "小南刚完成出门整理、尚未迈向门外；三只猫刚同时注意到她要离开，但大漂亮还没有向前冲。",
+        "physical_boundaries": [
+          "小南双脚仍在玄关室内地面，身体朝向入户门",
+          "大漂亮四爪接触地面，与小南腿部之间保留可见距离",
+          "小帅与阿诺均保持原位，没有抱腿或端坐到小南正前方",
+          "入户门仍处于关闭状态"
+        ],
+        "forbidden_advanced_states": [
+          "大漂亮已经起跳或已经进入小南怀里",
+          "小帅已经抱住小南腿部",
+          "阿诺已经移动到小南正前方",
+          "小南已经打开入户门"
+        ]
+      },
+      "shot_delta": {
+        "primary_action": "三只猫瞬间从日常状态转为郑重的舍不得表演；大漂亮第一个冲向小南并自然跳入她怀里，说：主人……外面的世界竞争太激烈了。你一定要注意安全。",
+        "secondary_actions": [
+          "小南因大漂亮突然靠近而稳住身体并自然接住它",
+          "小帅在后方抬头关注，准备跟上",
+          "阿诺从原位沉稳地转向小南"
+        ],
+        "performance_notes": "大漂亮认真担忧但不过度哭闹；小南先意外后配合接住；小帅与阿诺的准备动作保持克制，不抢大漂亮的焦点。",
+        "timing": [
+          "0.0-0.8s 三只猫同时注意并改变状态",
+          "0.8-2.0s 大漂亮向前并跳入小南怀里",
+          "2.0-6.0s 大漂亮完整说出锁定对白，小南保持略微意外的倾听"
+        ]
+      },
+      "end_state": {
+        "description": "大漂亮稳定待在小南怀里并完成担忧对白；小南站稳抱住它；小帅准备靠近小南腿边，阿诺开始缓慢走向正前方。"
+      },
+      "estimated_duration": 6.0,
+      "scene_end": false,
+      "next_shot": "Shot01-02"
+    },
+    {
+      "shot_id": "Shot01-02",
+      "order": 2,
+      "primary_function": "LAYERED_CHARACTER_PERFORMANCE",
+      "secondary_effect": "ESCALATION",
+      "narrative_purpose": "让小帅的夸张依赖和阿诺的一本正经担当形成前后层次，完成三只猫离别演技的升级。",
+      "audience_feeling": "表面感动，实际因小帅和阿诺的过度正式而逐渐看出笑点。",
+      "information_gain": "小帅用抱腿和颤声强化离别，阿诺以家长式承诺收束三只猫的表演阵型。",
+      "why_this_shot": "小帅的低位抱腿动作与阿诺的正面端坐需要同时可读的前后层次，独立于大漂亮怀抱表演的视觉中心。",
+      "why_not_previous_shot": "上一镜以大漂亮在小南怀里为焦点且信息密度已高；把小帅与阿诺的完整对白继续塞入会造成焦点混乱和超长单镜。",
+      "primary_focus": "XiaoShuai",
+      "secondary_focus": "Arno",
+      "coverage": "MEDIUM",
+      "coverage_reason": "中景能清楚读取小帅抱腿的身体关系，同时保留后层阿诺缓慢进入并端坐的位置。",
+      "composition_intent": "小南腿部与小帅位于画面主要低位区域，阿诺从后层进入中轴并形成稳定三角；大漂亮和小南上半身只作为连续性边缘信息。",
+      "information_density": "MEDIUM",
+      "visible_characters": [
+        "XiaoShuai",
+        "Arno"
+      ],
+      "partial_characters": [
+        "XiaoNan",
+        "DaPiaoLiang"
+      ],
+      "off_screen_characters": [],
+      "camera_requirement": {
+        "purpose": "读取抱腿动作与阿诺端坐的前后层次",
+        "scale": "MEDIUM",
+        "subject_zone": "小南腿前猫咪活动区至正前方地面",
+        "axis_requirement": "继续保持玄关朝门轴线与角色左右关系",
+        "lens_intent": "适度收紧群体画面，保留低位身体关系而不形成肖像特写"
+      },
+      "selected_camera": "cameras.entrance-hall-camera01",
+      "camera_status": "MATCH",
+      "camera_reason": "同一 Camera Master 可以通过中景覆盖读取小南腿部、前景小帅与后层阿诺，并维持玄关空间连续性。",
+      "camera_motion": "LOCKED_OFF",
+      "camera_motion_reason": "两只猫依次完成表演，固定构图能突出前后层的节奏接力。",
+      "axis_status": "PRESERVED",
+      "continuity_mode": "CAMERA_CUT_CONTINUITY",
+      "previous_frame_policy": "STATE_REFERENCE_ONLY",
+      "start_state": {
+        "description": "大漂亮在小南怀里刚完成担忧对白；小南站在原位抱稳它；小帅在小南腿边准备靠近，阿诺正从后方缓慢走来。"
+      },
+      "frozen_moment": {
+        "description": "小帅已到达小南腿边但前爪尚未抱紧；阿诺仍在后层行走，尚未到正前方端坐。",
+        "physical_boundaries": [
+          "小帅四爪仍接触地面，胸口与小南腿部之间保留细小可见距离",
+          "阿诺四爪接触地面且身体位于小帅后层",
+          "大漂亮由小南双臂稳定承托，没有下地",
+          "小南仍在门内原位，入户门保持关闭"
+        ],
+        "forbidden_advanced_states": [
+          "小帅已经完成抱腿并已经说完对白",
+          "阿诺已经在小南正前方端坐",
+          "阿诺已经说出照顾承诺",
+          "大漂亮已经从怀里下来"
+        ]
+      },
+      "shot_delta": {
+        "primary_action": "小帅抱住小南的腿，声音颤抖地说：主人……如果你回不来了……我们该怎么办呀？随后阿诺慢慢走到小南正前方端正坐下，严肃地说：主人放心。我会照顾好他们两个。",
+        "secondary_actions": [
+          "小南保持站姿并低头看向小帅",
+          "大漂亮在小南怀里维持认真担忧表情",
+          "小帅说完后仍抱住腿并仰头等待回应"
+        ],
+        "performance_notes": "小帅的颤声是故作悲伤而非真正崩溃；阿诺以可靠、正式的老干部语气接力，反差来自三只猫把短暂出门当成重大离别。",
+        "timing": [
+          "0.0-1.0s 小帅前爪环住小南腿部并仰头",
+          "1.0-4.2s 小帅完整说出锁定对白",
+          "4.2-5.3s 阿诺缓慢到达正前方并端坐",
+          "5.3-7.5s 阿诺完整说出锁定对白"
+        ]
+      },
+      "end_state": {
+        "description": "小帅抱住小南腿部并仰头；阿诺在小南正前方端正坐好并完成承诺；大漂亮仍在小南怀里，三只猫共同维持悲伤郑重的表演状态。"
+      },
+      "estimated_duration": 7.5,
+      "scene_end": false,
+      "next_shot": "Shot01-03"
+    },
+    {
+      "shot_id": "Shot01-03",
+      "order": 3,
+      "primary_function": "TRUTH_REVEAL_AND_GROUP_REACTION",
+      "secondary_effect": "COMEDY_REVERSAL",
+      "narrative_purpose": "由小南先被感动再忍不住笑，完整揭示她只是取快递，并捕捉三只猫表演被拆穿后的同步僵住。",
+      "audience_feeling": "笑点落地，同时感到这是亲密家庭关系中的温和拆穿。",
+      "information_gain": "小南很快回来，三只猫刚才的重大离别没有现实依据。",
+      "why_this_shot": "真相揭晓需要以小南的现实反应为主焦点，并让三只猫的僵住在同一画面中形成集体喜剧回报。",
+      "why_not_previous_shot": "上一镜主焦点在低位小帅与阿诺；小南的表情、摸头和真相对白需要更集中的景别，否则笑点会被前景动作稀释。",
+      "primary_focus": "XiaoNan",
+      "secondary_focus": "三只猫的同步僵住",
+      "coverage": "MEDIUM_CLOSE",
+      "coverage_reason": "中近景优先读取小南从感动到忍笑的表情，同时让怀里的大漂亮和画面边缘两只猫保留可见反应。",
+      "composition_intent": "小南与怀里的大漂亮占据画面中心；小帅在下边缘、阿诺在侧后边缘构成反应层，三只猫在真相揭晓时形成不同高度的同时停顿。",
+      "information_density": "LOW",
+      "visible_characters": [
+        "XiaoNan",
+        "DaPiaoLiang"
+      ],
+      "partial_characters": [
+        "XiaoShuai",
+        "Arno"
+      ],
+      "off_screen_characters": [],
+      "camera_requirement": {
+        "purpose": "小南现实反应与三猫同步僵住的喜剧揭晓",
+        "scale": "MEDIUM_CLOSE",
+        "subject_zone": "小南上身、怀抱区域与脚边反应边缘",
+        "axis_requirement": "保持玄关朝门轴线，不改变小南与三只猫的左右关系",
+        "lens_intent": "适度压缩背景以读取表情，但保留门和鞋柜的空间提示"
+      },
+      "selected_camera": "cameras.entrance-hall-camera01",
+      "camera_status": "PARTIAL_MATCH",
+      "camera_reason": "Entrance Hall Camera01 保持正确轴线和角色高度关系；中近景是对该机位画面的确定性收紧，不改变物理机位或空间方向。",
+      "camera_motion": "SLOW_PUSH_IN",
+      "camera_motion_reason": "小南说出只是取快递时做一次短而克制的推进，集中观众注意力并让三猫僵住成为笑点。",
+      "axis_status": "PRESERVED",
+      "continuity_mode": "CAMERA_CUT_CONTINUITY",
+      "previous_frame_policy": "STATE_REFERENCE_ONLY",
+      "start_state": {
+        "description": "大漂亮仍在小南怀里，小帅仍抱住小南腿部，阿诺在正前方端坐；三只猫都以郑重悲伤的表情等待小南回应。"
+      },
+      "frozen_moment": {
+        "description": "小南低头看着三只猫，刚被感动但嘴角尚未明显笑开，右手还没有摸到大漂亮头部；三只猫仍维持完整离别表演。",
+        "physical_boundaries": [
+          "小南双脚保持原位，右手停在大漂亮头部上方而未接触",
+          "大漂亮身体仍由小南左臂承托",
+          "小帅前爪仍环抱小南腿部",
+          "阿诺端坐且四爪位置稳定，头部朝向小南"
+        ],
+        "forbidden_advanced_states": [
+          "小南已经笑出或已经说出只是取快递",
+          "小南已经完成摸大漂亮的头",
+          "三只猫已经出现被拆穿后的僵硬表情",
+          "大漂亮已经从小南怀里下来"
+        ]
+      },
+      "shot_delta": {
+        "primary_action": "小南感动一秒后忍不住笑，轻轻摸大漂亮的头，说：你们三个……我只是出去取个快递。很快回来。真相落下时三只猫的表情同时僵住。",
+        "secondary_actions": [
+          "大漂亮停止继续撒娇并保持在怀里",
+          "小帅的抱腿动作停止在原位，仰头表情僵住",
+          "阿诺维持端正坐姿但眼神短暂停顿"
+        ],
+        "performance_notes": "小南的笑是被可爱到的克制反应，不嘲讽猫咪；三只猫不做夸张摔倒，只用同步停顿和细微眼神变化完成笑点。",
+        "timing": [
+          "0.0-0.8s 小南被感动并停顿",
+          "0.8-1.6s 小南忍笑并摸大漂亮头部",
+          "1.6-4.8s 小南完整说出锁定对白",
+          "4.8-5.5s 三只猫同步僵住，保留喜剧停顿"
+        ]
+      },
+      "end_state": {
+        "description": "小南带着温和笑意完成解释；大漂亮仍在怀里、小帅仍抱腿、阿诺仍端坐，但三只猫表情已经同步僵住，表演被现实拆穿。"
+      },
+      "estimated_duration": 5.5,
+      "scene_end": false,
+      "next_shot": "Shot01-04"
+    },
+    {
+      "shot_id": "Shot01-04",
+      "order": 4,
+      "primary_function": "AWKWARD_RELEASE_AND_EXIT",
+      "secondary_effect": "TRANSITION_PAYOFF",
+      "narrative_purpose": "让三只猫在尴尬中解除表演姿态，并清楚完成小南开门、叮嘱、关门离场，为下一 Scene 留下可执行状态。",
+      "audience_feeling": "在安静尴尬中得到第二个轻笑，并自然期待主人走后猫咪变脸。",
+      "information_gain": "小南已经离开且门已关闭，三只猫仍留在玄关，Scene02 可以从短暂停顿开始。",
+      "why_this_shot": "门的开关、角色解除接触与 Scene End 必须在完整空间里可见，才能为下一 Scene 提供可靠的连续性锚点。",
+      "why_not_previous_shot": "上一镜是小南表情与真相揭晓的中近景；若继续完成全身下地、松爪和开关门，空间动作会被裁切且 Scene End 不可验证。",
+      "primary_focus": "三只猫与入户门的空间状态",
+      "secondary_focus": "XiaoNan离场",
+      "coverage": "WIDE",
+      "coverage_reason": "宽景必须同时看见大漂亮下地、小帅松爪、阿诺端坐、小南开门离开以及门最终关闭。",
+      "composition_intent": "入户门与小南离场路径占画面一侧，三只猫在室内地面形成稳定群组；门关闭后画面重心留在三只猫的尴尬静止上。",
+      "information_density": "MEDIUM",
+      "visible_characters": [
+        "XiaoNan",
+        "DaPiaoLiang",
+        "XiaoShuai",
+        "Arno"
+      ],
+      "partial_characters": [],
+      "off_screen_characters": [],
+      "camera_requirement": {
+        "purpose": "完整记录解除表演、开门离场和门关闭后的 Scene End",
+        "scale": "WIDE",
+        "subject_zone": "整个玄关换鞋区、入户门及门内猫咪停留区",
+        "axis_requirement": "保持室内朝门轴线并清楚区分门内外",
+        "lens_intent": "恢复空间覆盖，确保所有接触解除和门状态可验证"
+      },
+      "selected_camera": "cameras.entrance-hall-camera01",
+      "camera_status": "MATCH",
+      "camera_reason": "Entrance Hall Camera01 原生覆盖玄关与入户门，最适合验证小南离场和三只猫留在门内的最终空间状态。",
+      "camera_motion": "LOCKED_OFF",
+      "camera_motion_reason": "离场动作和门关闭本身提供视觉变化，固定宽景能让尴尬停顿与 Scene End 更清晰。",
+      "axis_status": "PRESERVED",
+      "continuity_mode": "CAMERA_CUT_CONTINUITY",
+      "previous_frame_policy": "STATE_REFERENCE_ONLY",
+      "start_state": {
+        "description": "小南完成只是取快递的解释并温和微笑；大漂亮仍在怀里，小帅仍抱腿，阿诺仍端坐；三只猫表情同步僵住，入户门仍关闭。"
+      },
+      "frozen_moment": {
+        "description": "真相揭晓后的安静停顿刚开始；大漂亮尚未下地，小帅尚未松爪，小南尚未转身开门。",
+        "physical_boundaries": [
+          "大漂亮仍由小南手臂承托，四爪未接触地面",
+          "小帅前爪仍与小南腿部接触",
+          "阿诺保持端坐且位置未改变",
+          "小南双脚仍在门内，入户门仍完全关闭"
+        ],
+        "forbidden_advanced_states": [
+          "大漂亮已经落地或开始走开",
+          "小帅已经松开小南腿部",
+          "小南已经打开门或已经站到门外",
+          "入户门已经关闭在小南离开后的状态"
+        ]
+      },
+      "shot_delta": {
+        "primary_action": "短暂停顿后，大漂亮慢慢从小南怀里下到地面，小帅松开前爪，阿诺继续严肃端坐；小南转身打开入户门，说：在家乖一点。随后走出门并将门关闭。",
+        "secondary_actions": [
+          "大漂亮落地后保持尴尬安静，不立即跑开",
+          "小帅松爪后四爪回到地面并停在原位",
+          "阿诺在门关闭前后都维持端正坐姿",
+          "门关闭后室内三只猫短暂保持不动"
+        ],
+        "performance_notes": "三只猫解除表演时动作克制、缓慢，喜剧来自尴尬而不是夸张；小南的叮嘱自然温柔，离场动作清楚但不拖延。",
+        "timing": [
+          "0.0-0.8s 保留被拆穿后的安静停顿",
+          "0.8-2.0s 大漂亮下地、小帅松爪",
+          "2.0-3.0s 小南转身开门并说出锁定对白",
+          "3.0-4.4s 小南走出门并关门",
+          "4.4-5.0s 三只猫留在门内短暂停顿"
+        ]
+      },
+      "end_state": {
+        "description": "入户门完全关闭，小南已经在门外且不可见；大漂亮、小帅、阿诺都在玄关门内地面区域，解除与小南的身体接触并保持被拆穿后的短暂安静。"
+      },
+      "estimated_duration": 5.0,
+      "scene_end": true,
+      "next_shot": "Scene02"
+    }
+  ],
+  "scene_end_state": {
+    "description": "入户门关闭，小南离开；大漂亮、小帅、阿诺留在玄关门内，均已解除与小南的接触，维持表演被拆穿后的短暂安静，作为 Scene02 开始状态。"
+  },
+  "next_scene": "Scene02"
+}

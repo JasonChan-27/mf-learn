@@ -1,0 +1,71 @@
+{
+  "schema_version": "4.1",
+  "builder_mode": "DETERMINISTIC_STATE_BUILDER",
+  "creative_decision_allowed": false,
+  "reads_director_decision": false,
+  "state_authority": "Shot_State.json",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-04",
+  "package_version": "v001",
+  "package_input_sha256": "9ed19889e7eac2930a85d145282ac9a68f271f61d33383cbcd57f79c050dd3bb",
+  "package_input": {
+    "builder_mode": "DETERMINISTIC_STATE_BUILDER",
+    "prompt_source_state_sha256": "ae79405f41eb6b9c171dcc2c23825f40ff0fb90ab7c3a1b3f4dab04b4395ccee",
+    "assets": [
+      {
+        "asset_id": "environments.玄关master2",
+        "source_sha256": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+        "upload_filename": "environments__玄关master2.png"
+      },
+      {
+        "asset_id": "characters.小南-xiaonan-master",
+        "source_sha256": "b1dac21d003e2de21fc67e3fe8dec6cf000ab1d61d0a6e3f2bdd056cbe0f4f32",
+        "upload_filename": "characters__小南-xiaonan-master.png"
+      },
+      {
+        "asset_id": "characters.大漂亮-dapiaoliang-master",
+        "source_sha256": "b94b594efb02c415c2d243246c6aae16b68adfeff7f9c0e0c47290fbaff5aad1",
+        "upload_filename": "characters__大漂亮-dapiaoliang-master.png"
+      },
+      {
+        "asset_id": "characters.小帅-xiaoshuai-master",
+        "source_sha256": "b9a0c2ec75871044d8d73ba47d898c9ff8a51b453d546b88c9a5932371cc25ea",
+        "upload_filename": "characters__小帅-xiaoshuai-master.png"
+      },
+      {
+        "asset_id": "characters.阿诺-arno-master",
+        "source_sha256": "59c4623eb8f737cf830fcbb94b9bb755829cf316e77a59f8f99edcc76b1c76ad",
+        "upload_filename": "characters__阿诺-arno-master.png"
+      },
+      {
+        "asset_id": "outfits.小南_周末休闲外出款",
+        "source_sha256": "d46f7a2dc01eee59a3e91a2e84d21367c44a8d30f8389b9ed7dda98fb95de857",
+        "upload_filename": "outfits__小南_周末休闲外出款.png"
+      },
+      {
+        "asset_id": "cameras.entrance-hall-camera01",
+        "source_sha256": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+        "upload_filename": "cameras__entrance-hall-camera01.png"
+      }
+    ],
+    "previous_final_sha256": null
+  },
+  "artifact_sha256": {
+    "CHATGPT_HANDOFF.md": "2c8e45763ca5fe14a2b4559627fdcfb6b2a17eb59e60a8af5f118bcfa3c5587a",
+    "IMAGE_PROMPT.md": "2f960baab98a9e739dd12484c8caf3f95dfdec6cf351a9d3be11f8c06d77e77c",
+    "PROMPT_COMPILATION_MANIFEST.json": "67db1ce746c561bdb201eb5384b5aa2b290ed6a1840f96ac4397a275d0474b60",
+    "UPLOAD_MANIFEST.json": "a6ddeb65e253726911b079aa5dbcd60b95a87d8b91cc6eb57be4358185e4cbc8",
+    "VIDEO_PROMPT.md": "b9e47a060aa430837631ceeaf3d89e5a10e611914cffdbb94761a5f47187dc63",
+    "prompt.md": "8ce60f8375961b4da94d5ce3e5683b7a4b50dfe26dd0b6ad5c15b5b754f2c82b",
+    "required_assets.json": "b74c8372b0550909309422b69e6bfad70094565e695cb4ac642fbe04b90d9eb7",
+    "upload/cameras__entrance-hall-camera01.png": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+    "upload/characters__大漂亮-dapiaoliang-master.png": "b94b594efb02c415c2d243246c6aae16b68adfeff7f9c0e0c47290fbaff5aad1",
+    "upload/characters__小南-xiaonan-master.png": "b1dac21d003e2de21fc67e3fe8dec6cf000ab1d61d0a6e3f2bdd056cbe0f4f32",
+    "upload/characters__小帅-xiaoshuai-master.png": "b9a0c2ec75871044d8d73ba47d898c9ff8a51b453d546b88c9a5932371cc25ea",
+    "upload/characters__阿诺-arno-master.png": "59c4623eb8f737cf830fcbb94b9bb755829cf316e77a59f8f99edcc76b1c76ad",
+    "upload/environments__玄关master2.png": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+    "upload/outfits__小南_周末休闲外出款.png": "d46f7a2dc01eee59a3e91a2e84d21367c44a8d30f8389b9ed7dda98fb95de857"
+  },
+  "created_at": "2026-08-29T20:05:28+00:00"
+}

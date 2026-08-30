@@ -1,0 +1,18 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-01",
+  "primary_function": "INFORMATION_SHOT",
+  "secondary_effect": "COMEDY_SETUP",
+  "narrative_purpose": "建立玄关空间、小南即将出门及三只猫原本分散的状态，并用三猫同步捕捉离开信号与大漂亮率先冲入怀中的动作形成开场钩子。",
+  "audience_feeling": "从普通日常迅速进入好奇和轻微好笑。",
+  "information_gain": "观众确认四个角色的位置关系，并看到大漂亮是第一个把离家信号转化为行动的猫。",
+  "why_this_shot": "Scene 首镜必须先让观众看清门、小南和三只猫的完整地理关系，随后在同一空间中读取气氛突变和大漂亮的率先行动。",
+  "why_not_previous_shot": "这是 Scene 首镜，没有上一镜可承担空间建立与开场钩子；Scene 开始前也不存在可继承的已锁定画面。",
+  "coverage_reason": "中大全景足以同时呈现入户门、换鞋区、小南全身和三只猫分散位置，并让大漂亮从地面到怀中的完整运动路径保持可读。",
+  "camera_reason": "Camera01 已登记并直接面对入户门，能够完整呈现门前地面、换鞋区和大漂亮的运动路径，是当前资产中承担空间建立的明确匹配机位。",
+  "camera_motion_reason": "开场需要先锁定空间并让三猫同步变脸与大漂亮的冲刺在稳定画面内形成反差，移动摄影会削弱位置认知和喜剧突变。",
+  "continuity_reason": "CAMERA_CUT_CONTINUITY / NONE",
+  "freeze_reason": "三只猫刚刚发现小南准备离开的最后一个稳定瞬间，注意力已转向小南但集体表演尚未启动。"
+}

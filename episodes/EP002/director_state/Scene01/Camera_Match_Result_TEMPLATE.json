@@ -1,0 +1,26 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "source_plan_revision": 1,
+  "resolutions": [
+    {
+      "shot_id": "Shot01-02",
+      "selected_camera": "",
+      "camera_status": "MATCH",
+      "camera_reason": ""
+    },
+    {
+      "shot_id": "Shot01-03",
+      "selected_camera": "",
+      "camera_status": "MATCH",
+      "camera_reason": ""
+    },
+    {
+      "shot_id": "Shot01-05",
+      "selected_camera": "",
+      "camera_status": "MATCH",
+      "camera_reason": ""
+    }
+  ]
+}

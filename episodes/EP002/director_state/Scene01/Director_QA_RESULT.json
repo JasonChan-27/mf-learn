@@ -1,0 +1,29 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "result": "PASS",
+  "scene_score": 96,
+  "dimension_scores": {
+    "narrative_coverage": 98,
+    "shot_necessity": 95,
+    "visual_differentiation": 96,
+    "camera_and_motion": 96,
+    "continuity": 97,
+    "frozen_moment": 98,
+    "rhythm": 94
+  },
+  "issues": [],
+  "approved_strengths": [
+    "六个 Shot 完整覆盖三猫进入离别表演、依次加码、小南短暂动容、取快递真相拆穿、集体僵住及关门离开的全部剧情信息，Scene Goal 与 Scene End 均成立。",
+    "Shot01-01、Shot01-04、Shot01-06 使用 Camera01 建立、校正并收束完整玄关群体关系；Shot01-02、Shot01-05 使用 Camera02 形成怀中人猫互动的视觉回环；Shot01-03 使用 Camera03 独立读取脚边抱腿动作，景别与构图变化均有明确叙事理由。",
+    "实际 Camera Master 保持从室内朝向入户门的同侧空间方向。Camera02 能够承载小南上半身、怀中大漂亮及木质门背景，Camera03 能够承载小帅完整猫体、着地后爪和小南小腿关系，新增 Camera 与原 Coverage、Composition 和 Axis 要求匹配。",
+    "所有镜头使用 LOCKED_OFF 均有明确喜剧与表演理由，稳定机位让认真台词、反应停顿、真相揭示和集体尴尬成为节奏主体，没有装饰性运镜。",
+    "相邻 Shot 的 Start State 与上一 Shot End State 对齐，大漂亮的抱持状态、小帅的抱腿状态、阿诺的站立到端坐状态、门的关闭与开启状态均连续可追踪。",
+    "所有 CAMERA_CUT_CONTINUITY 均使用 STATE_REFERENCE_ONLY，没有错误要求继承上一镜最终构图；Identity、Space、Lighting、Position 与 Action State 可以在 Camera01、Camera02、Camera03 之间连续传递。",
+    "每个 Frozen Moment 都位于动作发生前，physical_boundaries 可见且可验证，forbidden_advanced_states 明确阻止抱起、抱腿、坐下、摸头、开门和离场等后续状态提前进入首帧。",
+    "Shot01-02 与 Shot01-05 虽复用 Camera02，但分别承担离别表演建立与生活化真相揭示，中间由低机位单猫镜头和群像镜头分隔，不构成视觉重复或微动作拆镜。",
+    "Shot01-06 在同一稳定群像中完成静默停顿、三猫撤回表演、小南叮嘱及关门离开，避免把连续收束动作继续碎拆，同时为 Scene02 的门内安静状态提供明确物理起点。"
+  ],
+  "replan_instruction": null
+}

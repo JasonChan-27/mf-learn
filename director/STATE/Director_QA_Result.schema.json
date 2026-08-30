@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CatDrama V4.1 Director QA Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "episode_id",
+    "scene_id",
+    "result",
+    "scene_score",
+    "dimension_scores",
+    "issues",
+    "approved_strengths",
+    "replan_instruction"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "4.1"
+    },
+    "episode_id": {
+      "type": "string"
+    },
+    "scene_id": {
+      "type": "string"
+    },
+    "result": {
+      "enum": [
+        "PASS",
+        "REPLAN_REQUIRED",
+        "NEED_NEW_CAMERA"
+      ]
+    },
+    "scene_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "dimension_scores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "narrative_coverage",
+        "shot_necessity",
+        "visual_differentiation",
+        "camera_and_motion",
+        "continuity",
+        "frozen_moment",
+        "rhythm"
+      ],
+      "properties": {
+        "narrative_coverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "shot_necessity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "visual_differentiation": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "camera_and_motion": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "continuity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "frozen_moment": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "rhythm": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "severity",
+          "shot_ids",
+          "category",
+          "problem",
+          "required_change"
+        ],
+        "properties": {
+          "severity": {
+            "enum": [
+              "BLOCKER",
+              "MAJOR",
+              "MINOR"
+            ]
+          },
+          "shot_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "category": {
+            "type": "string"
+          },
+          "problem": {
+            "type": "string"
+          },
+          "required_change": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "approved_strengths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "replan_instruction": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

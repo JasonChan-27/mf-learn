@@ -1,0 +1,18 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-04",
+  "primary_function": "CHARACTER_SHOT",
+  "secondary_effect": "RHYTHM_CONTRAST",
+  "narrative_purpose": "用阿诺缓慢趴下、伸懒腰和克制抱怨完成第三种真实状态，并只在构图边缘保留大漂亮的低负荷舞蹈连续性。",
+  "audience_feeling": "从前两只猫的快速释放转为欣赏阿诺一本正经的慢节奏吐槽，笑点得到层次变化。",
+  "information_gain": "阿诺真正想要的是安静睡觉、不被小南突然抱起；三只猫各有不同的独处目标。",
+  "why_this_shot": "阿诺的笑点依赖缓慢、从容和完整身体姿态，需要从快速动作中切回稳定观察；小帅已经真实退出画面，大漂亮只作为边缘连续性信息，不与阿诺争夺主动作。",
+  "why_not_previous_shot": "小帅镜头以快速冲刺为主，无法同时容纳阿诺的长台词和慢动作；若不切换节奏，阿诺的成熟冷幽默会被奔跑抢走。",
+  "coverage_reason": "中广景能够完整读取阿诺从坐姿到趴伸的身体变化，同时以画面边缘的一小部分大漂亮交代舞蹈仍在继续；小帅完全退出后，画面负荷集中在阿诺的表演和对白。",
+  "camera_reason": "Camera01 能以固定低位中广景容纳阿诺的完整伸展和门前大漂亮的局部舞蹈，并保持关闭门的空间锚点；小帅退出后，现有构图可以稳定维持唯一主要动作和既有主轴。",
+  "camera_motion_reason": "阿诺的冷幽默来自缓慢动作与稳定观察，锁定画面让其对白和伸展成为明确中心；推拉或摇移会破坏克制节奏和分层构图。",
+  "continuity_reason": "CAMERA_CUT_CONTINUITY / STATE_REFERENCE_ONLY",
+  "freeze_reason": "阿诺确认主人离开后仍保持坐姿，正准备放松身体，但尚未向地面趴下。"
+}

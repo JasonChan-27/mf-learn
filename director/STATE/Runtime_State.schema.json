@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "Runtime_State.schema.json",
+  "title": "CatDrama V4.1 Runtime State",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "episode_id",
+    "current_scene_id",
+    "current_shot_id",
+    "director_session_mode",
+    "scene_status",
+    "next_action"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "4.1"
+    },
+    "episode_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "current_scene_id": {
+      "type": "string"
+    },
+    "current_shot_id": {
+      "type": "string"
+    },
+    "director_session_mode": {
+      "const": "PROMPT_ONLY"
+    },
+    "scene_status": {
+      "enum": [
+        "PLANNING",
+        "DIRECTOR_QA",
+        "CAMERA_REQUIRED",
+        "ASSET_REQUIRED",
+        "PRODUCTION",
+        "COMPLETED",
+        "INVALIDATED"
+      ]
+    },
+    "next_action": {
+      "enum": [
+        "PLAN_CURRENT_SCENE",
+        "CAMERA_MATCH_REQUIRED",
+        "DIRECTOR_QA_REQUIRED",
+        "GENERATE_CURRENT_SHOT_PACKAGE",
+        "WAIT_FOR_IMAGE_APPROVAL",
+        "WAIT_FOR_VIDEO_APPROVAL",
+        "NEED_NEW_CAMERA",
+        "NEED_ASSET",
+        "EPISODE_COMPLETE"
+      ]
+    },
+    "pending_director_plan": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pending_director_qa": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pending_camera_match": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "last_event": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    }
+  }
+}

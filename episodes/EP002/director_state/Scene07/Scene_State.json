@@ -1,0 +1,13 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene07",
+  "scene_number": 7,
+  "scene_title": "餐厅｜直播结束",
+  "plan_status": "DRAFT",
+  "status": "PLANNING",
+  "shot_count": 0,
+  "shots": [],
+  "next_scene": "Scene08",
+  "updated_at": "2026-08-23T10:58:45+00:00"
+}

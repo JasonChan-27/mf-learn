@@ -1,0 +1,18 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-06",
+  "primary_function": "REACTION_SHOT",
+  "secondary_effect": "COMEDIC_PAYOFF",
+  "narrative_purpose": "让小南在新首帧中从门外探头看见现场，保留沉默对视和心虚反应，再以画外取钥匙、克制责备及重新关门完成反转收尾。",
+  "audience_feeling": "在小南出现后的沉默和两只可见猫的心虚中获得最大笑点，并从画外小帅的安静与小南无奈反应确认三猫全部被抓现行。",
+  "information_gain": "小南折返是为了取门边钥匙；她看穿了三猫演技但没有真正生气，三猫都知道自己的真实状态已暴露。",
+  "why_this_shot": "小南首次可见必须拥有独立 Frozen Moment，才能将她的 Character Master 与 Outfit Master 正确打包；本镜随后连续完成对视、画外取钥匙、对白和离开，不再为细小动作拆镜。",
+  "why_not_previous_shot": "上一镜只负责门锁打断、三猫急停和空门缝悬停；若让小南在上一镜动作中从 Off Screen 入画，她的角色和服装资产不会进入该 Shot 的生成包。",
+  "coverage_reason": "中广景可同时保留门缝中的小南、阿诺完整伸展姿势和边缘处的大漂亮舞姿，使沉默反应、画外取物手势和重新关门都在同一空间关系中完成；小帅保持在厨房方向画外，不制造位置回跳。",
+  "camera_reason": "Camera01 可以保持上一镜的门口主轴与空间层次，同时让新生成的首帧明确包含小南、阿诺和部分大漂亮；使用同一 Camera Master 但采用切镜状态连续性，可增加小南而不依赖上一 Final，也能覆盖画外取物和关门。",
+  "camera_motion_reason": "笑点依赖尴尬沉默在固定群像中的延长，锁定镜头让观众自行比较冻结姿势与小南反应；推近会放大情绪并破坏克制的生活感。",
+  "continuity_reason": "CAMERA_CUT_CONTINUITY / STATE_REFERENCE_ONLY",
+  "freeze_reason": "小南刚从门缝探头并看清室内，画内两猫仍以冻结姿势看向她，尚无角色移开目光或采取下一动作。"
+}

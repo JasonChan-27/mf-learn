@@ -1,0 +1,13 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene12",
+  "scene_number": 12,
+  "scene_title": "餐厅｜贪吃的代价",
+  "plan_status": "DRAFT",
+  "status": "PLANNING",
+  "shot_count": 0,
+  "shots": [],
+  "next_scene": "EPISODE_END",
+  "updated_at": "2026-08-23T10:58:45+00:00"
+}

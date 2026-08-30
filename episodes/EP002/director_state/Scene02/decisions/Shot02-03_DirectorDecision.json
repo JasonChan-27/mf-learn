@@ -1,0 +1,18 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-03",
+  "primary_function": "ACTION_SHOT",
+  "secondary_effect": "CHARACTER_REVEAL",
+  "narrative_purpose": "让小帅的眼泪瞬间消失并冲向厨房，以冻干目标揭示它比离别更在意食物的真实动机。",
+  "audience_feeling": "在第二个迅速翻脸中感到节奏加速，并期待三只猫各自放飞。",
+  "information_gain": "小帅的核心驱动力是冻干；它确认小南离开后会立即采取高效、直接的行动。",
+  "why_this_shot": "小帅从静止到冲刺并说出两句目标明确的台词，需要独立动作镜头保证四足起跑、前进方向和情绪变化清楚可读。",
+  "why_not_previous_shot": "上一镜是大漂亮的单猫表演高点；把小帅起跑塞入同一构图会产生两个快速主体，既削弱舞蹈笑点，也增加动作生成和视线组织的不确定性。",
+  "coverage_reason": "低位中景能完整显示小帅的猫身、四爪起跑和朝室内通道加速的方向，同时保留足够地面距离证明它不是拟人奔跑。",
+  "camera_reason": "Camera03 的低位地面视角可完整覆盖小帅的起跑姿态和向室内前段冲出的路径，并与上一镜使用同一朝门轴侧；重新组织主体区而非越轴即可完成动作镜头。",
+  "camera_motion_reason": "让小帅自己快速穿过稳定构图比跟拍更能表现迫不及待，也能清楚验证四足起跑和方向；跟随运动会增加肢体错位风险。",
+  "continuity_reason": "CAMERA_CUT_CONTINUITY / STATE_REFERENCE_ONLY",
+  "freeze_reason": "小帅刚把注意力从入户门转向室内方向、眼泪已经止住但身体尚未启动冲刺。"
+}

@@ -1,0 +1,328 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "Shot_State.schema.json",
+  "title": "CatDrama V4.1 Shot Execution State",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "episode_id",
+    "scene_id",
+    "shot_id",
+    "order",
+    "status",
+    "primary_function",
+    "primary_focus",
+    "coverage",
+    "composition_intent",
+    "information_density",
+    "visible_characters",
+    "partial_characters",
+    "off_screen_characters",
+    "camera_state",
+    "continuity",
+    "start_state",
+    "frozen_moment",
+    "shot_delta",
+    "end_state",
+    "required_assets",
+    "estimated_duration",
+    "scene_end",
+    "next_shot"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "4.1"
+    },
+    "episode_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scene_id": {
+      "type": "string",
+      "pattern": "^Scene\\d{2}$"
+    },
+    "shot_id": {
+      "type": "string",
+      "pattern": "^Shot\\d{2}-\\d{2}$"
+    },
+    "order": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "enum": [
+        "PLANNED",
+        "READY",
+        "PROMPTED",
+        "IMAGE_APPROVED",
+        "VIDEO_APPROVED",
+        "COMPLETED",
+        "INVALIDATED"
+      ]
+    },
+    "primary_function": {
+      "type": "string",
+      "minLength": 1
+    },
+    "primary_focus": {
+      "type": "string",
+      "minLength": 1
+    },
+    "coverage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "composition_intent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "information_density": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "visible_characters": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "partial_characters": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "off_screen_characters": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "camera_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "camera_asset",
+        "camera_status",
+        "movement",
+        "movement_reason",
+        "axis_status"
+      ],
+      "properties": {
+        "camera_asset": {
+          "type": "string",
+          "minLength": 1
+        },
+        "camera_status": {
+          "enum": [
+            "MATCH",
+            "PARTIAL_MATCH"
+          ]
+        },
+        "movement": {
+          "enum": [
+            "LOCKED_OFF",
+            "SLOW_PUSH_IN",
+            "SLOW_PULL_OUT",
+            "PAN",
+            "TILT",
+            "TRACK",
+            "HANDHELD_MICRO"
+          ]
+        },
+        "movement_reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "axis_status": {
+          "enum": [
+            "PRESERVED",
+            "NEW_AXIS_ESTABLISHED"
+          ]
+        }
+      }
+    },
+    "continuity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "previous_frame_policy",
+        "previous_frame_filename",
+        "locked_facts",
+        "change_allowed"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "SAME_CAMERA_CONTINUATION",
+            "CAMERA_CUT_CONTINUITY"
+          ]
+        },
+        "previous_frame_policy": {
+          "enum": [
+            "NONE",
+            "STATE_REFERENCE_ONLY",
+            "HIGH_PRIORITY_VISUAL_CONTINUITY"
+          ]
+        },
+        "previous_frame_filename": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "locked_facts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "change_allowed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "start_state": {
+      "type": "object",
+      "required": [
+        "description"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "frozen_moment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "description",
+        "physical_boundaries",
+        "forbidden_advanced_states"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "physical_boundaries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "forbidden_advanced_states": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "shot_delta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primary_action",
+        "secondary_actions",
+        "performance_notes",
+        "timing"
+      ],
+      "properties": {
+        "primary_action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "secondary_actions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "performance_notes": {
+          "type": "string"
+        },
+        "timing": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "end_state": {
+      "type": "object",
+      "required": [
+        "description",
+        "next_state_anchor"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "next_state_anchor": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "required_assets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_ids",
+        "package_filenames"
+      ],
+      "properties": {
+        "asset_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "package_filenames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "estimated_duration": {
+      "type": "number",
+      "minimum": 0.1
+    },
+    "scene_end": {
+      "type": "boolean"
+    },
+    "next_shot": {
+      "type": "string",
+      "minLength": 1
+    },
+    "approved_image": {
+      "type": "string",
+      "minLength": 1
+    },
+    "approved_video": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

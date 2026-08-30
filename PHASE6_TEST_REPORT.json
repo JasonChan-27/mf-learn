@@ -1,0 +1,54 @@
+{
+  "phase": "Phase6 Pure Prompt Compiler",
+  "tested_at": "2026-08-24",
+  "unit_tests": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "test_count": 9,
+    "result": "PASS",
+    "coverage": [
+      "Director coverage_reason and axis_status are copied without inference",
+      "Visible characters require explicit Character Master mappings",
+      "Shot required_assets use exact Director-provided character/outfit mappings",
+      "IMAGE and VIDEO State separation",
+      "VIDEO-only State leak rejection",
+      "immutable prompt source hash stability",
+      "Camera gaps block and emit CAMERA_REQUIREMENT without fallback",
+      "Asset gaps block and emit ASSET_REQUIREMENT",
+      "Package to image approval to video approval to episode completion"
+    ]
+  },
+  "fresh_project_regression": {
+    "result": "PASS",
+    "flow": [
+      "RESET",
+      "PLAN_CURRENT_SCENE",
+      "APPLY_DIRECTOR_PLAN",
+      "DIRECTOR_QA_REQUIRED",
+      "APPLY_DIRECTOR_QA_PASS",
+      "GENERATE_CURRENT_SHOT_PACKAGE",
+      "WAIT_FOR_IMAGE_APPROVAL",
+      "WAIT_FOR_VIDEO_APPROVAL",
+      "SCENE01_COMPLETED",
+      "SCENE02_PLAN_CURRENT_SCENE"
+    ],
+    "camera_gap": "PASS",
+    "asset_gap_and_resume": "PASS",
+    "director_state_index_sync": "PASS",
+    "real_asset_catalog": {
+      "discovered_assets": 83,
+      "ep002_requested_assets": 26,
+      "resolved": 26,
+      "missing": 0,
+      "ambiguous": 0
+    }
+  },
+  "prompt_contract": {
+    "compiler_mode": "PURE_STATE_TRANSLATION",
+    "creative_decision_allowed": false,
+    "compiler_reads_director_decision": false,
+    "image_contains_primary_action": false,
+    "video_contains_primary_action": true,
+    "compilation_manifest_hashes": "PASS"
+  },
+  "next_phase": "Phase7 Builder"
+}

@@ -1,0 +1,648 @@
+# EP002 Scene02 — Director QA Request
+
+你现在只执行 Director QA，不重新导演，不生成图片，不生成 IMAGE PROMPT / VIDEO PROMPT。
+
+审核对象是已经完成 Planning Import 的完整 Scene。
+
+## 当前 Shot Plan
+
+- Shot02-01: INFORMATION_SHOT / MEDIUM_WIDE / cameras.entrance-hall-camera01 / LOCKED_OFF
+- Shot02-02: PERFORMANCE_SHOT / MEDIUM / cameras.entrance-hall-camera03 / LOCKED_OFF
+- Shot02-03: ACTION_SHOT / MEDIUM / cameras.entrance-hall-camera03 / LOCKED_OFF
+- Shot02-04: CHARACTER_SHOT / MEDIUM_WIDE / cameras.entrance-hall-camera01 / LOCKED_OFF
+- Shot02-05: REVEAL_SHOT / MEDIUM_WIDE / cameras.entrance-hall-camera01 / LOCKED_OFF
+- Shot02-06: REACTION_SHOT / MEDIUM_WIDE / cameras.entrance-hall-camera01 / LOCKED_OFF
+
+## 完整 Scene Director Plan（审核唯一对象）
+
+```json
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "revision": 2,
+  "plan_status": "LOCKED",
+  "scene_director_decision": {
+    "scene_goal": "揭开三只猫在小南离开后的真实状态，并用小南突然折返形成完整的反转喜剧闭环。",
+    "narrative_change": "三只猫从维持离别表演转为各自彻底放松，又在门锁响起后被小南当场撞见，最终从得意自在转为心虚尴尬。",
+    "primary_character": "大漂亮",
+    "secondary_characters": [
+      "小帅",
+      "阿诺",
+      "小南"
+    ],
+    "audience_start_state": "观众刚看完三只猫依依不舍的离别表演，知道小南已经出门，但尚未看见它们独处时的真实反应。",
+    "audience_end_state": "观众确认三只猫此前都在演戏，并在小南折返撞破现场、三猫默默移开视线的停顿中获得反转笑点。",
+    "emotion_curve": [
+      "离别余韵",
+      "安静确认",
+      "突然释放",
+      "各自得意",
+      "警觉冻结",
+      "心虚尴尬"
+    ],
+    "information_curve": [
+      "门已关闭且小南确实离开",
+      "大漂亮的悲伤表情是表演",
+      "小帅真正关心的是冻干",
+      "阿诺真正想要不被打扰地睡觉",
+      "小南因忘拿钥匙突然折返",
+      "三只猫的真实状态被小南完整撞见"
+    ],
+    "rhythm_strategy": "先用静默延续离别余韵，再以三个性格清晰、动作尺度不同的段落逐级释放；小帅完成起跑后真实退出玄关构图，阿诺段落只保留低负荷背景舞蹈。门锁声突然截断节奏，先以空门缝悬停，再用包含小南的独立首帧完成沉默反应与收束。",
+    "primary_style": "OBSERVATIONAL_COMEDY",
+    "secondary_style": "DEADPAN_REVEAL",
+    "scene_visual_strategy": "维持真实家庭玄关、下午自然光与暖色室内光的稳定空间；用低位猫视角的中广景保存门与角色关系，用地面中景分别读取大漂亮舞蹈和小帅奔跑。小帅跑出构图后不再回跳；最后以空门缝和包含小南的独立首帧完成被撞见的笑点。所有猫动作保持真实四足结构，钥匙始终位于画外，不生成未登记道具。",
+    "scene_camera_strategy": "全场保持 Scene01 已建立的室内朝入户门主轴，不从门外反拍。Camera01承担场面延续、阿诺表演、门锁打断和小南折返；Camera03承担猫身完整可见的舞蹈与起跑动作。镜头全部锁定。小南首次出现采用 CAMERA_CUT_CONTINUITY 与 STATE_REFERENCE_ONLY，使她的角色和服装资产在该首帧中显式进入生成包。",
+    "scene_end_intent": "在小南伸手至门侧画外并由钥匙轻响确认取物、说完“坏猫咪”且再次关门后结束；三猫在各自位置短暂心虚，为 Scene03 转入客厅后的下一轮无人状态建立因果。"
+  },
+  "scene_assets": {
+    "environment_asset": "environments.玄关master2",
+    "character_assets": {
+      "小南": "characters.小南-xiaonan-master",
+      "大漂亮": "characters.大漂亮-dapiaoliang-master",
+      "小帅": "characters.小帅-xiaoshuai-master",
+      "阿诺": "characters.阿诺-arno-master"
+    },
+    "outfit_assets": {
+      "小南": "outfits.小南_周末休闲外出款"
+    },
+    "prop_assets": []
+  },
+  "shots": [
+    {
+      "shot_id": "Shot02-01",
+      "order": 1,
+      "primary_function": "INFORMATION_SHOT",
+      "secondary_effect": "COMEDIC_REVERSAL_SETUP",
+      "narrative_purpose": "承接小南刚离开的空间与动作状态，让三只猫确认门外没有动静，并由大漂亮率先撕下悲伤伪装、宣布开始放松。",
+      "audience_feeling": "先屏息观察，再因大漂亮骤然变脸而感到意外和好笑。",
+      "information_gain": "小南已在门外，三猫的离别姿态只是暂时维持；大漂亮是最先打破伪装、主动带动气氛的角色。",
+      "why_this_shot": "场景必须先保留 Scene01 末尾的静止余韵，才能让同一构图内的情绪翻转产生可见反差，并重新确认门与三猫的空间关系。",
+      "why_not_previous_shot": "Scene01 最后一镜的任务是完成小南离开和门关闭；若把三猫变脸并入上一镜，会消除离别表演与无人真实状态之间必要的场景断点。",
+      "primary_focus": "大漂亮从悲伤凝固到眼神恢复兴奋并喊出“燥起来！”",
+      "secondary_focus": "小帅与阿诺仍在原位听门外动静",
+      "coverage": "MEDIUM_WIDE",
+      "coverage_reason": "中广景可同时验证关闭的入户门、三猫仍在玄关地面的初始位置以及大漂亮走向空地的完整路径，是建立真实状态反转所需的最低空间覆盖。",
+      "composition_intent": "入户门居后景中心并保持完全关闭；大漂亮位于门前主要动作区，小帅与阿诺分处前中景形成不均匀三角。静默时三猫都朝门，变脸后大漂亮成为唯一主动移动主体并走入画面较开阔的地面区域。",
+      "information_density": "HIGH",
+      "visible_characters": [
+        "大漂亮",
+        "小帅",
+        "阿诺"
+      ],
+      "partial_characters": [],
+      "off_screen_characters": [
+        "小南"
+      ],
+      "camera_requirement": {
+        "purpose": "无缝承接 Scene01 关门后的群像，并在同一空间基准中呈现大漂亮的第一层反转",
+        "scale": "MEDIUM_WIDE",
+        "subject_zone": "入户门内侧、门前地面与三猫分布区域",
+        "axis_requirement": "保持 Scene01 已建立的室内朝门主轴与三猫面对门的屏幕方向，不从门外反拍",
+        "lens_intent": "自然保留玄关纵深和三猫比例，既能看清群体关系又不以超广角夸张猫体"
+      },
+      "selected_camera": "cameras.entrance-hall-camera01",
+      "camera_status": "MATCH",
+      "camera_reason": "Camera01 的低位中广视角与 Scene01 末镜一致，能够同时保留关闭的门、长条地面和三猫层次；它既满足跨 Scene 的动作连续性，也为大漂亮走向空地留下可执行路径，主轴保持不变。",
+      "camera_motion": "LOCKED_OFF",
+      "camera_motion_reason": "固定画面可让数秒安静与突然变脸发生在同一空间基准内，反差由表演完成；移动镜头会提前暗示变化并削弱观察式笑点。",
+      "axis_status": "PRESERVED",
+      "continuity_mode": "CAMERA_CUT_CONTINUITY",
+      "previous_frame_policy": "STATE_REFERENCE_ONLY",
+      "start_state": {
+        "description": "承接 Scene01 末镜：入户门刚完全关闭，小南已在门外；大漂亮、小帅和阿诺都留在室内地面，仍维持被识破后的短暂僵硬与朝门注意力。"
+      },
+      "frozen_moment": {
+        "description": "关门后的安静刚开始，三只猫保持原位听门外动静，尚无任何一只猫解除离别表演。",
+        "physical_boundaries": [
+          "入户门完全关闭，门扇与门框贴合，门把手静止",
+          "大漂亮四爪全部接触室内地面，身体仍朝向入户门，尚未走入空地",
+          "小帅四爪全部接触地面，身体停在玄关一侧，尚未转向室内通道",
+          "阿诺保持端坐，臀部和两只前爪稳定接触地面，胸腹尚未趴下",
+          "小南不在室内画面中，门内侧没有人体或手臂"
+        ],
+        "forbidden_advanced_states": [
+          "大漂亮已经露出兴奋表情、喊出“燥起来”或开始跳舞",
+          "小帅已经冲向厨房或说出冻干台词",
+          "阿诺已经趴下或伸懒腰",
+          "门锁已经响起、入户门重新打开或小南探头回来",
+          "三只猫已经被折返的小南吓停"
+        ]
+      },
+      "shot_delta": {
+        "primary_action": "安静持续数秒，三猫用耳位和目光确认门外无动静；大漂亮的悲伤眼神随即消失，恢复兴奋，喊“燥起来！”，并以真实四足步态走向门前空地。",
+        "secondary_actions": [
+          "小帅仅以耳朵和视线跟随大漂亮，身体暂时留在原位",
+          "阿诺保持端坐，以克制眼神确认小南确实离开"
+        ],
+        "performance_notes": "前半段保持真实安静，不做夸张抖动；大漂亮的转变要快但集中在眼神、耳位和步态活力，喊话带少女式兴奋，不以拟人站立表现。",
+        "timing": [
+          "0.0-1.8秒：门内安静，三猫听门外动静",
+          "1.8-2.5秒：大漂亮眼神和耳位从悲伤转为兴奋",
+          "2.5-4.5秒：大漂亮喊“燥起来！”并走向空地"
+        ]
+      },
+      "end_state": {
+        "description": "门仍完全关闭；大漂亮已到达开阔地面并以四足姿态准备起舞，小帅仍在一侧但注意力开始转向室内，阿诺仍端坐。"
+      },
+      "estimated_duration": 4.5,
+      "scene_end": false,
+      "next_shot": "Shot02-02"
+    },
+    {
+      "shot_id": "Shot02-02",
+      "order": 2,
+      "primary_function": "PERFORMANCE_SHOT",
+      "secondary_effect": "CHARACTER_REVEAL",
+      "narrative_purpose": "用一段身体完整可读的投入舞蹈，证明大漂亮刚才的依依不舍已经彻底消失。",
+      "audience_feeling": "看见大漂亮无缝切换成快乐独处状态，获得第一轮明确反差笑点。",
+      "information_gain": "大漂亮独处时外向、爱玩且会主动释放自己，先前的悲伤不是持续情绪。",
+      "why_this_shot": "舞蹈需要独立的地面中景来保证猫体、四肢和动作节奏完整可读，并让大漂亮成为唯一视觉中心。",
+      "why_not_previous_shot": "上一镜承担安静确认、群像位置和变脸启动；继续在中广群像中完成舞蹈会让动作尺度过小，也会让小帅和阿诺分散表演焦点。",
+      "primary_focus": "大漂亮在空地上投入地跳短视频舞蹈",
+      "secondary_focus": "真实猫科身体结构下的节奏感与兴奋表情",
+      "coverage": "MEDIUM",
+      "coverage_reason": "低位中景能够完整保留大漂亮从耳尖到尾部和四爪落点，使侧步、抬前爪和头部节拍清楚可验，同时排除其余角色的竞争信息。",
+      "composition_intent": "大漂亮位于门前空地中央偏下，完整猫身占据主要画面；关闭的入户门和木质门框保留为后景空间锚点，地面留出左右动作余量，小帅、阿诺和小南全部退出画面。",
+      "information_density": "MEDIUM",
+      "visible_characters": [
+        "大漂亮"
+      ],
+      "partial_characters": [],
+      "off_screen_characters": [
+        "小帅",
+        "阿诺",
+        "小南"
+      ],
+      "camera_requirement": {
+        "purpose": "读取大漂亮完整身体的真实猫咪舞蹈动作和兴奋表演",
+        "scale": "MEDIUM",
+        "subject_zone": "门前开阔地面的单猫表演区",
+        "axis_requirement": "沿用室内朝门主轴，使关闭的门仍处于大漂亮后方，不切到门外一侧",
+        "lens_intent": "自然呈现猫头、躯干、尾巴和四肢比例，并提供足够地面余量而不产生超广角形变"
+      },
+      "selected_camera": "cameras.entrance-hall-camera03",
+      "camera_status": "MATCH",
+      "camera_reason": "Camera03 的贴地视点和充足前景地面适合组织单猫全身中景，可清楚验证大漂亮的四足舞步并继续看见关闭的入户门；它与 Camera01 处于同一室内朝门轴侧，切换不会越轴。",
+      "camera_motion": "LOCKED_OFF",
+      "camera_motion_reason": "固定低机位让舞蹈节奏在稳定框架内自行制造活力，也便于保持四肢落点和猫体比例；跟拍或摇移会增加生成漂移并把轻喜剧处理得过度炫技。",
+      "axis_status": "PRESERVED",
+      "continuity_mode": "CAMERA_CUT_CONTINUITY",
+      "previous_frame_policy": "STATE_REFERENCE_ONLY",
+      "start_state": {
+        "description": "大漂亮已从三猫群像中走到门前空地，四爪落地并充满兴奋；小帅、阿诺仍在玄关其他位置，小南仍在门外，入户门关闭。"
+      },
+      "frozen_moment": {
+        "description": "大漂亮刚站定在舞蹈区域、身体蓄势但尚未做出第一个舞步的最后稳定瞬间。",
+        "physical_boundaries": [
+          "大漂亮四爪全部接触地面，躯干保持水平，没有以后肢直立",
+          "大漂亮与关闭的入户门之间保持可见地面距离，没有触碰门扇",
+          "画面左右均留有可见的舞步活动空间，大漂亮尚未跨出当前位置",
+          "入户门完全关闭，画面内没有小南身体部分",
+          "小帅和阿诺不进入当前构图"
+        ],
+        "forbidden_advanced_states": [
+          "大漂亮已经抬爪、侧步、旋转或形成舞蹈中段姿势",
+          "大漂亮以人类方式双足站立或长时间腾空",
+          "小帅已经冲过画面或冻干已经出现",
+          "阿诺已经进入画面趴下",
+          "门锁已经响起、门已打开或小南已经返回"
+        ]
+      },
+      "shot_delta": {
+        "primary_action": "大漂亮以真实猫体可完成的短视频舞蹈节奏连续表演：轻快侧步、交替短暂抬起前爪、头部和肩背配合节拍、尾巴随节奏摆动。",
+        "secondary_actions": [
+          "兴奋目光保持投入，不再回看入户门",
+          "每个动作后至少三点稳定承重，不出现持续双足直立"
+        ],
+        "performance_notes": "投入程度要与刚才的悲伤形成强反差，但动作仍是猫咪身体可执行的游戏式律动；避免人类舞者手势、服装变化、夸张旋转和卡通残影。",
+        "timing": [
+          "0.0-0.5秒：从蓄势进入第一拍",
+          "0.5-3.4秒：连续完成两到三个清楚可读的舞蹈节拍",
+          "3.4-4.2秒：停在仍有动势、可被后续门锁打断的舞姿"
+        ]
+      },
+      "end_state": {
+        "description": "大漂亮仍在门前空地投入跳舞，停留于一个真实猫体可保持的动态舞姿；门关闭，小帅和阿诺的状态在画外继续。"
+      },
+      "estimated_duration": 4.2,
+      "scene_end": false,
+      "next_shot": "Shot02-03"
+    },
+    {
+      "shot_id": "Shot02-03",
+      "order": 3,
+      "primary_function": "ACTION_SHOT",
+      "secondary_effect": "CHARACTER_REVEAL",
+      "narrative_purpose": "让小帅的眼泪瞬间消失并冲向厨房，以冻干目标揭示它比离别更在意食物的真实动机。",
+      "audience_feeling": "在第二个迅速翻脸中感到节奏加速，并期待三只猫各自放飞。",
+      "information_gain": "小帅的核心驱动力是冻干；它确认小南离开后会立即采取高效、直接的行动。",
+      "why_this_shot": "小帅从静止到冲刺并说出两句目标明确的台词，需要独立动作镜头保证四足起跑、前进方向和情绪变化清楚可读。",
+      "why_not_previous_shot": "上一镜是大漂亮的单猫表演高点；把小帅起跑塞入同一构图会产生两个快速主体，既削弱舞蹈笑点，也增加动作生成和视线组织的不确定性。",
+      "primary_focus": "小帅眼泪消失后朝室内厨房方向飞快起跑",
+      "secondary_focus": "小帅喊“我的小冻干！我来了！”时从悲情切换为兴奋的表情",
+      "coverage": "MEDIUM",
+      "coverage_reason": "低位中景能完整显示小帅的猫身、四爪起跑和朝室内通道加速的方向，同时保留足够地面距离证明它不是拟人奔跑。",
+      "composition_intent": "小帅在画面靠门一侧的起跑区形成主焦点，身体朝向通往室内的前景或侧前方；地面动线占据构图主要空间，关闭的门仍作为后方原因锚点。小帅在镜头末端沿既定方向完整退出构图，大漂亮、阿诺和小南均不进入画面。",
+      "information_density": "MEDIUM",
+      "visible_characters": [
+        "小帅"
+      ],
+      "partial_characters": [],
+      "off_screen_characters": [
+        "大漂亮",
+        "阿诺",
+        "小南"
+      ],
+      "camera_requirement": {
+        "purpose": "验证小帅由四爪静止到真实猫咪冲刺的完整起步，并读取食物驱动的兴奋表演",
+        "scale": "MEDIUM",
+        "subject_zone": "玄关地面靠门起跑区与通往室内的前段动线",
+        "axis_requirement": "保持室内朝门主轴和小帅由门边向室内移动的既定屏幕方向，不从动线另一侧反切",
+        "lens_intent": "自然呈现猫体与地面距离，给奔跑方向留出空间，同时避免广角拉长四肢或放大猫头"
+      },
+      "selected_camera": "cameras.entrance-hall-camera03",
+      "camera_status": "MATCH",
+      "camera_reason": "Camera03 的低位地面视角可完整覆盖小帅的起跑姿态和向室内前段冲出的路径，并与上一镜使用同一朝门轴侧；重新组织主体区而非越轴即可完成动作镜头。",
+      "camera_motion": "LOCKED_OFF",
+      "camera_motion_reason": "让小帅自己快速穿过稳定构图比跟拍更能表现迫不及待，也能清楚验证四足起跑和方向；跟随运动会增加肢体错位风险。",
+      "axis_status": "PRESERVED",
+      "continuity_mode": "CAMERA_CUT_CONTINUITY",
+      "previous_frame_policy": "STATE_REFERENCE_ONLY",
+      "start_state": {
+        "description": "大漂亮正在画外门前空地跳舞；小帅仍停在玄关一侧，先前的眼泪即将消失，身体尚未朝室内通道起跑；阿诺仍坐着，小南在门外。"
+      },
+      "frozen_moment": {
+        "description": "小帅刚把注意力从入户门转向室内方向、眼泪已经止住但身体尚未启动冲刺。",
+        "physical_boundaries": [
+          "小帅四爪全部接触玄关地面，身体重心尚未前冲",
+          "小帅与画面前方或侧前方的室内通道之间留有清楚可见的奔跑空间",
+          "小帅嘴部闭合，尚未说出冻干台词",
+          "入户门完全关闭，门扇没有移动",
+          "大漂亮、阿诺和小南均不进入当前构图"
+        ],
+        "forbidden_advanced_states": [
+          "小帅已经离开起跑位置、腾跃、冲出画面或抵达厨房",
+          "小帅已经说出“我的小冻干”或“我来了”",
+          "冻干袋或其他食物已经出现在玄关画面",
+          "大漂亮已经因门锁声停止跳舞",
+          "门已打开或小南已经返回"
+        ]
+      },
+      "shot_delta": {
+        "primary_action": "小帅的悲情完全消失，兴奋地喊“我的小冻干！我来了！”，随即以真实四足奔跑朝室内厨房方向加速。",
+        "secondary_actions": [
+          "起跑前头部和耳位先锁定室内目标",
+          "奔跑沿玄关通往室内的既有地面路径进行，不触碰门、鞋柜或其他角色"
+        ],
+        "performance_notes": "表情切换干脆、聪明且食物导向，语气兴奋但不婴儿化；奔跑保持猫科低重心与四足交替，不做双足冲刺。",
+        "timing": [
+          "0.0-0.6秒：眼泪消失并锁定室内目标",
+          "0.6-1.9秒：喊“我的小冻干！”",
+          "1.9-2.6秒：喊“我来了！”并压低重心",
+          "2.6-3.5秒：向室内动线快速起跑并退出当前构图"
+        ]
+      },
+      "end_state": {
+        "description": "小帅已沿玄关通往厨房的方向完整跑出 Camera03 构图，继续在室内画外移动；大漂亮在画外继续跳舞，阿诺仍准备放松，入户门保持关闭。"
+      },
+      "estimated_duration": 3.5,
+      "scene_end": false,
+      "next_shot": "Shot02-04"
+    },
+    {
+      "shot_id": "Shot02-04",
+      "order": 4,
+      "primary_function": "CHARACTER_SHOT",
+      "secondary_effect": "RHYTHM_CONTRAST",
+      "narrative_purpose": "用阿诺缓慢趴下、伸懒腰和克制抱怨完成第三种真实状态，并只在构图边缘保留大漂亮的低负荷舞蹈连续性。",
+      "audience_feeling": "从前两只猫的快速释放转为欣赏阿诺一本正经的慢节奏吐槽，笑点得到层次变化。",
+      "information_gain": "阿诺真正想要的是安静睡觉、不被小南突然抱起；三只猫各有不同的独处目标。",
+      "why_this_shot": "阿诺的笑点依赖缓慢、从容和完整身体姿态，需要从快速动作中切回稳定观察；小帅已经真实退出画面，大漂亮只作为边缘连续性信息，不与阿诺争夺主动作。",
+      "why_not_previous_shot": "小帅镜头以快速冲刺为主，无法同时容纳阿诺的长台词和慢动作；若不切换节奏，阿诺的成熟冷幽默会被奔跑抢走。",
+      "primary_focus": "阿诺慢慢趴下并伸出舒服的懒腰",
+      "secondary_focus": "大漂亮在门前空地边缘继续低幅度舞蹈",
+      "coverage": "MEDIUM_WIDE",
+      "coverage_reason": "中广景能够完整读取阿诺从坐姿到趴伸的身体变化，同时以画面边缘的一小部分大漂亮交代舞蹈仍在继续；小帅完全退出后，画面负荷集中在阿诺的表演和对白。",
+      "composition_intent": "阿诺位于前中景完整可见并占据稳定主焦点；大漂亮只在门前空地的后侧边缘部分可见，以小幅舞步维持连续性。关闭的入户门仍居后景，小帅与小南均不进入构图。",
+      "information_density": "HIGH",
+      "visible_characters": [
+        "阿诺"
+      ],
+      "partial_characters": [
+        "大漂亮"
+      ],
+      "off_screen_characters": [
+        "小帅",
+        "小南"
+      ],
+      "camera_requirement": {
+        "purpose": "以阿诺的完整趴伸动作为唯一主要表演，同时在空间边缘保存大漂亮的舞蹈连续性",
+        "scale": "MEDIUM_WIDE",
+        "subject_zone": "玄关前中景阿诺休息区与门前舞蹈区边缘",
+        "axis_requirement": "回到并保持 Camera01 的室内朝门主轴，延续门后景与三猫由门边向室内展开的屏幕关系",
+        "lens_intent": "保留真实纵深，使阿诺完整身体优先清楚，大漂亮只作为低权重边缘层存在"
+      },
+      "selected_camera": "cameras.entrance-hall-camera01",
+      "camera_status": "MATCH",
+      "camera_reason": "Camera01 能以固定低位中广景容纳阿诺的完整伸展和门前大漂亮的局部舞蹈，并保持关闭门的空间锚点；小帅退出后，现有构图可以稳定维持唯一主要动作和既有主轴。",
+      "camera_motion": "LOCKED_OFF",
+      "camera_motion_reason": "阿诺的冷幽默来自缓慢动作与稳定观察，锁定画面让其对白和伸展成为明确中心；推拉或摇移会破坏克制节奏和分层构图。",
+      "axis_status": "PRESERVED",
+      "continuity_mode": "CAMERA_CUT_CONTINUITY",
+      "previous_frame_policy": "STATE_REFERENCE_ONLY",
+      "start_state": {
+        "description": "门关闭；阿诺仍端坐在玄关前中景，大漂亮在门前空地边缘继续跳舞；小帅已经沿通往厨房的方向跑出玄关构图，小南仍在门外。"
+      },
+      "frozen_moment": {
+        "description": "阿诺确认主人离开后仍保持坐姿，正准备放松身体，但尚未向地面趴下。",
+        "physical_boundaries": [
+          "阿诺臀部和两只前爪接触地面，胸腹离地，身体尚未展开",
+          "大漂亮仅在门前空地的背景区域部分可见，并保持真实猫体舞姿",
+          "入户门完全关闭，门把手和门锁均静止",
+          "构图内除阿诺和部分可见的大漂亮外没有第三只猫",
+          "小南不在室内画面中"
+        ],
+        "forbidden_advanced_states": [
+          "阿诺已经趴平、伸出前腿或完成懒腰",
+          "阿诺已经说出任何一句独白",
+          "大漂亮已经因门锁声冻结",
+          "画外小帅已经拿到冻干或重新进入玄关构图",
+          "门锁已响、门已打开或小南已经探头"
+        ]
+      },
+      "shot_delta": {
+        "primary_action": "阿诺慢慢降低胸腹、趴到地上并向前舒展身体，依次说“主人走咯……”“终于可以睡个舒服觉。”“不用突然被抱起来了。”",
+        "secondary_actions": [
+          "大漂亮在后侧区域继续小幅而投入的舞蹈节拍",
+          "画外小帅的奔跑脚步向室内方向远离，但不展示厨房或冻干"
+        ],
+        "performance_notes": "阿诺语气成熟、平静且带终于解脱的满足，不卖萌、不咆哮；趴下和伸展连续完成，不把每个小动作拆开。大漂亮只做低幅度边缘动作，不抢对白焦点。",
+        "timing": [
+          "0.0-1.2秒：阿诺缓慢趴下并开始前伸",
+          "1.2-2.6秒：说“主人走咯……”",
+          "2.6-4.4秒：说“终于可以睡个舒服觉。”",
+          "4.4-5.8秒：完成伸展并说“不用突然被抱起来了。”"
+        ]
+      },
+      "end_state": {
+        "description": "阿诺在前中景完成舒服的伸懒腰姿势；大漂亮仍在门前空地边缘保持舞蹈动势；小帅已经在室内画外，入户门关闭，三猫都处于完全放松状态。"
+      },
+      "estimated_duration": 5.8,
+      "scene_end": false,
+      "next_shot": "Shot02-05"
+    },
+    {
+      "shot_id": "Shot02-05",
+      "order": 5,
+      "primary_function": "REVEAL_SHOT",
+      "secondary_effect": "COMEDY_TIMING_SHOT",
+      "narrative_purpose": "用门锁声瞬间截断三猫各自的放松状态，并让入户门打开窄缝，在小南尚未入画前建立即将被撞见的悬停。",
+      "audience_feeling": "因突如其来的门锁声紧张一拍，并从可见两猫急停和画外脚步骤停中预感三猫即将被抓现行。",
+      "information_gain": "门外有人正在重新开门，三只猫已经来不及恢复离别演技。",
+      "why_this_shot": "门锁声和同步急停是独立的节奏断点；先让门打开但不提前显示小南，可以完整保存三猫受惊状态，并让下一镜为小南提供已映射资产的可执行首帧。",
+      "why_not_previous_shot": "上一镜需要完整保留阿诺的慢节奏独白；若门锁声在独白镜头中提前发生，会压缩第三个角色揭示，也无法给三猫完全放松后的骤停留出独立节拍。",
+      "primary_focus": "门锁响起后画内两猫与画外小帅同步停止",
+      "secondary_focus": "入户门打开窄缝但小南尚未进入构图",
+      "coverage": "MEDIUM_WIDE",
+      "coverage_reason": "中广景能同时验证大漂亮的舞姿、阿诺的伸展姿势和入户门从关闭到打开的变化；小帅已在室内画外，以奔跑脚步突然停止完成同步反应，不制造不可能的画面位置连续性。",
+      "composition_intent": "严格沿用上一镜构图：阿诺完整位于前中景伸展，大漂亮只在门前空地边缘部分可见并保持舞姿；入户门居后景中心，从完全关闭打开为窄缝。小帅和小南均不进入画面。",
+      "information_density": "HIGH",
+      "visible_characters": [
+        "阿诺"
+      ],
+      "partial_characters": [
+        "大漂亮"
+      ],
+      "off_screen_characters": [
+        "小帅",
+        "小南"
+      ],
+      "camera_requirement": {
+        "purpose": "连续保存画内两猫完全放松的状态，并在门锁声后呈现同步急停和门打开窄缝",
+        "scale": "MEDIUM_WIDE",
+        "subject_zone": "完整入户门、门前舞蹈区边缘与前中景阿诺休息区",
+        "axis_requirement": "严格保持 Camera01 的室内朝门主轴，只观察门由外侧被打开，不切到门外反面",
+        "lens_intent": "稳定保留门与两只可见猫的纵深层次，使两种冻结姿势和门缝同时可辨"
+      },
+      "selected_camera": "cameras.entrance-hall-camera01",
+      "camera_status": "MATCH",
+      "camera_reason": "Camera01 已在上一镜锁定阿诺、大漂亮和关闭门的分层位置，继续使用可在不改变主轴和构图的前提下记录门锁打断、画内急停和门打开；小南不在本镜入画，因此不存在角色资产缺失。",
+      "camera_motion": "LOCKED_OFF",
+      "camera_motion_reason": "镜头必须像固定观察者一样让动作被突然截停，锁定构图才能产生“现场证据”式喜剧；任何推拉或摇移都会削弱急停同步性。",
+      "axis_status": "PRESERVED",
+      "continuity_mode": "SAME_CAMERA_CONTINUATION",
+      "previous_frame_policy": "HIGH_PRIORITY_VISUAL_CONTINUITY",
+      "start_state": {
+        "description": "承接上一镜末状态：门完全关闭，阿诺在前中景完成伸懒腰，大漂亮仍在门前空地边缘跳舞；小帅已经跑入室内画外，小南仍在门外。"
+      },
+      "frozen_moment": {
+        "description": "阿诺与大漂亮完全放松，小帅的奔跑声位于画外，门锁尚未发出声音的最后一个稳定瞬间。",
+        "physical_boundaries": [
+          "入户门完全关闭，门扇贴合门框，门锁和门把手均静止",
+          "大漂亮仅在门前空地边缘部分可见并保持真实猫体舞姿，至少三处肢体承重点稳定",
+          "阿诺胸腹接近地面、前腿向前伸展，身体仍处于舒服懒腰状态",
+          "画面内没有小帅的身体、尾巴或四肢",
+          "小南完全位于门外，画面内没有她的头部、手臂、腿或衣物"
+        ],
+        "forbidden_advanced_states": [
+          "门锁已经响起或入户门已经出现缝隙",
+          "大漂亮或阿诺已经因声音冻结、回头或改变原动作",
+          "画外小帅的奔跑声已经停止",
+          "小南已经探头、伸手或跨过门槛",
+          "小南已经拿起钥匙或说出“坏猫咪”"
+        ]
+      },
+      "shot_delta": {
+        "primary_action": "门锁突然响起，大漂亮定在舞姿、阿诺定在伸懒腰姿势；与此同时，画外小帅的快速奔跑脚步声骤然停止。随后入户门从外侧打开窄缝，但小南尚未进入画面。",
+        "secondary_actions": [
+          "大漂亮和阿诺只以眼睛与极小幅耳位变化指向门口，不重置身体姿势",
+          "门打开后保持窄幅角度，门缝内暂时没有人物身体部分"
+        ],
+        "performance_notes": "画内急停和画外脚步停止必须同步、干净，不使用卡通定格特效；门打开后留出极短悬停，不提前生成小南。",
+        "timing": [
+          "0.0-0.4秒：门锁突然发出清楚声响",
+          "0.4-0.8秒：画内两猫急停，画外小帅脚步同步停止",
+          "0.8-1.8秒：门从外侧打开为窄缝",
+          "1.8-2.2秒：空门缝与冻结姿势形成悬停"
+        ]
+      },
+      "end_state": {
+        "description": "门保持窄幅打开但小南尚未进入画面；大漂亮和阿诺分别定在舞蹈与伸懒腰姿势，画外小帅停止奔跑，三猫都处于被声音截断的紧张状态。"
+      },
+      "estimated_duration": 2.2,
+      "scene_end": false,
+      "next_shot": "Shot02-06"
+    },
+    {
+      "shot_id": "Shot02-06",
+      "order": 6,
+      "primary_function": "REACTION_SHOT",
+      "secondary_effect": "COMEDIC_PAYOFF",
+      "narrative_purpose": "让小南在新首帧中从门外探头看见现场，保留沉默对视和心虚反应，再以画外取钥匙、克制责备及重新关门完成反转收尾。",
+      "audience_feeling": "在小南出现后的沉默和两只可见猫的心虚中获得最大笑点，并从画外小帅的安静与小南无奈反应确认三猫全部被抓现行。",
+      "information_gain": "小南折返是为了取门边钥匙；她看穿了三猫演技但没有真正生气，三猫都知道自己的真实状态已暴露。",
+      "why_this_shot": "小南首次可见必须拥有独立 Frozen Moment，才能将她的 Character Master 与 Outfit Master 正确打包；本镜随后连续完成对视、画外取钥匙、对白和离开，不再为细小动作拆镜。",
+      "why_not_previous_shot": "上一镜只负责门锁打断、三猫急停和空门缝悬停；若让小南在上一镜动作中从 Off Screen 入画，她的角色和服装资产不会进入该 Shot 的生成包。",
+      "primary_focus": "小南探头后无言看着画内两猫，两猫心虚移开视线",
+      "secondary_focus": "小南在画面外侧拿到门边钥匙，说“哼。坏猫咪。”后重新关门离开",
+      "coverage": "MEDIUM_WIDE",
+      "coverage_reason": "中广景可同时保留门缝中的小南、阿诺完整伸展姿势和边缘处的大漂亮舞姿，使沉默反应、画外取物手势和重新关门都在同一空间关系中完成；小帅保持在厨房方向画外，不制造位置回跳。",
+      "composition_intent": "小南的头部和上身从后景门缝进入，身体大部分留在门外；阿诺在前中景维持伸展，大漂亮在门前空地边缘部分维持舞姿。小帅位于通往厨房的画外方向。小南取钥匙时手臂短暂伸向构图侧边之外，钥匙本体始终不进入画面，随后她退出并让门闭合。",
+      "information_density": "HIGH",
+      "visible_characters": [
+        "小南",
+        "阿诺"
+      ],
+      "partial_characters": [
+        "大漂亮"
+      ],
+      "off_screen_characters": [
+        "小帅"
+      ],
+      "camera_requirement": {
+        "purpose": "以已正确打包的小南首帧读取撞见后的沉默反应，并覆盖画外取钥匙、对白和再次关门",
+        "scale": "MEDIUM_WIDE",
+        "subject_zone": "打开窄缝的入户门、前中景阿诺与门前舞蹈区边缘",
+        "axis_requirement": "保持室内朝门主轴，小南始终从门外同一侧探入并退出，不从门外反拍",
+        "lens_intent": "维持门口与画内两猫的纵深和真实比例，让眼神反应、画外取物手势和固定姿势同时可读"
+      },
+      "selected_camera": "cameras.entrance-hall-camera01",
+      "camera_status": "MATCH",
+      "camera_reason": "Camera01 可以保持上一镜的门口主轴与空间层次，同时让新生成的首帧明确包含小南、阿诺和部分大漂亮；使用同一 Camera Master 但采用切镜状态连续性，可增加小南而不依赖上一 Final，也能覆盖画外取物和关门。",
+      "camera_motion": "LOCKED_OFF",
+      "camera_motion_reason": "笑点依赖尴尬沉默在固定群像中的延长，锁定镜头让观众自行比较冻结姿势与小南反应；推近会放大情绪并破坏克制的生活感。",
+      "axis_status": "PRESERVED",
+      "continuity_mode": "CAMERA_CUT_CONTINUITY",
+      "previous_frame_policy": "STATE_REFERENCE_ONLY",
+      "start_state": {
+        "description": "承接上一镜的空间和动作状态：门已打开窄缝，小南从门外探入头部和上身；阿诺定在伸懒腰姿势，大漂亮在画面边缘定在舞姿，小帅停在通往厨房的画外位置。"
+      },
+      "frozen_moment": {
+        "description": "小南刚从门缝探头并看清室内，画内两猫仍以冻结姿势看向她，尚无角色移开目光或采取下一动作。",
+        "physical_boundaries": [
+          "入户门只打开供小南探头和上身进入的窄幅角度，门扇没有继续移动",
+          "小南身体大部分和双脚留在门外，头部与上身进入门口，两只手均未持有可见物体",
+          "大漂亮仅在画面边缘部分可见并保持真实猫体舞姿，至少三点承重",
+          "阿诺胸腹接近地面、前腿伸出，保持未完成收回的懒腰姿势",
+          "大漂亮与阿诺的目光仍指向小南，尚未移向其他方向",
+          "画面内没有小帅身体，也没有钥匙、钥匙扣或挂钩特写"
+        ],
+        "forbidden_advanced_states": [
+          "大漂亮或阿诺已经移开视线、恢复动作或改变冻结姿势",
+          "小南已经露出夸张愤怒、进入室内或抱起任何一只猫",
+          "小南已经把手伸向画外钥匙位置或画面中已经出现钥匙",
+          "小南已经说出“哼”或“坏猫咪”",
+          "入户门已经再次关闭或小南已经离开"
+        ]
+      },
+      "shot_delta": {
+        "primary_action": "小南沉默看向画内的大漂亮和阿诺，并短暂扫视小帅所在的画外方向；大漂亮和阿诺在保持原身体姿势的前提下默默移开视线，画外小帅也在原地心虚移开视线但始终不进入构图。",
+        "secondary_actions": [
+          "小南无奈地把一只手伸向构图侧边之外的门侧钥匙位置，钥匙本体始终不入画，以轻微钥匙碰撞声确认她已拿到钥匙",
+          "小南克制地说“哼。”，停一拍后说“坏猫咪。”",
+          "小南退回门外并把入户门重新完全关上"
+        ],
+        "performance_notes": "沉默要比普通反应多留半拍；画内两猫只移动眼神和极小幅耳位，不夸张扭头。小南是现实锚点，语气无奈、温和、略带轻嗔，不暴怒也不训话。取钥匙动作发生在画外，不生成未登记道具。",
+        "timing": [
+          "0.0-1.5秒：小南与画内两猫保持沉默，并扫视画外小帅方向",
+          "1.5-2.3秒：大漂亮和阿诺移开视线，画外小帅保持安静",
+          "2.3-3.3秒：小南伸手至画外并伴随钥匙轻响",
+          "3.3-4.8秒：小南说“哼。”，停一拍后说“坏猫咪。”",
+          "4.8-5.8秒：小南退出并重新关门"
+        ]
+      },
+      "end_state": {
+        "description": "入户门再次完全关闭，小南已在门外拿到钥匙并离开；大漂亮和阿诺留在玄关画内，小帅留在通往厨房的画外方向，三猫都带被抓现行后的心虚停顿，随后可分别散向室内，为 Scene03 的客厅状态做准备。"
+      },
+      "estimated_duration": 5.8,
+      "scene_end": true,
+      "next_shot": "Scene03"
+    }
+  ],
+  "scene_end_state": {
+    "description": "小南拿走门边钥匙后再次关门离开，入户门完全关闭；三只猫留在室内，离别演技已经被识破，短暂心虚后将各自散向客厅，衔接 Scene03 的无人活动状态。"
+  },
+  "next_scene": "Scene03"
+}
+```
+
+## 必须审核
+
+1. Narrative Coverage
+   - Scene Goal 是否被完整覆盖
+   - 是否存在剧情信息缺失
+   - Scene End 是否成立
+
+2. Shot Necessity
+   - 每个 Shot 是否真的必要
+   - why_this_shot 是否成立
+   - why_not_previous_shot 是否成立
+   - 是否存在仅因微小动作变化而拆出的 Shot
+
+3. Visual Differentiation
+   - 相邻 Shot 的 Coverage / Camera / Composition / Information Density 是否有叙事理由
+   - 是否出现连续多个视觉近似镜头
+   - 是否缺少必要的 Reaction / Insert / Establishing / Transition
+
+4. Camera & Motion
+   - Camera 是否服务叙事
+   - Camera Motion 是否必要
+   - 不得为了“有运镜”而运镜
+   - NEED_NEW_CAMERA 时必须明确指出
+
+5. Continuity
+   - SAME_CAMERA_CONTINUATION 是否真的需要继承上一 Final Frame
+   - CAMERA_CUT_CONTINUITY 是否错误地把上一 Final Frame 当成最高优先级
+   - 切镜时 Identity / Space / Lighting / Props / Action State 是否可连续
+
+6. Frozen Moment
+   - Image Prompt 首帧状态是否早于动作发生
+   - physical_boundaries 是否可见、可验证
+   - forbidden_advanced_states 是否阻止“准备起跳却已经跳起”等问题
+
+7. Rhythm
+   - Scene 是否被过度切碎
+   - 是否景别单一
+   - 是否缺少节奏变化
+   - Shot Duration 是否大致合理
+
+## 输出
+
+只输出一个 JSON 对象，不要 Markdown 代码围栏：
+
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "result": "PASS | REPLAN_REQUIRED | NEED_NEW_CAMERA",
+  "scene_score": 0,
+  "dimension_scores": {
+    "narrative_coverage": 0,
+    "shot_necessity": 0,
+    "visual_differentiation": 0,
+    "camera_and_motion": 0,
+    "continuity": 0,
+    "frozen_moment": 0,
+    "rhythm": 0
+  },
+  "issues": [
+    {
+      "severity": "BLOCKER | MAJOR | MINOR",
+      "shot_ids": ["ShotXX-XX"],
+      "category": "string",
+      "problem": "string",
+      "required_change": "string"
+    }
+  ],
+  "approved_strengths": ["string"],
+  "replan_instruction": "string or null"
+}
+
+判定规则：
+
+- PASS：没有 BLOCKER / MAJOR，且 scene_score >= 80。
+- REPLAN_REQUIRED：存在导演结构问题；必须回到 Scene Planning，由 GPT Director 重规划。
+- NEED_NEW_CAMERA：导演方案成立，但现有 Camera Library 无法执行关键镜头。
+- 不允许在 QA JSON 中直接偷偷修改 Shot Plan。

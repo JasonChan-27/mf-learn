@@ -1,0 +1,102 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-01",
+  "order": 1,
+  "status": "PROMPTED",
+  "primary_function": "INFORMATION_SHOT",
+  "primary_focus": "大漂亮从悲伤凝固到眼神恢复兴奋并喊出“燥起来！”",
+  "coverage": "MEDIUM_WIDE",
+  "composition_intent": "入户门居后景中心并保持完全关闭；大漂亮位于门前主要动作区，小帅与阿诺分处前中景形成不均匀三角。静默时三猫都朝门，变脸后大漂亮成为唯一主动移动主体并走入画面较开阔的地面区域。",
+  "information_density": "HIGH",
+  "visible_characters": [
+    "大漂亮",
+    "小帅",
+    "阿诺"
+  ],
+  "partial_characters": [],
+  "off_screen_characters": [
+    "小南"
+  ],
+  "camera_state": {
+    "camera_asset": "cameras.entrance-hall-camera01",
+    "camera_status": "MATCH",
+    "movement": "LOCKED_OFF",
+    "movement_reason": "固定画面可让数秒安静与突然变脸发生在同一空间基准内，反差由表演完成；移动镜头会提前暗示变化并削弱观察式笑点。",
+    "axis_status": "PRESERVED"
+  },
+  "continuity": {
+    "mode": "CAMERA_CUT_CONTINUITY",
+    "previous_frame_policy": "STATE_REFERENCE_ONLY",
+    "previous_frame_filename": null,
+    "locked_facts": [
+      "Identity",
+      "Space",
+      "Lighting",
+      "Props",
+      "Action State"
+    ],
+    "change_allowed": [
+      "Coverage",
+      "Camera",
+      "Composition"
+    ]
+  },
+  "start_state": {
+    "description": "承接 Scene01 末镜：入户门刚完全关闭，小南已在门外；大漂亮、小帅和阿诺都留在室内地面，仍维持被识破后的短暂僵硬与朝门注意力。"
+  },
+  "frozen_moment": {
+    "description": "关门后的安静刚开始，三只猫保持原位听门外动静，尚无任何一只猫解除离别表演。",
+    "physical_boundaries": [
+      "入户门完全关闭，门扇与门框贴合，门把手静止",
+      "大漂亮四爪全部接触室内地面，身体仍朝向入户门，尚未走入空地",
+      "小帅四爪全部接触地面，身体停在玄关一侧，尚未转向室内通道",
+      "阿诺保持端坐，臀部和两只前爪稳定接触地面，胸腹尚未趴下",
+      "小南不在室内画面中，门内侧没有人体或手臂"
+    ],
+    "forbidden_advanced_states": [
+      "大漂亮已经露出兴奋表情、喊出“燥起来”或开始跳舞",
+      "小帅已经冲向厨房或说出冻干台词",
+      "阿诺已经趴下或伸懒腰",
+      "门锁已经响起、入户门重新打开或小南探头回来",
+      "三只猫已经被折返的小南吓停"
+    ]
+  },
+  "shot_delta": {
+    "primary_action": "安静持续数秒，三猫用耳位和目光确认门外无动静；大漂亮的悲伤眼神随即消失，恢复兴奋，喊“燥起来！”，并以真实四足步态走向门前空地。",
+    "secondary_actions": [
+      "小帅仅以耳朵和视线跟随大漂亮，身体暂时留在原位",
+      "阿诺保持端坐，以克制眼神确认小南确实离开"
+    ],
+    "performance_notes": "前半段保持真实安静，不做夸张抖动；大漂亮的转变要快但集中在眼神、耳位和步态活力，喊话带少女式兴奋，不以拟人站立表现。",
+    "timing": [
+      "0.0-1.8秒：门内安静，三猫听门外动静",
+      "1.8-2.5秒：大漂亮眼神和耳位从悲伤转为兴奋",
+      "2.5-4.5秒：大漂亮喊“燥起来！”并走向空地"
+    ]
+  },
+  "end_state": {
+    "description": "门仍完全关闭；大漂亮已到达开阔地面并以四足姿态准备起舞，小帅仍在一侧但注意力开始转向室内，阿诺仍端坐。",
+    "next_state_anchor": "Shot02-02"
+  },
+  "required_assets": {
+    "asset_ids": [
+      "environments.玄关master2",
+      "characters.大漂亮-dapiaoliang-master",
+      "characters.小帅-xiaoshuai-master",
+      "characters.阿诺-arno-master",
+      "cameras.entrance-hall-camera01"
+    ],
+    "package_filenames": [
+      "environments__玄关master2.png",
+      "characters__大漂亮-dapiaoliang-master.png",
+      "characters__小帅-xiaoshuai-master.png",
+      "characters__阿诺-arno-master.png",
+      "cameras__entrance-hall-camera01.png"
+    ]
+  },
+  "estimated_duration": 4.5,
+  "scene_end": false,
+  "next_shot": "Shot02-02"
+}

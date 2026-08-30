@@ -1,0 +1,94 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-02",
+  "order": 2,
+  "status": "PLANNED",
+  "primary_function": "PERFORMANCE_SHOT",
+  "primary_focus": "大漂亮在空地上投入地跳短视频舞蹈",
+  "coverage": "MEDIUM",
+  "composition_intent": "大漂亮位于门前空地中央偏下，完整猫身占据主要画面；关闭的入户门和木质门框保留为后景空间锚点，地面留出左右动作余量，小帅、阿诺和小南全部退出画面。",
+  "information_density": "MEDIUM",
+  "visible_characters": [
+    "大漂亮"
+  ],
+  "partial_characters": [],
+  "off_screen_characters": [
+    "小帅",
+    "阿诺",
+    "小南"
+  ],
+  "camera_state": {
+    "camera_asset": "cameras.entrance-hall-camera03",
+    "camera_status": "MATCH",
+    "movement": "LOCKED_OFF",
+    "movement_reason": "固定低机位让舞蹈节奏在稳定框架内自行制造活力，也便于保持四肢落点和猫体比例；跟拍或摇移会增加生成漂移并把轻喜剧处理得过度炫技。",
+    "axis_status": "PRESERVED"
+  },
+  "continuity": {
+    "mode": "CAMERA_CUT_CONTINUITY",
+    "previous_frame_policy": "STATE_REFERENCE_ONLY",
+    "previous_frame_filename": null,
+    "locked_facts": [
+      "Identity",
+      "Space",
+      "Lighting",
+      "Props",
+      "Action State"
+    ],
+    "change_allowed": [
+      "Coverage",
+      "Camera",
+      "Composition"
+    ]
+  },
+  "start_state": {
+    "description": "大漂亮已从三猫群像中走到门前空地，四爪落地并充满兴奋；小帅、阿诺仍在玄关其他位置，小南仍在门外，入户门关闭。"
+  },
+  "frozen_moment": {
+    "description": "大漂亮刚站定在舞蹈区域、身体蓄势但尚未做出第一个舞步的最后稳定瞬间。",
+    "physical_boundaries": [
+      "大漂亮四爪全部接触地面，躯干保持水平，没有以后肢直立",
+      "大漂亮与关闭的入户门之间保持可见地面距离，没有触碰门扇",
+      "画面左右均留有可见的舞步活动空间，大漂亮尚未跨出当前位置",
+      "入户门完全关闭，画面内没有小南身体部分",
+      "小帅和阿诺不进入当前构图"
+    ],
+    "forbidden_advanced_states": [
+      "大漂亮已经抬爪、侧步、旋转或形成舞蹈中段姿势",
+      "大漂亮以人类方式双足站立或长时间腾空",
+      "小帅已经冲过画面或冻干已经出现",
+      "阿诺已经进入画面趴下",
+      "门锁已经响起、门已打开或小南已经返回"
+    ]
+  },
+  "shot_delta": {
+    "primary_action": "大漂亮以真实猫体可完成的短视频舞蹈节奏连续表演：轻快侧步、交替短暂抬起前爪、头部和肩背配合节拍、尾巴随节奏摆动。",
+    "secondary_actions": [
+      "兴奋目光保持投入，不再回看入户门",
+      "每个动作后至少三点稳定承重，不出现持续双足直立"
+    ],
+    "performance_notes": "投入程度要与刚才的悲伤形成强反差，但动作仍是猫咪身体可执行的游戏式律动；避免人类舞者手势、服装变化、夸张旋转和卡通残影。",
+    "timing": [
+      "0.0-0.5秒：从蓄势进入第一拍",
+      "0.5-3.4秒：连续完成两到三个清楚可读的舞蹈节拍",
+      "3.4-4.2秒：停在仍有动势、可被后续门锁打断的舞姿"
+    ]
+  },
+  "end_state": {
+    "description": "大漂亮仍在门前空地投入跳舞，停留于一个真实猫体可保持的动态舞姿；门关闭，小帅和阿诺的状态在画外继续。",
+    "next_state_anchor": "Shot02-03"
+  },
+  "required_assets": {
+    "asset_ids": [
+      "environments.玄关master2",
+      "characters.大漂亮-dapiaoliang-master",
+      "cameras.entrance-hall-camera03"
+    ],
+    "package_filenames": []
+  },
+  "estimated_duration": 4.2,
+  "scene_end": false,
+  "next_shot": "Shot02-03"
+}

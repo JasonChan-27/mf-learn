@@ -1,0 +1,13 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene04",
+  "scene_number": 4,
+  "scene_title": "客厅｜决定帮助主人",
+  "plan_status": "DRAFT",
+  "status": "PLANNING",
+  "shot_count": 0,
+  "shots": [],
+  "next_scene": "Scene05",
+  "updated_at": "2026-08-23T10:58:45+00:00"
+}

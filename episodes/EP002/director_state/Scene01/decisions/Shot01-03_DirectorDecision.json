@@ -1,0 +1,18 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-03",
+  "primary_function": "PERFORMANCE_SHOT",
+  "secondary_effect": "COMEDY_ESCALATION",
+  "narrative_purpose": "让小帅用抱腿和颤抖语气把大漂亮的安全提醒升级成“可能永远回不来”，完成第二层更夸张的离别演技。",
+  "audience_feeling": "从轻微共情转为明确识别这是一场过度表演。",
+  "information_gain": "小帅不仅跟进，还主动把风险推到最极端，显示他嘴快、自信加码的角色特征。",
+  "why_this_shot": "小帅的动作发生在小南腿边，视觉高度与上一镜怀中大漂亮完全不同；单独低位呈现能让前爪接触、仰视和颤抖语气成为清楚的升级动作。",
+  "why_not_previous_shot": "上一镜的中近景视觉中心在小南怀中，腿边区域不在有效覆盖内；强行兼顾小帅会破坏大漂亮的低信息密度表演，也无法清楚验证抱腿动作。",
+  "coverage_reason": "低机位中景可以完整显示小帅身体、前爪与小南小腿之间的真实接触，并保留足够地面空间说明它不是拟人站立。",
+  "camera_reason": "Entrance Hall Camera03 从门内同侧轴线以贴近地面的低机位观察小南脚边活动区，前景保留充足地面，可完整容纳小帅身体、着地后爪、抬起前爪与小南一侧小腿的接触关系；入户门、地垫和鞋柜仍提供明确空间锚点，能够在不越轴和不过度广角变形的条件下完成真实抱腿动作验证。",
+  "camera_motion_reason": "抱腿动作和颤抖台词本身承担升级，固定低机位可让真实接触边界清晰，避免跟拍造成拟人站立或爪部错位。",
+  "continuity_reason": "CAMERA_CUT_CONTINUITY / STATE_REFERENCE_ONLY",
+  "freeze_reason": "小帅已来到小南腿边、即将抬起前爪抱腿前的稳定四爪着地状态。"
+}

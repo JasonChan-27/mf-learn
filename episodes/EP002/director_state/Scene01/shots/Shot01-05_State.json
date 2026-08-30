@@ -1,0 +1,106 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "shot_id": "Shot01-05",
+  "order": 5,
+  "status": "COMPLETED",
+  "primary_function": "EMOTIONAL_SHOT",
+  "primary_focus": "小南从动容到忍笑并温柔揭示只是取快递",
+  "coverage": "MEDIUM_CLOSE",
+  "composition_intent": "小南面部与大漂亮头部形成上下双焦点，小南一只手从抱持位置移到大漂亮头顶；门的木质色块柔焦留在背景，脚边小帅和地面阿诺均不进入画面，视线重点保持在小南的克制笑意。",
+  "information_density": "LOW",
+  "visible_characters": [
+    "小南",
+    "大漂亮"
+  ],
+  "partial_characters": [],
+  "off_screen_characters": [
+    "小帅",
+    "阿诺"
+  ],
+  "camera_state": {
+    "camera_asset": "cameras.entrance-hall-camera02",
+    "camera_status": "MATCH",
+    "movement": "LOCKED_OFF",
+    "movement_reason": "小南先动容、再忍笑、最后平静揭示的表演需要稳定观察，额外推近会把生活化反差处理得过度煽情。",
+    "axis_status": "PRESERVED"
+  },
+  "continuity": {
+    "mode": "CAMERA_CUT_CONTINUITY",
+    "previous_frame_policy": "STATE_REFERENCE_ONLY",
+    "previous_frame_filename": "Shot01-04_Final.png",
+    "locked_facts": [
+      "Identity",
+      "Space",
+      "Lighting",
+      "Props",
+      "Action State"
+    ],
+    "change_allowed": [
+      "Coverage",
+      "Camera",
+      "Composition"
+    ]
+  },
+  "start_state": {
+    "description": "承接 Shot01-04：小南仍站在关闭的门内抱着大漂亮，表情刚刚软化；小帅在腿边抱住一侧小腿，阿诺正前方端坐但在本镜画外。"
+  },
+  "frozen_moment": {
+    "description": "小南被三猫打动一秒、笑意尚未明显出现且手尚未开始摸大漂亮头部的稳定瞬间。",
+    "physical_boundaries": [
+      "大漂亮仍由小南一侧手臂和身体稳定支撑，身体没有下落",
+      "小南准备摸头的手仍停在大漂亮头顶之外，手掌与毛发之间有可见空隙",
+      "小南嘴唇闭合，尚未说“你们三个……”",
+      "大漂亮头部朝向小南，耳朵和眼神保持认真等待",
+      "入户门保持完全关闭"
+    ],
+    "forbidden_advanced_states": [
+      "小南已经明显大笑或已经说完取快递真相",
+      "小南的手已经接触并完成摸头",
+      "大漂亮已经从怀中下来",
+      "小帅已经松开小南腿部",
+      "阿诺已经改变端正坐姿",
+      "入户门已经打开"
+    ]
+  },
+  "shot_delta": {
+    "primary_action": "小南的感动只维持一拍，随后忍不住轻轻笑出来，说：“你们三个……”；她温柔摸了摸大漂亮的头，再自然说明：“我只是出去取个快递。很快回来。”",
+    "secondary_actions": [
+      "大漂亮在被摸头时保持安静，听到“取个快递”后眼神停住但尚未下地",
+      "画外的小帅和阿诺不发声，为真相落地留出静默"
+    ],
+    "performance_notes": "小南不是嘲笑三只猫，而是被关心后觉得它们演得太过；笑意温柔克制。真相台词保持生活口语，不做包袱式重音。",
+    "timing": [
+      "0.0-0.8秒：小南动容停顿",
+      "0.8-2.2秒：忍笑并说“你们三个……”",
+      "2.2-3.3秒：完成一次自然摸头",
+      "3.3-6.3秒：说完“我只是出去取个快递。很快回来。”",
+      "6.3-7.0秒：小南与大漂亮保持静止，让真相落地"
+    ]
+  },
+  "end_state": {
+    "description": "小南已经说明只是取快递并停止摸头，仍抱着大漂亮；大漂亮表情僵住，小帅仍抱腿但在画外停住，阿诺仍端坐且保持严肃；门依旧关闭。",
+    "next_state_anchor": "Shot01-06"
+  },
+  "required_assets": {
+    "asset_ids": [
+      "environments.玄关master2",
+      "characters.小南-xiaonan-master",
+      "characters.大漂亮-dapiaoliang-master",
+      "outfits.小南_周末休闲外出款",
+      "cameras.entrance-hall-camera02"
+    ],
+    "package_filenames": [
+      "environments__玄关master2.png",
+      "characters__小南-xiaonan-master.png",
+      "characters__大漂亮-dapiaoliang-master.png",
+      "outfits__小南_周末休闲外出款.png",
+      "cameras__entrance-hall-camera02.png"
+    ]
+  },
+  "estimated_duration": 7.0,
+  "scene_end": false,
+  "next_shot": "Shot01-06",
+  "approved_image": "episodes/EP002/production/Scene01/Shot01-05/Shot01-05_Final.png"
+}

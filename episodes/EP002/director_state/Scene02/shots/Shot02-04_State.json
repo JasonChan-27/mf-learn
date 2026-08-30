@@ -1,0 +1,97 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-04",
+  "order": 4,
+  "status": "PLANNED",
+  "primary_function": "CHARACTER_SHOT",
+  "primary_focus": "阿诺慢慢趴下并伸出舒服的懒腰",
+  "coverage": "MEDIUM_WIDE",
+  "composition_intent": "阿诺位于前中景完整可见并占据稳定主焦点；大漂亮只在门前空地的后侧边缘部分可见，以小幅舞步维持连续性。关闭的入户门仍居后景，小帅与小南均不进入构图。",
+  "information_density": "HIGH",
+  "visible_characters": [
+    "阿诺"
+  ],
+  "partial_characters": [
+    "大漂亮"
+  ],
+  "off_screen_characters": [
+    "小帅",
+    "小南"
+  ],
+  "camera_state": {
+    "camera_asset": "cameras.entrance-hall-camera01",
+    "camera_status": "MATCH",
+    "movement": "LOCKED_OFF",
+    "movement_reason": "阿诺的冷幽默来自缓慢动作与稳定观察，锁定画面让其对白和伸展成为明确中心；推拉或摇移会破坏克制节奏和分层构图。",
+    "axis_status": "PRESERVED"
+  },
+  "continuity": {
+    "mode": "CAMERA_CUT_CONTINUITY",
+    "previous_frame_policy": "STATE_REFERENCE_ONLY",
+    "previous_frame_filename": null,
+    "locked_facts": [
+      "Identity",
+      "Space",
+      "Lighting",
+      "Props",
+      "Action State"
+    ],
+    "change_allowed": [
+      "Coverage",
+      "Camera",
+      "Composition"
+    ]
+  },
+  "start_state": {
+    "description": "门关闭；阿诺仍端坐在玄关前中景，大漂亮在门前空地边缘继续跳舞；小帅已经沿通往厨房的方向跑出玄关构图，小南仍在门外。"
+  },
+  "frozen_moment": {
+    "description": "阿诺确认主人离开后仍保持坐姿，正准备放松身体，但尚未向地面趴下。",
+    "physical_boundaries": [
+      "阿诺臀部和两只前爪接触地面，胸腹离地，身体尚未展开",
+      "大漂亮仅在门前空地的背景区域部分可见，并保持真实猫体舞姿",
+      "入户门完全关闭，门把手和门锁均静止",
+      "构图内除阿诺和部分可见的大漂亮外没有第三只猫",
+      "小南不在室内画面中"
+    ],
+    "forbidden_advanced_states": [
+      "阿诺已经趴平、伸出前腿或完成懒腰",
+      "阿诺已经说出任何一句独白",
+      "大漂亮已经因门锁声冻结",
+      "画外小帅已经拿到冻干或重新进入玄关构图",
+      "门锁已响、门已打开或小南已经探头"
+    ]
+  },
+  "shot_delta": {
+    "primary_action": "阿诺慢慢降低胸腹、趴到地上并向前舒展身体，依次说“主人走咯……”“终于可以睡个舒服觉。”“不用突然被抱起来了。”",
+    "secondary_actions": [
+      "大漂亮在后侧区域继续小幅而投入的舞蹈节拍",
+      "画外小帅的奔跑脚步向室内方向远离，但不展示厨房或冻干"
+    ],
+    "performance_notes": "阿诺语气成熟、平静且带终于解脱的满足，不卖萌、不咆哮；趴下和伸展连续完成，不把每个小动作拆开。大漂亮只做低幅度边缘动作，不抢对白焦点。",
+    "timing": [
+      "0.0-1.2秒：阿诺缓慢趴下并开始前伸",
+      "1.2-2.6秒：说“主人走咯……”",
+      "2.6-4.4秒：说“终于可以睡个舒服觉。”",
+      "4.4-5.8秒：完成伸展并说“不用突然被抱起来了。”"
+    ]
+  },
+  "end_state": {
+    "description": "阿诺在前中景完成舒服的伸懒腰姿势；大漂亮仍在门前空地边缘保持舞蹈动势；小帅已经在室内画外，入户门关闭，三猫都处于完全放松状态。",
+    "next_state_anchor": "Shot02-05"
+  },
+  "required_assets": {
+    "asset_ids": [
+      "environments.玄关master2",
+      "characters.阿诺-arno-master",
+      "characters.大漂亮-dapiaoliang-master",
+      "cameras.entrance-hall-camera01"
+    ],
+    "package_filenames": []
+  },
+  "estimated_duration": 5.8,
+  "scene_end": false,
+  "next_shot": "Shot02-05"
+}

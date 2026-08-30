@@ -1,0 +1,25 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene01",
+  "result": "PASS",
+  "scene_score": 92,
+  "dimension_scores": {
+    "narrative_coverage": 95,
+    "shot_necessity": 93,
+    "visual_differentiation": 89,
+    "camera_and_motion": 87,
+    "continuity": 94,
+    "frozen_moment": 95,
+    "rhythm": 91
+  },
+  "issues": [],
+  "approved_strengths": [
+    "四个 Shot 分别承担群体建立、角色接力、真相揭晓和空间离场，没有用同构图拆解微动作。",
+    "每镜 why_this_shot 与 why_not_previous_shot 均对应独立的信息焦点和制作边界。",
+    "Camera01 被明确锁定，同一玄关轴线通过四种 Coverage 改变信息重点，没有虚构不存在的 Camera Master。",
+    "所有 Frozen Moment 都停在主动作发生前，并以接触、站位和门状态提供可见物理边界。",
+    "最后一镜完整验证小南离场、门关闭和三只猫留在门内，Scene02 起始状态清楚。"
+  ],
+  "replan_instruction": null
+}

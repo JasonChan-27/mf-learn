@@ -1,0 +1,102 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-06",
+  "order": 6,
+  "status": "PLANNED",
+  "primary_function": "REACTION_SHOT",
+  "primary_focus": "小南探头后无言看着画内两猫，两猫心虚移开视线",
+  "coverage": "MEDIUM_WIDE",
+  "composition_intent": "小南的头部和上身从后景门缝进入，身体大部分留在门外；阿诺在前中景维持伸展，大漂亮在门前空地边缘部分维持舞姿。小帅位于通往厨房的画外方向。小南取钥匙时手臂短暂伸向构图侧边之外，钥匙本体始终不进入画面，随后她退出并让门闭合。",
+  "information_density": "HIGH",
+  "visible_characters": [
+    "小南",
+    "阿诺"
+  ],
+  "partial_characters": [
+    "大漂亮"
+  ],
+  "off_screen_characters": [
+    "小帅"
+  ],
+  "camera_state": {
+    "camera_asset": "cameras.entrance-hall-camera01",
+    "camera_status": "MATCH",
+    "movement": "LOCKED_OFF",
+    "movement_reason": "笑点依赖尴尬沉默在固定群像中的延长，锁定镜头让观众自行比较冻结姿势与小南反应；推近会放大情绪并破坏克制的生活感。",
+    "axis_status": "PRESERVED"
+  },
+  "continuity": {
+    "mode": "CAMERA_CUT_CONTINUITY",
+    "previous_frame_policy": "STATE_REFERENCE_ONLY",
+    "previous_frame_filename": null,
+    "locked_facts": [
+      "Identity",
+      "Space",
+      "Lighting",
+      "Props",
+      "Action State"
+    ],
+    "change_allowed": [
+      "Coverage",
+      "Camera",
+      "Composition"
+    ]
+  },
+  "start_state": {
+    "description": "承接上一镜的空间和动作状态：门已打开窄缝，小南从门外探入头部和上身；阿诺定在伸懒腰姿势，大漂亮在画面边缘定在舞姿，小帅停在通往厨房的画外位置。"
+  },
+  "frozen_moment": {
+    "description": "小南刚从门缝探头并看清室内，画内两猫仍以冻结姿势看向她，尚无角色移开目光或采取下一动作。",
+    "physical_boundaries": [
+      "入户门只打开供小南探头和上身进入的窄幅角度，门扇没有继续移动",
+      "小南身体大部分和双脚留在门外，头部与上身进入门口，两只手均未持有可见物体",
+      "大漂亮仅在画面边缘部分可见并保持真实猫体舞姿，至少三点承重",
+      "阿诺胸腹接近地面、前腿伸出，保持未完成收回的懒腰姿势",
+      "大漂亮与阿诺的目光仍指向小南，尚未移向其他方向",
+      "画面内没有小帅身体，也没有钥匙、钥匙扣或挂钩特写"
+    ],
+    "forbidden_advanced_states": [
+      "大漂亮或阿诺已经移开视线、恢复动作或改变冻结姿势",
+      "小南已经露出夸张愤怒、进入室内或抱起任何一只猫",
+      "小南已经把手伸向画外钥匙位置或画面中已经出现钥匙",
+      "小南已经说出“哼”或“坏猫咪”",
+      "入户门已经再次关闭或小南已经离开"
+    ]
+  },
+  "shot_delta": {
+    "primary_action": "小南沉默看向画内的大漂亮和阿诺，并短暂扫视小帅所在的画外方向；大漂亮和阿诺在保持原身体姿势的前提下默默移开视线，画外小帅也在原地心虚移开视线但始终不进入构图。",
+    "secondary_actions": [
+      "小南无奈地把一只手伸向构图侧边之外的门侧钥匙位置，钥匙本体始终不入画，以轻微钥匙碰撞声确认她已拿到钥匙",
+      "小南克制地说“哼。”，停一拍后说“坏猫咪。”",
+      "小南退回门外并把入户门重新完全关上"
+    ],
+    "performance_notes": "沉默要比普通反应多留半拍；画内两猫只移动眼神和极小幅耳位，不夸张扭头。小南是现实锚点，语气无奈、温和、略带轻嗔，不暴怒也不训话。取钥匙动作发生在画外，不生成未登记道具。",
+    "timing": [
+      "0.0-1.5秒：小南与画内两猫保持沉默，并扫视画外小帅方向",
+      "1.5-2.3秒：大漂亮和阿诺移开视线，画外小帅保持安静",
+      "2.3-3.3秒：小南伸手至画外并伴随钥匙轻响",
+      "3.3-4.8秒：小南说“哼。”，停一拍后说“坏猫咪。”",
+      "4.8-5.8秒：小南退出并重新关门"
+    ]
+  },
+  "end_state": {
+    "description": "入户门再次完全关闭，小南已在门外拿到钥匙并离开；大漂亮和阿诺留在玄关画内，小帅留在通往厨房的画外方向，三猫都带被抓现行后的心虚停顿，随后可分别散向室内，为 Scene03 的客厅状态做准备。",
+    "next_state_anchor": "Scene03"
+  },
+  "required_assets": {
+    "asset_ids": [
+      "environments.玄关master2",
+      "characters.小南-xiaonan-master",
+      "characters.阿诺-arno-master",
+      "characters.大漂亮-dapiaoliang-master",
+      "outfits.小南_周末休闲外出款",
+      "cameras.entrance-hall-camera01"
+    ],
+    "package_filenames": []
+  },
+  "estimated_duration": 5.8,
+  "scene_end": true,
+  "next_shot": "Scene03"
+}
