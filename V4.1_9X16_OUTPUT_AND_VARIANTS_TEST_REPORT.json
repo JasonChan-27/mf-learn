@@ -1,0 +1,33 @@
+{
+  "report": "CatDrama Studio V4.1.3 9:16 Output and Production Variants",
+  "date": "2026-08-30",
+  "base_version": "4.1.1",
+  "target_version": "4.1.3",
+  "result": "PASS",
+  "tests_run": 41,
+  "tests_passed": 41,
+  "tests_skipped": 1,
+  "skip_reason": "Uploaded source snapshot contains AssetRegistry.json but omits all Master binaries.",
+  "baseline_diagnostic": {
+    "episode": "EP002",
+    "scene": "Scene02",
+    "shot": "Shot02-01",
+    "previous_frame_policy": "STATE_REFERENCE_ONLY",
+    "selected_camera": "cameras.entrance-hall-camera01",
+    "camera_dimensions": "1448x1086",
+    "environment": "environments.玄关master2",
+    "environment_dimensions": "1448x1086"
+  },
+  "verified_contracts": [
+    "Shot State and Package carry immutable 9:16 output format",
+    "Each IMAGE and VIDEO prompt contains one output-format lock",
+    "Landscape Canonical Masters remain nonblocking",
+    "Landscape references emit PORTRAIT_VARIANT_RECOMMENDED",
+    "Declared portrait_9x16 Variant is preferred deterministically",
+    "Variant selection preserves the Director-selected Camera Asset ID",
+    "Variant file is embedded in its Canonical Master registry record",
+    "Pre-upgrade unapproved package is versioned without reset or deletion",
+    "Landscape Final Image approval is rejected",
+    "No third-party image-metadata dependency is required"
+  ]
+}

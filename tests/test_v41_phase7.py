@@ -22,6 +22,7 @@ from build_shot_package import (
 )
 from director_state import read_json, write_json
 from test_v41_phase6 import sample_execution_state
+from image_fixture import png_bytes
 
 
 def _sha256_bytes(content: bytes) -> str:
@@ -151,7 +152,7 @@ class Phase7BuilderTests(unittest.TestCase):
                 project_root,
                 "cameras.required",
                 "assets/cameras/Camera.png",
-                b"required camera",
+                png_bytes(),
             )
             unused = _create_asset(
                 project_root,
@@ -281,7 +282,8 @@ class Phase7BuilderTests(unittest.TestCase):
                 / "Shot01-01_Final.png"
             )
             final_path.parent.mkdir(parents=True, exist_ok=True)
-            final_path.write_bytes(b"previous final")
+            previous_final = png_bytes()
+            final_path.write_bytes(previous_final)
 
             package_dir = build_current_shot_package(
                 "EP999",
@@ -316,7 +318,8 @@ class Phase7BuilderTests(unittest.TestCase):
                 / "Shot01-01_Final.png"
             )
             final_path.parent.mkdir(parents=True, exist_ok=True)
-            final_path.write_bytes(b"previous final")
+            previous_final = png_bytes()
+            final_path.write_bytes(previous_final)
 
             package_dir = build_current_shot_package(
                 "EP999",
@@ -324,7 +327,7 @@ class Phase7BuilderTests(unittest.TestCase):
                 project_root=project_root,
             )
             copied = package_dir / "upload" / "Shot01-01_Final.png"
-            self.assertEqual(copied.read_bytes(), b"previous final")
+            self.assertEqual(copied.read_bytes(), previous_final)
             upload_manifest = read_json(package_dir / "UPLOAD_MANIFEST.json")
             self.assertEqual(upload_manifest["upload_items"][0]["type"], "PREVIOUS_FINAL")
             required = read_json(package_dir / "required_assets.json")
@@ -410,7 +413,7 @@ class Phase7BuilderTests(unittest.TestCase):
                 project_root,
                 "cameras.same",
                 "assets/cameras/Master.png",
-                b"camera",
+                png_bytes(),
             )
             prop = _create_asset(
                 project_root,

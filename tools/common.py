@@ -19,6 +19,13 @@ def load_config() -> dict[str, Any]:
         "asset_categories": ["characters", "environments", "cameras", "props", "outfits"],
         "build_directory": "build",
         "strict_by_default": False,
+        "production_format": {
+            "aspect_ratio": "9:16",
+            "orientation": "PORTRAIT",
+            "width": 1080,
+            "height": 1920,
+        },
+        "portrait_variant_categories": ["cameras", "environments"],
     }
     if CONFIG_PATH.is_file():
         user = json.loads(CONFIG_PATH.read_text(encoding="utf-8-sig"))

@@ -16,6 +16,7 @@
     "coverage",
     "composition_intent",
     "information_density",
+    "output_format",
     "visible_characters",
     "partial_characters",
     "off_screen_characters",
@@ -83,6 +84,30 @@
         "MEDIUM",
         "HIGH"
       ]
+    },
+    "output_format": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "aspect_ratio",
+        "orientation",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "aspect_ratio": {
+          "const": "9:16"
+        },
+        "orientation": {
+          "const": "PORTRAIT"
+        },
+        "width": {
+          "const": 1080
+        },
+        "height": {
+          "const": 1920
+        }
+      }
     },
     "visible_characters": {
       "type": "array",

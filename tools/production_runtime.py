@@ -13,6 +13,8 @@ from director_state import (
     validate_state_payload,
     write_json,
 )
+from image_metadata import require_portrait_image
+from production_format import ensure_shot_output_format
 
 
 def _state_paths(episode_dir: Path, runtime: dict[str, Any]):
@@ -34,12 +36,14 @@ def approve_image(
         raise ValueError(f"当前 next_action={runtime['next_action']}，不能批准图片。")
     scene_dir, shot_path=_state_paths(episode_dir,runtime)
     shot=read_json(shot_path)
+    ensure_shot_output_format(shot)
 
     if not final_image.is_file():
         raise FileNotFoundError(f"Final 图片不存在：{final_image}")
     ext=final_image.suffix.lower()
     if ext not in {".png",".jpg",".jpeg",".webp"}:
         raise ValueError("Final 图片必须为 png/jpg/jpeg/webp。")
+    require_portrait_image(final_image, "Final 图片")
 
     package_dir=episode_dir/"production"/runtime["current_scene_id"]/runtime["current_shot_id"]
     package_dir.mkdir(parents=True,exist_ok=True)
@@ -71,6 +75,7 @@ def approve_video(
         raise ValueError(f"当前 next_action={runtime['next_action']}，不能批准视频。")
     scene_dir, shot_path=_state_paths(episode_dir,runtime)
     shot=read_json(shot_path)
+    ensure_shot_output_format(shot)
 
     if video_file is not None:
         if not video_file.is_file():
@@ -94,11 +99,13 @@ def advance_after_shot(episode_id: str, episode_dir: Path) -> str:
     scene_dir=episode_dir/"director_state"/scene_id
     shot_path=scene_dir/"shots"/f"{runtime['current_shot_id']}_State.json"
     shot=read_json(shot_path)
+    ensure_shot_output_format(shot)
 
     if not shot["scene_end"]:
         next_id=shot["next_shot"]
         next_path=scene_dir/"shots"/f"{next_id}_State.json"
         nxt=read_json(next_path)
+        ensure_shot_output_format(nxt)
         nxt["status"]="READY"
         validate_state_payload(nxt, "Shot_State.schema.json")
         write_json(next_path,nxt)

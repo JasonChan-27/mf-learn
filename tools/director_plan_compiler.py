@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any
 
 from director_state import validate_state_payload, write_json
+from production_format import locked_output_format
 
 
 def compile_director_decision(
@@ -113,6 +114,7 @@ def compile_shot_state(
         "coverage": shot["coverage"],
         "composition_intent": shot["composition_intent"],
         "information_density": shot["information_density"],
+        "output_format": locked_output_format(),
         "visible_characters": shot["visible_characters"],
         "partial_characters": shot["partial_characters"],
         "off_screen_characters": shot["off_screen_characters"],

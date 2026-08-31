@@ -10,7 +10,9 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 TOOLS_ROOT = PROJECT_ROOT / "tools"
+TESTS_ROOT = PROJECT_ROOT / "tests"
 sys.path.insert(0, str(TOOLS_ROOT))
+sys.path.insert(0, str(TESTS_ROOT))
 
 from director_plan_compiler import compile_director_decision, compile_shot_state
 from director_plan_importer import apply_director_plan
@@ -28,6 +30,7 @@ from state_prompt_compiler import (
     compile_prompt_pair,
     source_state_sha256,
 )
+from image_fixture import png_bytes
 
 
 def sample_plan_shot() -> tuple[dict, dict]:
@@ -389,7 +392,7 @@ class Phase5To6RuntimeIntegrationTests(unittest.TestCase):
             validate_state_payload(runtime, "Runtime_State.schema.json")
 
             generated = Path(temp_name) / "approved.png"
-            generated.write_bytes(b"test image placeholder")
+            generated.write_bytes(png_bytes())
             approve_image("EP999", episode_dir, generated)
             runtime = json.loads(runtime_path.read_text(encoding="utf-8"))
             self.assertEqual(runtime["next_action"], "WAIT_FOR_VIDEO_APPROVAL")

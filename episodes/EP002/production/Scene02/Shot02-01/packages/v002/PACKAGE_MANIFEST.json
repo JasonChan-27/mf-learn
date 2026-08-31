@@ -1,0 +1,92 @@
+{
+  "schema_version": "4.1",
+  "builder_mode": "DETERMINISTIC_STATE_BUILDER",
+  "creative_decision_allowed": false,
+  "reads_director_decision": false,
+  "state_authority": "Shot_State.json",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-01",
+  "package_version": "v002",
+  "output_format": {
+    "aspect_ratio": "9:16",
+    "orientation": "PORTRAIT",
+    "width": 1080,
+    "height": 1920
+  },
+  "reference_warnings": [
+    {
+      "asset_id": "environments.玄关master2",
+      "reason": "PORTRAIT_VARIANT_RECOMMENDED",
+      "blocking": false,
+      "canonical_source_path": "assets/environments/玄关Master2.png",
+      "details": "1448x1086 (LANDSCAPE); 继续使用 Canonical Master，并由 9:16 Output Contract 重构画面。"
+    },
+    {
+      "asset_id": "cameras.entrance-hall-camera01",
+      "reason": "PORTRAIT_VARIANT_RECOMMENDED",
+      "blocking": false,
+      "canonical_source_path": "assets/cameras/Entrance Hall camera01.png",
+      "details": "1448x1086 (LANDSCAPE); 继续使用 Canonical Master，并由 9:16 Output Contract 重构画面。"
+    }
+  ],
+  "package_input_sha256": "92b957acc2a8558b38dce30b2abc99eada9f0a94a36b6ddaa415f07434524ddf",
+  "package_input": {
+    "builder_mode": "DETERMINISTIC_STATE_BUILDER",
+    "prompt_source_state_sha256": "0c33a04638e3a4ba7d761a8e48ca709998ea0a73fb9c6ab3a08f5fe0801ed4d7",
+    "output_format": {
+      "aspect_ratio": "9:16",
+      "orientation": "PORTRAIT",
+      "width": 1080,
+      "height": 1920
+    },
+    "assets": [
+      {
+        "asset_id": "environments.玄关master2",
+        "source_sha256": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+        "source_variant": null,
+        "upload_filename": "environments__玄关master2.png"
+      },
+      {
+        "asset_id": "characters.大漂亮-dapiaoliang-master",
+        "source_sha256": "b94b594efb02c415c2d243246c6aae16b68adfeff7f9c0e0c47290fbaff5aad1",
+        "source_variant": null,
+        "upload_filename": "characters__大漂亮-dapiaoliang-master.png"
+      },
+      {
+        "asset_id": "characters.小帅-xiaoshuai-master",
+        "source_sha256": "b9a0c2ec75871044d8d73ba47d898c9ff8a51b453d546b88c9a5932371cc25ea",
+        "source_variant": null,
+        "upload_filename": "characters__小帅-xiaoshuai-master.png"
+      },
+      {
+        "asset_id": "characters.阿诺-arno-master",
+        "source_sha256": "59c4623eb8f737cf830fcbb94b9bb755829cf316e77a59f8f99edcc76b1c76ad",
+        "source_variant": null,
+        "upload_filename": "characters__阿诺-arno-master.png"
+      },
+      {
+        "asset_id": "cameras.entrance-hall-camera01",
+        "source_sha256": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+        "source_variant": null,
+        "upload_filename": "cameras__entrance-hall-camera01.png"
+      }
+    ],
+    "previous_final_sha256": null
+  },
+  "artifact_sha256": {
+    "CHATGPT_HANDOFF.md": "be388f31caab677d0b0a140f1f74083ee6ea40f69ba604085e647fd3634b668c",
+    "IMAGE_PROMPT.md": "a940f1c016bc59c656ca3ef78f78713f75b2efa28a8a09fca2b88c7199f92482",
+    "PROMPT_COMPILATION_MANIFEST.json": "c8888adc5cfd9007d088035e9eabe2484d4a148dc20132408ad6d376c82dfdd8",
+    "UPLOAD_MANIFEST.json": "23a684e055314a7dbbe29dbd7103af6dee41d3f8ae479afc6f4157b6926132d4",
+    "VIDEO_PROMPT.md": "889788f3579c9eedc2de2f1993527f69e54e8f9895393f0244d1729c523609fb",
+    "prompt.md": "9b42a988da180b48b8990ea7864ebdf79c550f7949d083ea6f4a0960bf0b94d3",
+    "required_assets.json": "1bea28c91a9add71e31de42b476e80d4b371f3b236bf5b025f745689a9c5c283",
+    "upload/cameras__entrance-hall-camera01.png": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+    "upload/characters__大漂亮-dapiaoliang-master.png": "b94b594efb02c415c2d243246c6aae16b68adfeff7f9c0e0c47290fbaff5aad1",
+    "upload/characters__小帅-xiaoshuai-master.png": "b9a0c2ec75871044d8d73ba47d898c9ff8a51b453d546b88c9a5932371cc25ea",
+    "upload/characters__阿诺-arno-master.png": "59c4623eb8f737cf830fcbb94b9bb755829cf316e77a59f8f99edcc76b1c76ad",
+    "upload/environments__玄关master2.png": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab"
+  },
+  "created_at": "2026-08-30T16:57:01+00:00"
+}

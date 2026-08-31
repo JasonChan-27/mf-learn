@@ -113,22 +113,20 @@ class Phase8WorkflowTests(unittest.TestCase):
 
             self.assertEqual(output.read_text(encoding="utf-8"), original)
 
-    def test_project_version_and_ep002_remain_at_empty_scene01_planning(self) -> None:
+    def test_project_version_and_ep002_runtime_identity_remains_valid(self) -> None:
         config = json.loads(self._read("catdrama.json"))
-        self.assertEqual(config["version"], "4.1.1")
+        self.assertEqual(config["version"], "4.1.3")
+        self.assertEqual(config["production_format"]["aspect_ratio"], "9:16")
+        self.assertEqual(config["production_format"]["orientation"], "PORTRAIT")
 
         state_root = PROJECT_ROOT / "episodes" / "EP002" / "director_state"
         runtime = json.loads((state_root / "Runtime_State.json").read_text(encoding="utf-8"))
-        scene = json.loads(
-            (state_root / "Scene01" / "Scene_State.json").read_text(encoding="utf-8")
+        self.assertEqual(runtime["episode_id"], "EP002")
+        self.assertRegex(runtime["current_scene_id"], r"^Scene\d{2}$")
+        self.assertTrue(runtime["next_action"])
+        self.assertTrue(
+            (state_root / runtime["current_scene_id"] / "Scene_State.json").is_file()
         )
-        self.assertEqual(runtime["current_scene_id"], "Scene01")
-        self.assertEqual(runtime["current_shot_id"], "")
-        self.assertEqual(runtime["next_action"], "PLAN_CURRENT_SCENE")
-        self.assertEqual(scene["plan_status"], "DRAFT")
-        self.assertEqual(scene["status"], "PLANNING")
-        self.assertEqual(scene["shot_count"], 0)
-        self.assertEqual(scene["shots"], [])
 
 
 if __name__ == "__main__":

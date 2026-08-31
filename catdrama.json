@@ -1,6 +1,6 @@
 {
   "project_name": "CatDrama Studio",
-  "version": "4.1.1",
+  "version": "4.1.3",
   "asset_extensions": [
     ".png",
     ".jpg",
@@ -16,5 +16,15 @@
     "outfits"
   ],
   "build_directory": "build",
-  "strict_by_default": false
+  "strict_by_default": false,
+  "production_format": {
+    "aspect_ratio": "9:16",
+    "orientation": "PORTRAIT",
+    "width": 1080,
+    "height": 1920
+  },
+  "portrait_variant_categories": [
+    "cameras",
+    "environments"
+  ]
 }

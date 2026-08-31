@@ -30,6 +30,17 @@ def validate_compiled_prompt_contract(
     if previous_frame.get("policy") != shot["continuity"]["previous_frame_policy"]:
         issues.append("Previous Frame Policy 与 Shot State 不一致")
 
+    output = shot["output_format"]
+    output_values = [
+        f"Aspect Ratio: {output['aspect_ratio']}",
+        f"Orientation: {output['orientation']}",
+        f"Target Canvas: {output['width']}x{output['height']}",
+    ]
+    for label, prompt in (("IMAGE_PROMPT", image_prompt), ("VIDEO_PROMPT", video_prompt)):
+        _require_values(label, output_values, prompt, issues)
+        if "Do not output landscape" not in prompt:
+            issues.append(f"{label} 缺少禁止横屏的技术锁")
+
     image_values: list[Any] = [
         shot["episode_id"],
         shot["scene_id"],

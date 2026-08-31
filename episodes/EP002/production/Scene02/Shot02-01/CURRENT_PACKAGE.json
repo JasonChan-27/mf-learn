@@ -3,9 +3,9 @@
   "episode_id": "EP002",
   "scene_id": "Scene02",
   "shot_id": "Shot02-01",
-  "package_version": "v001",
-  "package_dir": "episodes/EP002/production/Scene02/Shot02-01/packages/v001",
-  "package_input_sha256": "5481de5d79e38f6da67dc55c57c38259ba92c8948f4b6c4c989685e85fe50afb",
+  "package_version": "v002",
+  "package_dir": "episodes/EP002/production/Scene02/Shot02-01/packages/v002",
+  "package_input_sha256": "92b957acc2a8558b38dce30b2abc99eada9f0a94a36b6ddaa415f07434524ddf",
   "package_filenames": [
     "environments__玄关master2.png",
     "characters__大漂亮-dapiaoliang-master.png",
@@ -13,5 +13,6 @@
     "characters__阿诺-arno-master.png",
     "cameras__entrance-hall-camera01.png"
   ],
-  "updated_at": "2026-08-30T05:06:07+00:00"
+  "reference_warning_count": 2,
+  "updated_at": "2026-08-30T16:57:01+00:00"
 }

@@ -98,5 +98,11 @@
   },
   "estimated_duration": 4.5,
   "scene_end": false,
-  "next_shot": "Shot02-02"
+  "next_shot": "Shot02-02",
+  "output_format": {
+    "aspect_ratio": "9:16",
+    "orientation": "PORTRAIT",
+    "width": 1080,
+    "height": 1920
+  }
 }

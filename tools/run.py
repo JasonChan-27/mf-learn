@@ -6,7 +6,11 @@ import subprocess
 import sys
 from pathlib import Path
 
-from build_shot_package import AssetRequirementError, build_current_shot_package
+from build_shot_package import (
+    AssetRequirementError,
+    build_current_shot_package,
+    refresh_stale_current_package_state,
+)
 from camera_match import apply_camera_match, resume_camera_gap_after_build
 from common import PROJECT_ROOT, normalize_episode_id
 from director_plan_importer import apply_director_plan
@@ -52,6 +56,21 @@ def load_runtime(episode_id: str) -> dict:
 
 def print_runtime(runtime: dict) -> None:
     print(json.dumps(runtime, ensure_ascii=False, indent=2))
+
+
+def print_reference_warnings(package_dir: Path) -> None:
+    manifest_path = package_dir / "PACKAGE_MANIFEST.json"
+    if not manifest_path.is_file():
+        return
+    warnings = read_json(manifest_path).get("reference_warnings", [])
+    if not warnings:
+        return
+    print("\nReference Format Suggestions（不阻塞生产）")
+    for warning in warnings:
+        print(
+            f"- {warning.get('asset_id')} — {warning.get('reason')}: "
+            f"{warning.get('details', '')}"
+        )
 
 
 def handle_current_action(episode_id: str) -> None:
@@ -139,6 +158,7 @@ def handle_current_action(episode_id: str) -> None:
         print("请按 UPLOAD_MANIFEST.json 上传参考图。")
         print("按 UPLOAD_MANIFEST.json 与已编译的 IMAGE_PROMPT.md / VIDEO_PROMPT.md 执行生成。")
         print("不得让 GPT 重新导演或改写已编译 Prompt。")
+        print_reference_warnings(package_dir)
         return
 
     if action == "WAIT_FOR_IMAGE_APPROVAL":
@@ -183,6 +203,7 @@ def handle_current_action(episode_id: str) -> None:
         else:
             print("\n资产缺口已解除，Shot Package Generated")
             print(package_dir.relative_to(PROJECT_ROOT))
+            print_reference_warnings(package_dir)
         return
 
     if action == "EPISODE_COMPLETE":
@@ -327,6 +348,16 @@ def main() -> int:
                 if not video_path.is_absolute():
                     video_path = PROJECT_ROOT / video_path
             print(f"Video Approved: {approve_video(episode_id, episode_dir, video_path)}")
+
+        if not any([
+            args.status,
+            args.approve_image,
+            args.approve_video,
+            args.approve_video_only,
+        ]):
+            episode_dir = PROJECT_ROOT / "episodes" / episode_id
+            if refresh_stale_current_package_state(episode_id, episode_dir):
+                print("旧版未批准 Shot Package 已按 9:16 技术合同重新排队。")
 
         runtime = load_runtime(episode_id)
         if args.status:

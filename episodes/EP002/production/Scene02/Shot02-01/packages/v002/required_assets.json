@@ -1,0 +1,112 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-01",
+  "output_format": {
+    "aspect_ratio": "9:16",
+    "orientation": "PORTRAIT",
+    "width": 1080,
+    "height": 1920
+  },
+  "assets": [
+    {
+      "asset_id": "environments.玄关master2",
+      "source_path": "assets/environments/玄关Master2.png",
+      "source_variant": null,
+      "canonical_source_path": "assets/environments/玄关Master2.png",
+      "canonical_source_sha256": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+      "canonical_orientation": "LANDSCAPE",
+      "source_sha256": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+      "size_bytes": 1743104,
+      "width_pixels": 1448,
+      "height_pixels": 1086,
+      "orientation": "LANDSCAPE",
+      "upload_path": "upload/environments__玄关master2.png"
+    },
+    {
+      "asset_id": "characters.大漂亮-dapiaoliang-master",
+      "source_path": "assets/characters/大漂亮（DaPiaoLiang）Master.png",
+      "source_variant": null,
+      "canonical_source_path": "assets/characters/大漂亮（DaPiaoLiang）Master.png",
+      "canonical_source_sha256": "b94b594efb02c415c2d243246c6aae16b68adfeff7f9c0e0c47290fbaff5aad1",
+      "canonical_orientation": "LANDSCAPE",
+      "source_sha256": "b94b594efb02c415c2d243246c6aae16b68adfeff7f9c0e0c47290fbaff5aad1",
+      "size_bytes": 2490111,
+      "width_pixels": 1536,
+      "height_pixels": 1024,
+      "orientation": "LANDSCAPE",
+      "upload_path": "upload/characters__大漂亮-dapiaoliang-master.png"
+    },
+    {
+      "asset_id": "characters.小帅-xiaoshuai-master",
+      "source_path": "assets/characters/小帅（XiaoShuai）Master.png",
+      "source_variant": null,
+      "canonical_source_path": "assets/characters/小帅（XiaoShuai）Master.png",
+      "canonical_source_sha256": "b9a0c2ec75871044d8d73ba47d898c9ff8a51b453d546b88c9a5932371cc25ea",
+      "canonical_orientation": "LANDSCAPE",
+      "source_sha256": "b9a0c2ec75871044d8d73ba47d898c9ff8a51b453d546b88c9a5932371cc25ea",
+      "size_bytes": 3013881,
+      "width_pixels": 1536,
+      "height_pixels": 1024,
+      "orientation": "LANDSCAPE",
+      "upload_path": "upload/characters__小帅-xiaoshuai-master.png"
+    },
+    {
+      "asset_id": "characters.阿诺-arno-master",
+      "source_path": "assets/characters/阿诺（Arno）Master.png",
+      "source_variant": null,
+      "canonical_source_path": "assets/characters/阿诺（Arno）Master.png",
+      "canonical_source_sha256": "59c4623eb8f737cf830fcbb94b9bb755829cf316e77a59f8f99edcc76b1c76ad",
+      "canonical_orientation": "LANDSCAPE",
+      "source_sha256": "59c4623eb8f737cf830fcbb94b9bb755829cf316e77a59f8f99edcc76b1c76ad",
+      "size_bytes": 2892777,
+      "width_pixels": 1536,
+      "height_pixels": 1024,
+      "orientation": "LANDSCAPE",
+      "upload_path": "upload/characters__阿诺-arno-master.png"
+    },
+    {
+      "asset_id": "cameras.entrance-hall-camera01",
+      "source_path": "assets/cameras/Entrance Hall camera01.png",
+      "source_variant": null,
+      "canonical_source_path": "assets/cameras/Entrance Hall camera01.png",
+      "canonical_source_sha256": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+      "canonical_orientation": "LANDSCAPE",
+      "source_sha256": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+      "size_bytes": 1743104,
+      "width_pixels": 1448,
+      "height_pixels": 1086,
+      "orientation": "LANDSCAPE",
+      "upload_path": "upload/cameras__entrance-hall-camera01.png"
+    }
+  ],
+  "previous_frame": {
+    "policy": "STATE_REFERENCE_ONLY",
+    "previous_shot_id": null,
+    "include_previous_final_in_upload": false,
+    "previous_final_path": null,
+    "instruction": "只继承上一镜的 Identity / Space / Lighting / Props / Action State。不上传上一 Final；Camera / Coverage / Composition 以当前 Director Plan 为准。",
+    "copied_to_upload": false,
+    "upload_path": null,
+    "source_sha256": null
+  },
+  "unresolved_asset_ids": [],
+  "reference_warnings": [
+    {
+      "asset_id": "environments.玄关master2",
+      "reason": "PORTRAIT_VARIANT_RECOMMENDED",
+      "blocking": false,
+      "canonical_source_path": "assets/environments/玄关Master2.png",
+      "details": "1448x1086 (LANDSCAPE); 继续使用 Canonical Master，并由 9:16 Output Contract 重构画面。"
+    },
+    {
+      "asset_id": "cameras.entrance-hall-camera01",
+      "reason": "PORTRAIT_VARIANT_RECOMMENDED",
+      "blocking": false,
+      "canonical_source_path": "assets/cameras/Entrance Hall camera01.png",
+      "details": "1448x1086 (LANDSCAPE); 继续使用 Canonical Master，并由 9:16 Output Contract 重构画面。"
+    }
+  ],
+  "blocking": false
+}

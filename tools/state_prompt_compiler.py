@@ -16,6 +16,7 @@ LOCKED_PROMPT_FIELDS = [
     "coverage",
     "composition_intent",
     "information_density",
+    "output_format",
     "visible_characters",
     "partial_characters",
     "off_screen_characters",
@@ -87,6 +88,7 @@ def compile_image_prompt(
     fm = shot["frozen_moment"]
     camera = shot["camera_state"]
     continuity = shot["continuity"]
+    output = shot["output_format"]
 
     return f"""# IMAGE PROMPT
 
@@ -96,6 +98,18 @@ def compile_image_prompt(
 - Episode: {shot['episode_id']}
 - Scene: {shot['scene_id']}
 - Shot: {shot['shot_id']}
+
+## Output Format — Technical Lock
+- Aspect Ratio: {output['aspect_ratio']}
+- Orientation: {output['orientation']}
+- Target Canvas: {output['width']}x{output['height']}
+
+Generate a native vertical portrait composition on the locked canvas.
+Do not output landscape. Do not letterbox or crop a landscape composition.
+Recompose all reference assets naturally for the vertical frame; reference image
+dimensions must never override this output format.
+Camera Masters define camera position, direction, height and lens intent—not the
+source canvas boundary. Environment Masters define spatial truth—not output ratio.
 
 ## Shot Execution
 - Primary Function: {shot['primary_function']}
@@ -150,6 +164,7 @@ def compile_video_prompt(shot: dict[str, Any]) -> str:
     delta = shot["shot_delta"]
     camera = shot["camera_state"]
     continuity = shot["continuity"]
+    output = shot["output_format"]
 
     return f"""# VIDEO PROMPT
 
@@ -159,6 +174,14 @@ def compile_video_prompt(shot: dict[str, Any]) -> str:
 - Episode: {shot['episode_id']}
 - Scene: {shot['scene_id']}
 - Shot: {shot['shot_id']}
+
+## Output Format — Technical Lock
+- Aspect Ratio: {output['aspect_ratio']}
+- Orientation: {output['orientation']}
+- Target Canvas: {output['width']}x{output['height']}
+
+The video must remain native vertical portrait throughout.
+Do not output landscape, letterboxing or pillarboxing.
 
 ## Shot Delta
 ### Primary Action
@@ -213,6 +236,7 @@ def compile_handoff(
 - 不重新规划 Scene 或 Shot。
 - 不改变 Camera / Coverage / Composition。
 - 不把 VIDEO 动作提前到 IMAGE。
+- 固定输出 {shot['output_format']['aspect_ratio']} / {shot['output_format']['orientation']} / {shot['output_format']['width']}x{shot['output_format']['height']}。
 - Previous Frame Policy: {previous_frame['policy']}
 - {previous_frame['instruction']}
 """
@@ -241,6 +265,7 @@ def build_compilation_manifest(
         "shot_id": shot["shot_id"],
         "compiler_mode": COMPILER_MODE,
         "creative_decision_allowed": False,
+        "output_format": deepcopy(shot["output_format"]),
         "source_state_sha256": source_state_sha256(shot, previous_frame),
         "image_prompt_sha256": _sha256_text(prompts["image_prompt"]),
         "video_prompt_sha256": _sha256_text(prompts["video_prompt"]),
