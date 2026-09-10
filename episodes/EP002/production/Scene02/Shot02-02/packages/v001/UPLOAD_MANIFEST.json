@@ -1,0 +1,71 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-02",
+  "package_version": "v001",
+  "output_format": {
+    "aspect_ratio": "9:16",
+    "orientation": "PORTRAIT",
+    "width": 1080,
+    "height": 1920
+  },
+  "previous_frame": {
+    "policy": "STATE_REFERENCE_ONLY",
+    "previous_shot_id": "Shot02-01",
+    "include_previous_final_in_upload": false,
+    "previous_final_path": "episodes/EP002/production/Scene02/Shot02-01/Shot02-01_Final.png",
+    "instruction": "只继承上一镜的 Identity / Space / Lighting / Props / Action State。不上传上一 Final；Camera / Coverage / Composition 以当前 Director Plan 为准。"
+  },
+  "upload_items": [
+    {
+      "type": "MASTER_ASSET",
+      "asset_id": "environments.玄关master2",
+      "source_path": "assets/environments/玄关Master2.png",
+      "source_variant": null,
+      "canonical_source_path": "assets/environments/玄关Master2.png",
+      "filename": "environments__玄关master2.png",
+      "package_path": "upload/environments__玄关master2.png",
+      "source_sha256": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+      "priority": "REQUIRED"
+    },
+    {
+      "type": "MASTER_ASSET",
+      "asset_id": "characters.大漂亮-dapiaoliang-master",
+      "source_path": "assets/characters/大漂亮（DaPiaoLiang）Master.png",
+      "source_variant": null,
+      "canonical_source_path": "assets/characters/大漂亮（DaPiaoLiang）Master.png",
+      "filename": "characters__大漂亮-dapiaoliang-master.png",
+      "package_path": "upload/characters__大漂亮-dapiaoliang-master.png",
+      "source_sha256": "b94b594efb02c415c2d243246c6aae16b68adfeff7f9c0e0c47290fbaff5aad1",
+      "priority": "REQUIRED"
+    },
+    {
+      "type": "MASTER_ASSET",
+      "asset_id": "cameras.entrance-hall-camera03",
+      "source_path": "assets/cameras/Entrance Hall camera03.png",
+      "source_variant": null,
+      "canonical_source_path": "assets/cameras/Entrance Hall camera03.png",
+      "filename": "cameras__entrance-hall-camera03.png",
+      "package_path": "upload/cameras__entrance-hall-camera03.png",
+      "source_sha256": "465ea58257381b5bc7fe623fcab0e5900cd9824341dcdb80c6aedb5df0635d22",
+      "priority": "REQUIRED"
+    }
+  ],
+  "unresolved_asset_ids": [],
+  "reference_warnings": [
+    {
+      "asset_id": "environments.玄关master2",
+      "reason": "PORTRAIT_VARIANT_RECOMMENDED",
+      "blocking": false,
+      "canonical_source_path": "assets/environments/玄关Master2.png",
+      "details": "1448x1086 (LANDSCAPE); 继续使用 Canonical Master，并由 9:16 Output Contract 重构画面。"
+    }
+  ],
+  "blocking": false,
+  "prompt_contract_qa": {
+    "result": "PASS",
+    "issues": []
+  },
+  "rule": "只复制当前 Shot State 声明的 Master；只有 HIGH_PRIORITY_VISUAL_CONTINUITY 才复制上一 Shot Final。"
+}

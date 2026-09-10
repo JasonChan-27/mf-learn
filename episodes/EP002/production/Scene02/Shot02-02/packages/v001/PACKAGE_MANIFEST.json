@@ -1,0 +1,71 @@
+{
+  "schema_version": "4.1",
+  "builder_mode": "DETERMINISTIC_STATE_BUILDER",
+  "creative_decision_allowed": false,
+  "reads_director_decision": false,
+  "state_authority": "Shot_State.json",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-02",
+  "package_version": "v001",
+  "output_format": {
+    "aspect_ratio": "9:16",
+    "orientation": "PORTRAIT",
+    "width": 1080,
+    "height": 1920
+  },
+  "reference_warnings": [
+    {
+      "asset_id": "environments.玄关master2",
+      "reason": "PORTRAIT_VARIANT_RECOMMENDED",
+      "blocking": false,
+      "canonical_source_path": "assets/environments/玄关Master2.png",
+      "details": "1448x1086 (LANDSCAPE); 继续使用 Canonical Master，并由 9:16 Output Contract 重构画面。"
+    }
+  ],
+  "package_input_sha256": "c71b20ff00851b5c3416da80ff7b4f17f0bd117841ad408e5d1510b78bb50266",
+  "package_input": {
+    "builder_mode": "DETERMINISTIC_STATE_BUILDER",
+    "prompt_source_state_sha256": "4cb6d7f7d65de1efd91eca35a988795d3cc7140574a5eafb61e453fed7e4749a",
+    "output_format": {
+      "aspect_ratio": "9:16",
+      "orientation": "PORTRAIT",
+      "width": 1080,
+      "height": 1920
+    },
+    "assets": [
+      {
+        "asset_id": "environments.玄关master2",
+        "source_sha256": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab",
+        "source_variant": null,
+        "upload_filename": "environments__玄关master2.png"
+      },
+      {
+        "asset_id": "characters.大漂亮-dapiaoliang-master",
+        "source_sha256": "b94b594efb02c415c2d243246c6aae16b68adfeff7f9c0e0c47290fbaff5aad1",
+        "source_variant": null,
+        "upload_filename": "characters__大漂亮-dapiaoliang-master.png"
+      },
+      {
+        "asset_id": "cameras.entrance-hall-camera03",
+        "source_sha256": "465ea58257381b5bc7fe623fcab0e5900cd9824341dcdb80c6aedb5df0635d22",
+        "source_variant": null,
+        "upload_filename": "cameras__entrance-hall-camera03.png"
+      }
+    ],
+    "previous_final_sha256": null
+  },
+  "artifact_sha256": {
+    "CHATGPT_HANDOFF.md": "ee2e6552954b3b7ac8a7f0f986152276f97ef44f541ea6faf5828d9509dd9d7e",
+    "IMAGE_PROMPT.md": "d9c2357f92e83fb4189adfb162472de6d436bc3182c139cd8284c8854c21d333",
+    "PROMPT_COMPILATION_MANIFEST.json": "392f75bb06088056ad9180d795058bedcf1846b9192fa1d816c7ef055a6bf8ef",
+    "UPLOAD_MANIFEST.json": "8258310f3063748b94b2e0b8c1094073ca5835f3802c2314a9ff22131d974a6c",
+    "VIDEO_PROMPT.md": "9018fb998f8e7352b79613e4049a18d1da3b84a6a92967c822d7e1d50f145063",
+    "prompt.md": "46a9424317ec037e91ef79c7603043d1c0f6200adc31eb21cf64c62ef34e8662",
+    "required_assets.json": "2b88fe3dafe51d1ad50e8e200156594c72ed6dd03c9db1e5cbb11886ac4bf298",
+    "upload/cameras__entrance-hall-camera03.png": "465ea58257381b5bc7fe623fcab0e5900cd9824341dcdb80c6aedb5df0635d22",
+    "upload/characters__大漂亮-dapiaoliang-master.png": "b94b594efb02c415c2d243246c6aae16b68adfeff7f9c0e0c47290fbaff5aad1",
+    "upload/environments__玄关master2.png": "a1ff12f16c9eb7cbb78c504f0e045807a6977a0449b35e12ccc47217b48555ab"
+  },
+  "created_at": "2026-09-10T10:53:53+00:00"
+}

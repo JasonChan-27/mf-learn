@@ -4,7 +4,7 @@
   "scene_id": "Scene02",
   "shot_id": "Shot02-03",
   "order": 3,
-  "status": "PLANNED",
+  "status": "PROMPTED",
   "primary_function": "ACTION_SHOT",
   "primary_focus": "小帅眼泪消失后朝室内厨房方向飞快起跑",
   "coverage": "MEDIUM",
@@ -29,7 +29,7 @@
   "continuity": {
     "mode": "CAMERA_CUT_CONTINUITY",
     "previous_frame_policy": "STATE_REFERENCE_ONLY",
-    "previous_frame_filename": null,
+    "previous_frame_filename": "Shot02-02_Final.png",
     "locked_facts": [
       "Identity",
       "Space",
@@ -87,9 +87,19 @@
       "characters.小帅-xiaoshuai-master",
       "cameras.entrance-hall-camera03"
     ],
-    "package_filenames": []
+    "package_filenames": [
+      "environments__玄关master2.png",
+      "characters__小帅-xiaoshuai-master.png",
+      "cameras__entrance-hall-camera03.png"
+    ]
   },
   "estimated_duration": 3.5,
   "scene_end": false,
-  "next_shot": "Shot02-04"
+  "next_shot": "Shot02-04",
+  "output_format": {
+    "aspect_ratio": "9:16",
+    "orientation": "PORTRAIT",
+    "width": 1080,
+    "height": 1920
+  }
 }

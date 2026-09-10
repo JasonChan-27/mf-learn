@@ -1,0 +1,16 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-02",
+  "package_version": "v001",
+  "package_dir": "episodes/EP002/production/Scene02/Shot02-02/packages/v001",
+  "package_input_sha256": "c71b20ff00851b5c3416da80ff7b4f17f0bd117841ad408e5d1510b78bb50266",
+  "package_filenames": [
+    "environments__玄关master2.png",
+    "characters__大漂亮-dapiaoliang-master.png",
+    "cameras__entrance-hall-camera03.png"
+  ],
+  "reference_warning_count": 1,
+  "updated_at": "2026-09-10T10:53:53+00:00"
+}

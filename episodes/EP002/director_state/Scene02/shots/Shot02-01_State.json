@@ -4,7 +4,7 @@
   "scene_id": "Scene02",
   "shot_id": "Shot02-01",
   "order": 1,
-  "status": "PROMPTED",
+  "status": "COMPLETED",
   "primary_function": "INFORMATION_SHOT",
   "primary_focus": "大漂亮从悲伤凝固到眼神恢复兴奋并喊出“燥起来！”",
   "coverage": "MEDIUM_WIDE",
@@ -104,5 +104,6 @@
     "orientation": "PORTRAIT",
     "width": 1080,
     "height": 1920
-  }
+  },
+  "approved_image": "episodes/EP002/production/Scene02/Shot02-01/Shot02-01_Final.png"
 }

@@ -1,0 +1,16 @@
+{
+  "schema_version": "4.1",
+  "episode_id": "EP002",
+  "scene_id": "Scene02",
+  "shot_id": "Shot02-03",
+  "package_version": "v001",
+  "package_dir": "episodes/EP002/production/Scene02/Shot02-03/packages/v001",
+  "package_input_sha256": "792d2a2828e22dac80db38bd90510f03471cd93acd49d2f5851a00d6aa349ffa",
+  "package_filenames": [
+    "environments__玄关master2.png",
+    "characters__小帅-xiaoshuai-master.png",
+    "cameras__entrance-hall-camera03.png"
+  ],
+  "reference_warning_count": 1,
+  "updated_at": "2026-09-10T11:00:13+00:00"
+}
